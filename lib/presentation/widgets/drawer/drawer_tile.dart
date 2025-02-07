@@ -3,7 +3,6 @@ import 'package:mysteriouscoder/shared/styles.dart';
 
 import '../../../shared/global.dart';
 
-
 class DrawerTile extends StatefulWidget {
   final IconData icon;
   final String title;

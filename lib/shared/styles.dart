@@ -16,7 +16,9 @@ TextStyle reusableTextStyle({double fontSize = 18,Color color =Colors.white}) {
   return TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: fontSize,
-    fontFamily: GoogleFonts.dynaPuff().fontFamily,
+    // fontFamily: GoogleFonts.dynaPuff().fontFamily,
     color: color,
   );
 }
+
+

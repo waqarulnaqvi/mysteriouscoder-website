@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mysteriouscoder/shared/constants.dart';
 
 /*
   ResponsiveLayout is a widget that allows you to build different layouts for different screen sizes.
@@ -25,23 +26,23 @@ import 'package:flutter/material.dart';
 */
 
 class ResponsiveLayout extends StatelessWidget {
-  final Widget mobileLayout;
-  final Widget tabletLayout;
-  final Widget desktopLayout;
+  final Widget mobile;
+  final Widget tablet;
+  final Widget desktop;
 
   const ResponsiveLayout(
-      {super.key, required this.mobileLayout, required this.tabletLayout, required this.desktopLayout});
+      {super.key, required this.mobile, required this.tablet, required this.desktop});
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       switch (constraints.maxWidth) {
-        case < 600:
-          return mobileLayout;
-        case < 1200:
-          return tabletLayout;
+        case < Constants.maxPhoneWidth:
+          return mobile;
+        case < Constants.maxTabletWidth:
+          return tablet;
         default:
-          return desktopLayout;
+          return desktop;
       }
     });
   }

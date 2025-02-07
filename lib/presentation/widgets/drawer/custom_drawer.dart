@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mysteriouscoder/domain/data/nav_items.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/drawer_tile.dart';
 import 'package:mysteriouscoder/shared/styles.dart';
 
-import '../../../shared/global.dart';
-// import 'package:url_launcher/url_launcher.dart';
+import '../../../shared/constants.dart';
+import '../static_image.dart';
 
 class CustomDrawer extends StatelessWidget {
   final double w;
@@ -11,11 +12,6 @@ class CustomDrawer extends StatelessWidget {
 
   const CustomDrawer({super.key, required this.w, required this.h});
 
-  // Future<void> _launchUrl(String url) async{
-  //   final Uri _url =Uri.parse(url);
-  //   if(await canLaunchUrl(_url)){
-  //     await launchUrl(_url,mode:L);
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +39,10 @@ class CustomDrawer extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [themeColor, dark],
+                    colors: [
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.primary.withOpacity(0.6),
+                    ],
                   ),
                 ),
                 child: Column(
@@ -56,12 +55,12 @@ class CustomDrawer extends StatelessWidget {
                     const CircleAvatar(
                       radius: 45,
                       backgroundImage:
-                          AssetImage("assets/images/mysteriouscoder_logo.png"),
+                          AssetImage(StaticImage.logo),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Text("Mysterious Coder",
+                    Text(Constants.title,
                         style: reusableTextStyle(fontSize: 26)),
                   ],
                 ),
@@ -69,36 +68,19 @@ class CustomDrawer extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              DrawerTile(
-                  icon: Icons.home,
-                  title: "Home",
-                  onTap: () {
-                    Navigator.pop(context);
-                  }),
-              DrawerTile(
-                  icon: Icons.person,
-                  title: "About",
-                  onTap: () {
-                    Navigator.pop(context);
-                  }),
-              DrawerTile(
-                  icon: Icons.work,
-                  title: "Projects",
-                  onTap: () {
-                    Navigator.pop(context);
-                  }),
-              DrawerTile(
-                  icon: Icons.settings_applications_outlined,
-                  title: "Skills",
-                  onTap: () {
-                    Navigator.pop(context);
-                  }),
-              DrawerTile(
-                  icon: Icons.contact_mail,
-                  title: "Contact",
-                  onTap: () {
-                    Navigator.pop(context);
-                  }),
+              ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return DrawerTile(
+                      icon: navItems[index].icon,
+                      title: navItems[index].title,
+                      onTap: () {
+                        Navigator.pop(context);
+                      });
+                },
+                itemCount: navItems.length,
+              ),
             ],
           ),
         ));

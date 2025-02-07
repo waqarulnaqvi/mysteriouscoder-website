@@ -32,3 +32,21 @@ String versionNumber = "5.1";
 Color dark = const Color.fromRGBO(37, 146, 166, 1);
 Color light = const Color.fromARGB(255, 119, 201, 196);
 double screenSize = 800;
+//OpenedHiveBoxesList
+
+//ExamScreenPage
+// "examSubmitModelBox",
+// "userExamQuestionBox",
+// "studentDetailBox",
+// "userSectionQuestionBox"
+// ExamResponseBox
+
+//SharedPreferences for Qtype;
+
+// questionNp=-1,
+// objective = -1
+// tandF = -1,
+// integerType = "",
+// subjective ="",
+// multipleObjective=-1,
+// fillInTheBlanks ="",
