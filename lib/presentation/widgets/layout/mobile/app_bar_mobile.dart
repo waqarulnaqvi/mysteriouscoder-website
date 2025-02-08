@@ -4,6 +4,7 @@ import '../../../../shared/constants.dart';
 import '../../../../shared/provider/theme_provider.dart';
 import '../../../../shared/styles.dart';
 import '../../static_image.dart';
+import '../../theme_controller.dart';
 
 class AppBarMobile extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -11,11 +12,10 @@ class AppBarMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ThemeProvider>(context, listen: false);
 
       return AppBar(
         leading: const Padding(
-          padding: EdgeInsets.all(6.0),
+          padding: EdgeInsets.all(8.0),
           child: CircleAvatar(
             backgroundImage: AssetImage(StaticImage.logo),
             radius: 20,
@@ -26,22 +26,7 @@ class AppBarMobile extends StatelessWidget {
             style:
             reusableTextStyle(color: Theme.of(context).colorScheme.surface)),
         actions: [
-          IconButton(
-              onPressed: () {
-                if (provider.mode == ThemeMode.dark) {
-                  provider.mode = ThemeMode.light;
-                } else {
-                  provider.mode = ThemeMode.dark;
-                }
-              },
-              icon: Image(
-                color: Theme.of(context).colorScheme.onSurface,
-                image: AssetImage(provider.mode == ThemeMode.light
-                    ? "assets/icons/dark_icon.png"
-                    : "assets/icons/light_theme.png"),
-                width: 30,
-                height: 30,
-              )),
+          ThemeController(),
           const SizedBox(width: 5),
           InkWell(
             onTap: () {

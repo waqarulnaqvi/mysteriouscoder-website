@@ -6,6 +6,7 @@ import '../../../../shared/constants.dart';
 import '../../../../shared/provider/theme_provider.dart';
 import '../../../../shared/styles.dart';
 import '../../static_image.dart';
+import '../../theme_controller.dart';
 
 class AppBarWeb extends StatelessWidget {
   final double w;
@@ -60,11 +61,12 @@ class AppBarWeb extends StatelessWidget {
                             margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
 
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: provider.hoveredItem==index ? [
-                                const Color(0xff6a11cb), const Color(0xff2575fc)
-                              ]: [
-                                Colors.transparent, Colors.transparent
-                              ]),
+                              gradient: provider.hoveredItem==index? provider.themeMode==ThemeMode.light ? grayBlack:grayWhite :LinearGradient(colors: [Colors.transparent, Colors.transparent]),
+                              // gradient: LinearGradient(colors: provider.hoveredItem==index ? [
+                              //   const Color(0xff6a11cb), const Color(0xff2575fc)
+                              // ]: [
+                              //   Colors.transparent, Colors.transparent
+                              // ]),
                               borderRadius: BorderRadius.circular(10),
                             ),
 
@@ -74,22 +76,7 @@ class AppBarWeb extends StatelessWidget {
                 )
                 .toList(),
           ),
-          IconButton(
-              onPressed: () {
-                if (provider.mode == ThemeMode.dark) {
-                  provider.mode = ThemeMode.light;
-                } else {
-                  provider.mode = ThemeMode.dark;
-                }
-              },
-              icon: Image(
-                image: AssetImage(provider.mode == ThemeMode.light
-                    ? "assets/icons/dark_icon.png"
-                    : "assets/icons/light_theme.png"),
-                width: 30,
-                height: 30,
-                color: Theme.of(context).colorScheme.onSurface,
-              )),
+          ThemeController(),
           const Spacer(flex: 1,),
         ],
       ),

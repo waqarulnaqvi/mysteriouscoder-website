@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/domain/data/social_media_icons.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/custom_drawer.dart';
+import 'package:mysteriouscoder/presentation/widgets/layout/common/services.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/mobile/app_bar_mobile.dart';
 import 'package:mysteriouscoder/presentation/widgets/typing_effect.dart';
 import 'package:mysteriouscoder/shared/constants.dart';
@@ -28,9 +29,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+    var provider =Provider.of<ThemeProvider>(context);
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Theme.of(context).colorScheme.surface,
       endDrawer: CustomDrawer(
         w: w * 0.75,
         h: h,
@@ -44,12 +45,26 @@ class _HomePageState extends State<HomePage> {
             desktop: AppBarWeb(w: w,)),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            // MainPart(w: w, h: h, ),
-            // AboutMe(w: w),
+        child: Container(
+          decoration: BoxDecoration(
+            image: provider.mode==ThemeMode.dark ?DecorationImage(image: AssetImage( "assets/images/dark_theme.jpg"), fit: BoxFit.fill):null,
+            gradient: provider.mode==ThemeMode.light ? LinearGradient(
+              colors: [
+                Theme.of(context).colorScheme.primary.withOpacity(0.4),
+                Theme.of(context).colorScheme.primary,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ):null,
+          ),
+          child: Column(
+            children: <Widget>[
+              // MainPart(w: w, h: h, ),
+              // AboutMe(w: w),
+              Services(w: w, h: h)
 
-          ],
+            ],
+          ),
         ),
       ),
     );
