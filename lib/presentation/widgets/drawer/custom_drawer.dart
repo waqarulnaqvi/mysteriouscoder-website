@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/domain/data/nav_items.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/drawer_tile.dart';
+import 'package:mysteriouscoder/shared/provider/theme_provider.dart';
 import 'package:mysteriouscoder/shared/styles.dart';
+import 'package:provider/provider.dart';
 
 import '../../../shared/constants.dart';
 import '../static_image.dart';
@@ -12,20 +14,25 @@ class CustomDrawer extends StatelessWidget {
 
   const CustomDrawer({super.key, required this.w, required this.h});
 
-
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ThemeProvider>(context, listen: false);
     return Container(
         width: w,
         height: h,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [
-              Colors.white,
-              Color.fromARGB(255, 184, 241, 240),
-            ])),
+                colors: provider.themeMode == ThemeMode.dark
+                    ? [
+                        Colors.white,
+                        Color.fromARGB(255, 184, 241, 240),
+                      ]
+                    : [
+                        Theme.of(context).colorScheme.secondaryContainer,
+                        Theme.of(context).colorScheme.primary,
+                      ])),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -54,14 +61,17 @@ class CustomDrawer extends StatelessWidget {
                     ),
                     const CircleAvatar(
                       radius: 45,
-                      backgroundImage:
-                          AssetImage(StaticImage.logo),
+                      backgroundImage: AssetImage(
+                        StaticImage.logo,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(Constants.title,
-                        style: reusableTextStyle(fontSize: 26)),
+                        style: reusableTextStyle(
+                            fontSize: 26,
+                            color: Theme.of(context).colorScheme.surface)),
                   ],
                 ),
               ),

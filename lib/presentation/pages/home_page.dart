@@ -44,25 +44,25 @@ class _HomePageState extends State<HomePage> {
             tablet: AppBarMobile(scaffoldKey: _scaffoldKey),
             desktop: AppBarWeb(w: w,)),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            image: provider.mode==ThemeMode.dark ?DecorationImage(image: AssetImage( "assets/images/dark_theme.jpg"), fit: BoxFit.fill):null,
-            gradient: provider.mode==ThemeMode.light ? LinearGradient(
-              colors: [
-                Theme.of(context).colorScheme.primary.withOpacity(0.4),
-                Theme.of(context).colorScheme.primary,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ):null,
-          ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: provider.mode==ThemeMode.dark ?DecorationImage(image: AssetImage( "assets/images/dark_theme.jpg"), fit: BoxFit.cover):null,
+          gradient: provider.mode==ThemeMode.light ? LinearGradient(
+            colors: [
+              Theme.of(context).colorScheme.primary.withOpacity(0.4),
+              Theme.of(context).colorScheme.primary,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ):null,
+        ),
+        child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              // MainPart(w: w, h: h, ),
+              MainPart(w: w, h: h, ),
               // AboutMe(w: w),
               Services(w: w, h: h)
-
+                
             ],
           ),
         ),

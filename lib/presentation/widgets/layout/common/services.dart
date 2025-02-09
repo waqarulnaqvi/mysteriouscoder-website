@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/global_widgets.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/web/services_web.dart';
+import 'package:mysteriouscoder/shared/styles.dart';
 import '../../../../shared/constants.dart';
 import '../mobile/services_mobile.dart';
 
@@ -13,7 +14,7 @@ class Services extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: w,
       // decoration: BoxDecoration(
       //   color: Theme.of(context).colorScheme.onPrimary,
@@ -24,8 +25,9 @@ class Services extends StatelessWidget {
         children: [
           spacerH(),
           Text(
-            "What I can do?",
-            style: TextStyle(fontSize: 30, color: Theme.of(context).colorScheme.onSurface),
+            "Services",
+            style: reusableTextStyle(
+                fontSize: 30, color: Theme.of(context).colorScheme.onSurface),
           ),
           spacerH(15),
           SizedBox(

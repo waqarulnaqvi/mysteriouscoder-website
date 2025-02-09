@@ -31,13 +31,14 @@ class _DrawerTileState extends State<DrawerTile> {
         padding: const EdgeInsets.all(20),
         child: Row(
           children: [
-            Icon(widget.icon,color: _isHover?Colors.white:Colors.black,),
+            Icon(widget.icon,color: _isHover?Theme.of(context).colorScheme.onSurface:Theme.of(context).colorScheme.surface,),
             const SizedBox(width: 15),
             Flexible(child: FittedBox(
               child: Text(widget.title,
-                style: reusableTextStyle(fontSize: 14,color: _isHover?Colors.white:Colors.black),
-              ),
-            ))
+                style: reusableTextStyle(fontSize: 14,color: _isHover?Theme.of(context).colorScheme.onSurface:Theme.of(context).colorScheme.surface,
+                ),
+    ),
+            )),
           ],
         ),
       ),
