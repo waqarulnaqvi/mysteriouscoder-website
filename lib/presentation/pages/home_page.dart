@@ -4,6 +4,7 @@ import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/custom_drawer.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/services.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/mobile/app_bar_mobile.dart';
+import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
 import 'package:mysteriouscoder/presentation/widgets/typing_effect.dart';
 import 'package:mysteriouscoder/shared/constants.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/global_widgets.dart';
@@ -46,15 +47,15 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          image: provider.mode==ThemeMode.dark ?DecorationImage(image: AssetImage( "assets/images/dark_theme.jpg"), fit: BoxFit.cover):null,
-          gradient: provider.mode==ThemeMode.light ? LinearGradient(
-            colors: [
-              Theme.of(context).colorScheme.primary.withOpacity(0.4),
-              Theme.of(context).colorScheme.primary,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ):null,
+          image: DecorationImage(image: AssetImage( provider.mode==ThemeMode.dark ? StaticImage.darkTheme : StaticImage.lightTheme ), fit: BoxFit.cover),
+          // gradient: provider.mode==ThemeMode.light ? LinearGradient(
+          //   colors: [
+          //     Theme.of(context).colorScheme.primary.withOpacity(0.4),
+          //     Theme.of(context).colorScheme.primary,
+          //   ],
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          // ):null,
         ),
         child: SingleChildScrollView(
           child: Column(

@@ -107,7 +107,6 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
 class CustomOutline extends StatelessWidget {
   final _GradientPainter _painter;
   final Widget _child;
-
   final double _width;
   final double _height;
   final EdgeInsetsGeometry _padding;
