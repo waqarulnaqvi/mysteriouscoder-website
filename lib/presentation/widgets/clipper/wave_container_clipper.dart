@@ -13,7 +13,7 @@ class WaveContainerClipper extends CustomClipper<Path> {
     path.quadraticBezierTo(size.width * 0.75, 60, size.width, 20);
 
     // Move to bottom-right corner
-    path.lineTo(size.width, size.height - 20);
+    path.lineTo(size.width, size.height - 30);
 
     // Create the wave at the bottom
     path.quadraticBezierTo(size.width * 0.75, size.height + 20, size.width * 0.5, size.height - 10);

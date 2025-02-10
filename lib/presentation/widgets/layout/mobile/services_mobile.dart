@@ -3,15 +3,22 @@ import 'package:flutter/material.dart';
 import '../../../../domain/data/services_utils.dart';
 import '../common/service_card.dart';
 
-class ServicesMobile extends StatelessWidget {
+class ServicesMobile extends StatefulWidget {
   const ServicesMobile({super.key});
+
+  @override
+  State<ServicesMobile> createState() => _ServicesMobileState();
+}
+
+class _ServicesMobileState extends State<ServicesMobile> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
       itemCount: servicesUtils.length,
       itemBuilder: (BuildContext context,int itemIndex, int i){
-        return ServiceCard(service: servicesUtils[itemIndex]);
+        return ServiceCard(service: servicesUtils[itemIndex],isSelected: itemIndex == _currentIndex);
       },
       options: CarouselOptions(
         viewportFraction: 0.6,
@@ -22,6 +29,10 @@ class ServicesMobile extends StatelessWidget {
         autoPlayCurve: Curves.fastOutSlowIn,
         autoPlayAnimationDuration: const Duration(milliseconds: 800),
         enableInfiniteScroll: false,
+        onPageChanged: (index, reason) {
+          _currentIndex = index;
+          setState(() {});
+        },
       ),
     );
   }

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mysteriouscoder/domain/data/services_utils.dart';
+import 'package:mysteriouscoder/shared/constants.dart';
 import '../../../../shared/styles.dart';
 import '../../../pages/responsive_layout.dart';
 import 'global_widgets.dart';
 
 class ServiceCard extends StatefulWidget {
   final ServicesUtils service;
+  final bool isSelected;
 
-  const ServiceCard({super.key, required this.service});
+  const ServiceCard({super.key, required this.service,this.isSelected = false});
 
   @override
   State<ServiceCard> createState() => _ServicesCardState();
@@ -40,7 +42,7 @@ class _ServicesCardState extends State<ServiceCard> {
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
           decoration: BoxDecoration(
             // gradient: isHover ? pinkpurple : grayBack,
-            gradient: isHover
+            gradient: (w > Constants.maxTabletWidth? isHover: widget.isSelected)
                 ? pinkpurple
                 : LinearGradient(colors: [
                     Theme.of(context).colorScheme.surface,

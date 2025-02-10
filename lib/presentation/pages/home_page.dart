@@ -11,6 +11,7 @@ import 'package:mysteriouscoder/presentation/widgets/layout/common/global_widget
 import 'package:provider/provider.dart';
 import '../../shared/provider/theme_provider.dart';
 import '../../shared/styles.dart';
+import '../widgets/clipper/wave_container_clipper_bottom.dart';
 import '../widgets/layout/common/about_me.dart';
 import '../widgets/layout/common/main_part.dart';
 import '../widgets/layout/web/app_bar_web.dart';
@@ -69,6 +70,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   MainPart(w: w, h: h),
+                  CurvedDivider(),
                   Services(w: w, h: h),
                 ],
               ),
@@ -81,3 +83,16 @@ class _HomePageState extends State<HomePage> {
 }
 
 
+
+class CurvedDivider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ClipPath(
+      clipper: WaveContainerClipper(),
+      child: Container(
+        height: 50, // Adjust height as needed
+        color: Theme.of(context).colorScheme.onSurface, // Adjust color as needed
+      ),
+    );
+  }
+}
