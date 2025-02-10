@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
 
+import '../../shared/constants.dart';
+
 class ZoomAnimations extends StatefulWidget {
   const ZoomAnimations({Key? key}) : super(key: key);
 
@@ -24,7 +26,10 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
 
     sizeAnimation = Tween(begin: 0.0, end: 0.2).animate(CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.40, 0.75, curve: Curves.easeOut)));
+        curve: const Interval(0.40, 0.75, curve: Curves.easeOut)))
+
+
+    ;
     _controller.forward();
     _controller.addListener(() {
       setState(() {});
@@ -56,19 +61,26 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    double w = size.width;
     var theme = Theme.of(context);
 
     return SizedBox(
-      width: size.width / 4,
-      height: size.width / 4,
+      width: w < Constants.maxPhoneWidth
+          ? w / 2.5
+          : (size.width < Constants.maxTabletWidth ? w / 3.5 : w / 4),
+      height: w < Constants.maxPhoneWidth
+          ? w / 2.5
+          : (size.width < Constants.maxTabletWidth ? w / 3.5 : w / 4),
       child: AlignTransition(
         alignment: _alignAnimation,
         child: CustomOutline(
           strokeWidth: 5,
           radius: size.width * 0.2,
           padding: const EdgeInsets.all(5),
-          width: size.width * sizeAnimation.value,
-          height: size.width * sizeAnimation.value,
+          width: w * (sizeAnimation.value + (w < Constants.maxPhoneWidth
+              ? 0.15 : (w < Constants.maxTabletWidth ? 0.06 : 0))),
+          height:  w * (sizeAnimation.value + (w < Constants.maxPhoneWidth
+              ? 0.15 : (w < Constants.maxTabletWidth ? 0.06 : 0))),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -77,7 +89,6 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
                 Theme.of(context).colorScheme.primary.withOpacity(0.1),
                 Theme.of(context).colorScheme.secondary,
                 Theme.of(context).colorScheme.secondary.withOpacity(0.1),
-
               ],
               stops: const [
                 0.2,
@@ -102,8 +113,6 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
   }
 }
 
-
-
 class CustomOutline extends StatelessWidget {
   final _GradientPainter _painter;
   final Widget _child;
@@ -121,7 +130,7 @@ class CustomOutline extends StatelessWidget {
     required double height,
     required EdgeInsetsGeometry padding,
   })  : _painter = _GradientPainter(
-      strokeWidth: strokeWidth, radius: radius, gradient: gradient),
+            strokeWidth: strokeWidth, radius: radius, gradient: gradient),
         _child = child,
         _width = width,
         _height = height,
@@ -151,8 +160,8 @@ class _GradientPainter extends CustomPainter {
 
   _GradientPainter(
       {required double strokeWidth,
-        required double radius,
-        required Gradient gradient})
+      required double radius,
+      required Gradient gradient})
       : _strokeWidth = strokeWidth,
         _radius = radius,
         _gradient = gradient;

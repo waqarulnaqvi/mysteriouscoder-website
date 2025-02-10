@@ -45,29 +45,37 @@ class _HomePageState extends State<HomePage> {
             tablet: AppBarMobile(scaffoldKey: _scaffoldKey),
             desktop: AppBarWeb(w: w,)),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage( provider.mode==ThemeMode.dark ? StaticImage.darkTheme : StaticImage.lightTheme ), fit: BoxFit.cover),
-          // gradient: provider.mode==ThemeMode.light ? LinearGradient(
-          //   colors: [
-          //     Theme.of(context).colorScheme.primary.withOpacity(0.4),
-          //     Theme.of(context).colorScheme.primary,
-          //   ],
-          //   begin: Alignment.topCenter,
-          //   end: Alignment.bottomCenter,
-          // ):null,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              MainPart(w: w, h: h, ),
-              // AboutMe(w: w),
-              Services(w: w, h: h)
-                
-            ],
-          ),
-        ),
-      ),
+       body:  Stack(
+          children: [
+            // Background with ColorFiltered
+            ColorFiltered(
+              colorFilter: provider.mode == ThemeMode.light
+                  ? ColorFilter.mode(
+                  Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                  BlendMode.darken)
+                  : ColorFilter.mode(Colors.transparent, BlendMode.dst),
+              child: Image.asset(
+                provider.mode == ThemeMode.dark
+                    ? StaticImage.darkTheme
+                    : StaticImage.lightTheme,
+                fit: BoxFit.cover,
+                width: w,
+                height: h,
+              ),
+            ),
+
+            // Foreground Content (Column)
+            SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  MainPart(w: w, h: h),
+                  Services(w: w, h: h),
+                ],
+              ),
+            ),
+          ],
+        )
+
     );
   }
 }
