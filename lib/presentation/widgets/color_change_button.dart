@@ -27,7 +27,7 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
 
   void startTimer(){
     time?.cancel();
-    time = Timer.periodic(Duration(milliseconds: 1500), (timer) {
+    time = Timer.periodic(Duration(milliseconds: 500), (timer) {
       _animatedWidth = 0.0;
       setState(() {});
     });
