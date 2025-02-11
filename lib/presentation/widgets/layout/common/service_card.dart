@@ -8,9 +8,11 @@ import 'global_widgets.dart';
 
 class ServiceCard extends StatefulWidget {
   final ServicesUtils service;
+  final double? h;
   final bool isSelected;
 
-  const ServiceCard({super.key, required this.service,this.isSelected = false});
+  const ServiceCard(
+      {super.key, required this.service, this.isSelected = false, this.h});
 
   @override
   State<ServiceCard> createState() => _ServicesCardState();
@@ -27,29 +29,35 @@ class _ServicesCardState extends State<ServiceCard> {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () {},
-        onHover: (hovering) {
-          if (hovering) {
-            setState(() => isHover = true);
-          } else {
-            setState(() => isHover = false);
-          }
-        },
+        onHover: w > Constants.maxTabletWidth
+            ? (hovering) {
+                if (hovering) {
+                  setState(() => isHover = true);
+                } else {
+                  setState(() => isHover = false);
+                }
+              }
+            : null,
         child: Container(
           width: ResponsiveLayout.isTablet(context) ? 500 : 350,
-          height: 350,
+          height: widget.h,
           // height: ResponsiveLayout.isMobile(context) ? 450 : 400,
           // height: AppDimensions.normalize(100),
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
           decoration: BoxDecoration(
-            // gradient: isHover ? pinkpurple : grayBack,
-            gradient: (w > Constants.maxTabletWidth? isHover: widget.isSelected)
-                ? pinkpurple
-                : LinearGradient(colors: [
-                    Theme.of(context).colorScheme.surface,
-                    Theme.of(context).colorScheme.surface
-                  ]),
+            // gradient: isHover ? themeGradient : grayBack,
+            gradient:
+                (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
+                    ? themeGradient
+                    : LinearGradient(colors: [
+                        Theme.of(context).colorScheme.surface,
+                        Theme.of(context).colorScheme.surface
+                      ]),
             borderRadius: BorderRadius.circular(15),
-            boxShadow: isHover ? [primaryColorShadow] : [blackColorShadow],
+            boxShadow:
+                (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
+                    ? [primaryColorShadow]
+                    : [blackColorShadow],
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -62,22 +70,15 @@ class _ServicesCardState extends State<ServiceCard> {
               spacerH(),
               Text(widget.service.name,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: isHover
-                        ? whiteColor
-                        : Theme.of(context).colorScheme.onSurface,
-                  )),
+                  style: commonTextStyle(w, isHover)),
               spacerH(),
               Text(
                 widget.service.description,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: isHover
-                      ? whiteColor.withOpacity(0.8)
-                      : Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.w200,
-                  fontSize: 13,
-                ),
+                style: commonTextStyle(w, isHover,
+                    fontWeight: FontWeight.w200,
+                    fontSize: 13,
+                    color: whiteColor.withValues(alpha: 0.8)),
               ),
               spacerH(),
               if (ResponsiveLayout.isDesktop(context))
@@ -86,15 +87,9 @@ class _ServicesCardState extends State<ServiceCard> {
                     children: widget.service.tool
                         .map((e) => Row(
                               children: [
-                                const Text('🛠   '),
-                                Text(e,
-                                    style: TextStyle(
-                                      color: isHover
-                                          ? whiteColor
-                                          : Theme.of(context)
-                                              .colorScheme
-                                              .onSurface,
-                                    )),
+                                Text('🛠   ',
+                                    style: commonTextStyle(w, isHover)),
+                                Text(e, style: commonTextStyle(w, isHover)),
                               ],
                             ))
                         .toList()),
@@ -107,15 +102,8 @@ class _ServicesCardState extends State<ServiceCard> {
                       children: widget.service.tool
                           .map((e) => Row(
                                 children: [
-                                  const Text('🛠   '),
-                                  Text(e,
-                                      style: TextStyle(
-                                        color: isHover
-                                            ? whiteColor
-                                            : Theme.of(context)
-                                                .colorScheme
-                                                .onSurface,
-                                      )),
+                                  Flexible(child: Text('🛠   $e', style: commonTextStyle(w, isHover),
+                                  textAlign: TextAlign.center,),),
                                 ],
                               ))
                           .toList()),
@@ -123,5 +111,15 @@ class _ServicesCardState extends State<ServiceCard> {
             ],
           ),
         ));
+  }
+
+  TextStyle commonTextStyle(double w, bool isHover,
+      {Color color = whiteColor, double? fontSize, FontWeight? fontWeight}) {
+    return TextStyle(
+        color: (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
+            ? color
+            : Theme.of(context).colorScheme.onSurface,
+        fontSize: fontSize,
+        fontWeight: fontWeight);
   }
 }

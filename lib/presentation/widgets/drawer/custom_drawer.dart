@@ -48,7 +48,7 @@ class CustomDrawer extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     colors: [
                       Theme.of(context).colorScheme.primary,
-                      Theme.of(context).colorScheme.primary.withOpacity(0.6),
+                      Theme.of(context).colorScheme.primary.withValues(alpha: 0.6),
                     ],
                   ),
                 ),

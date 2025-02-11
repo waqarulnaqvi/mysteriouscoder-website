@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
-import '../../../../domain/data/social_media_icons.dart';
 import '../../../../shared/constants.dart';
 import '../../../../shared/styles.dart';
-import '../../clipper/wave_container_clipper_bottom.dart';
 import '../../color_change_button.dart';
 import '../../entrance_fader.dart';
 import '../../static_image.dart';
-import '../../typing_effect.dart';
-import '../../clipper/wave_container_clipper.dart';
 import '../../zoom_animation.dart';
 import 'global_widgets.dart';
 
@@ -53,9 +49,11 @@ class MainPart extends StatelessWidget {
           commonSubHeading(context),
           spacerH(),
           commonDescription(context,isMobile: true),
-          spacerH(),
-          commonButton(context),
-          spacerH(),
+          spacerH(40),
+          w < Constants.maxPhoneWidth?
+          commonButton(context):
+          commonButton(context,w: 200,h: 50,fontSize: 16),
+          spacerH(40),
         ],
       ),
     );
@@ -76,9 +74,12 @@ class MainPart extends StatelessWidget {
             commonSubHeading(context),
             spacerH(),
             SizedBox(width: w * 0.5, child: commonDescription(context)),
-            spacerH(),
-            commonButton(context),
-            spacerH(),
+            spacerH(40),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: commonButton(context,w: 220,h: 50,fontSize: 16),
+            ),
+            spacerH(40),
 
           ],
         ),
@@ -126,7 +127,7 @@ class MainPart extends StatelessWidget {
 
   Widget commonDescription(BuildContext context,{bool isMobile=false}) {
     return Text(
-      "🚀 Mobile & Web App Development – High-quality solutions for Android, iOS, and web. ⚡ Fast & Scalable Apps – Optimized performance with clean, maintainable code. 🛠 Cross-Platform Efficiency – One codebase for multiple platforms. 💼 Freelancing Solutions – Tailored services to meet diverse business needs."
+      "🚀 Mobile & Web App Development – High-quality solutions for Android, iOS, and web.\n\n⚡ Fast & Scalable Apps – Optimized performance with clean, maintainable code.\n\n🛠 Cross-Platform Efficiency – One codebase for multiple platforms.\n\n💼 Freelancing Solutions – Tailored services to meet diverse business needs."
       // "**Mysterious Coder** – Flutter Development Services\n\n"
       //     "🚀 Mobile & Web App Development – High-quality solutions for Android, iOS, and web.\n\n"
           // "🎨 Custom UI/UX Design – Smooth, user-friendly, and engaging interfaces.\n\n"
@@ -146,10 +147,13 @@ class MainPart extends StatelessWidget {
 
   }
 
-  Widget commonButton(BuildContext context) {
+  Widget commonButton(BuildContext context,{double? w,double? h,double? fontSize}) {
     return ColorChangeButton(
       text: "Get in Touch",
       onTap: () {},
+      w: w??160,
+      h: h??45,
+      fontSize: fontSize??13,
     );
   }
 }

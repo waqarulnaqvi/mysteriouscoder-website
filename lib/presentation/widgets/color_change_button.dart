@@ -1,31 +1,115 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
-
 import '../../shared/styles.dart';
 
-class ColorChangeButton extends StatelessWidget {
+class ColorChangeButton extends StatefulWidget {
   final String text;
   final Function() onTap;
-  const ColorChangeButton({Key? key, required this.text, required this.onTap})
-      : super(key: key);
+  final double w;
+  final double h;
+  final double fontSize;
+
+  const ColorChangeButton({super.key, required this.text, required this.onTap,required this.w,required this.h, required this.fontSize});
+
   @override
+  State<ColorChangeButton> createState() => _ColorChangeButtonState();
+}
+
+class _ColorChangeButtonState extends State<ColorChangeButton> {
+  double _animatedWidth = 0.0;
+  bool isHover = false;
+  Timer? time;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void startTimer(){
+    time?.cancel();
+    time = Timer.periodic(Duration(milliseconds: 1500), (timer) {
+      _animatedWidth = 0.0;
+      setState(() {});
+    });
+
+  }
+
+  @override
+  void dispose() {
+    time!.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(
-      desktop: DesktopCCButton(text: text, onTap: onTap),
-      tablet: TabCCButton(text: text, onTap: onTap),
-      mobile: MobileCCButton(text: text, onTap: onTap),
+    return Stack(
+      children: [
+        if (!isHover)
+          Container(
+            height: widget.h,
+            width: widget.w,
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: Theme.of(context).colorScheme.onSurface, width: 1.5),
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
+        AnimatedContainer(
+          duration: Duration(milliseconds: 200),
+          height: widget.h,
+          width: _animatedWidth,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(3),
+            gradient: themeGradient,
+          ),
+        ),
+        InkWell(
+          onHover: (hovering) {
+            isHover != isHover;
+            _animatedWidth = hovering ? widget.w : 0.0;
+            setState(() {});
+          },
+          onTap: () {
+            setState(() {
+              _animatedWidth = widget.w;
+            });
+            widget.onTap();
+            startTimer();
+          },
+          child: SizedBox(
+            height: widget.h,
+            width: widget.w,
+            child: Center(
+              child: Text(
+                widget.text.toUpperCase(),
+                style: TextStyle(
+                  color: isHover
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.onSurface,
+                  fontSize: widget.fontSize,
+                ),
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
 
+// return ResponsiveLayout(
+//   desktop: DesktopCCButton(text: text, onTap: onTap),
+//   tablet: TabCCButton(text: text, onTap: onTap),
+//   mobile: MobileCCButton(text: text, onTap: onTap),
+// );
 class MobileCCButton extends StatefulWidget {
   final String text;
   final Function() onTap;
+
   const MobileCCButton({Key? key, required this.text, required this.onTap})
       : super(key: key);
-  @override
 
+  @override
   // ignore: library_private_types_in_public_api
   _MobileCCButtonState createState() => _MobileCCButtonState();
 }
@@ -46,7 +130,8 @@ class _MobileCCButtonState extends State<MobileCCButton> {
             height: 35,
             width: 125,
             decoration: BoxDecoration(
-              border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 1.5),
+              border: Border.all(
+                  color: Theme.of(context).colorScheme.onSurface, width: 1.5),
               borderRadius: BorderRadius.circular(3),
             ),
           ),
@@ -56,7 +141,7 @@ class _MobileCCButtonState extends State<MobileCCButton> {
           width: _animatedWidth,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(3),
-            gradient: pinkpurple,
+            gradient: themeGradient,
           ),
         ),
         InkWell(
@@ -77,7 +162,9 @@ class _MobileCCButtonState extends State<MobileCCButton> {
               child: Text(
                 widget.text.toUpperCase(),
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface,
+                  color: isHover
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.onSurface,
                   fontSize: 13,
                 ),
               ),
@@ -92,13 +179,14 @@ class _MobileCCButtonState extends State<MobileCCButton> {
 class TabCCButton extends StatefulWidget {
   final String text;
   final Function() onTap;
+
   const TabCCButton({
     Key? key,
     required this.text,
     required this.onTap,
   }) : super(key: key);
-  @override
 
+  @override
   // ignore: library_private_types_in_public_api
   _TabCCButtonState createState() => _TabCCButtonState();
 }
@@ -119,7 +207,8 @@ class _TabCCButtonState extends State<TabCCButton> {
             height: 50,
             width: 200,
             decoration: BoxDecoration(
-              border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 2),
+              border: Border.all(
+                  color: Theme.of(context).colorScheme.onSurface, width: 2),
               borderRadius: BorderRadius.circular(5),
             ),
           ),
@@ -129,7 +218,7 @@ class _TabCCButtonState extends State<TabCCButton> {
           width: _animatedWidth,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            gradient: pinkpurple,
+            gradient: themeGradient,
           ),
         ),
         InkWell(
@@ -164,13 +253,14 @@ class _TabCCButtonState extends State<TabCCButton> {
 class DesktopCCButton extends StatefulWidget {
   final String text;
   final Function() onTap;
+
   const DesktopCCButton({
     Key? key,
     required this.text,
     required this.onTap,
   }) : super(key: key);
-  @override
 
+  @override
   // ignore: library_private_types_in_public_api
   _DesktopCCButtonState createState() => _DesktopCCButtonState();
 }
@@ -189,7 +279,8 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
             height: 65,
             width: 250,
             decoration: BoxDecoration(
-              border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 3),
+              border: Border.all(
+                  color: Theme.of(context).colorScheme.onSurface, width: 3),
               borderRadius: BorderRadius.circular(6),
             ),
           ),
@@ -199,7 +290,7 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
           width: _animatedWidth,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
-            gradient: pinkpurple,
+            gradient: themeGradient,
           ),
         ),
         InkWell(
@@ -220,7 +311,9 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
               child: Text(
                 widget.text.toUpperCase(),
                 style: TextStyle(
-                  color: isHover ? Theme.of(context).colorScheme.surface : Theme.of(context).colorScheme.onSurface,
+                  color: isHover
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.onSurface,
                   fontSize: 18,
                 ),
               ),

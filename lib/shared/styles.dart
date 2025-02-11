@@ -48,10 +48,16 @@ Color darkTextColor = const Color(0xFFF3F2FF);
 // Color darkDividerColor = const Color(0x441C2A3D);
 // Color darkOutLineBtnColor = const Color(0xFFF3F2FF);
 
-const pinkpurple = LinearGradient(
+const pinkPurple = LinearGradient(
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
   colors: [Color(0XFFaa367c), Color(0XFF4a2fbd)],
+);
+
+const themeGradient = LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  colors: [ Color.fromRGBO(37, 146, 166, 1) ,Color.fromRGBO(74, 171, 189, 1.0)],
 );
 
 const grayBlack = LinearGradient(

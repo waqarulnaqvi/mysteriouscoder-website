@@ -18,7 +18,7 @@ class ServicesWeb extends StatelessWidget {
           .asMap()
           .entries
           .map(
-            (e) => ServiceCard(service: e.value),
+            (e) => ServiceCard(service: e.value, h: 350),
           )
           .toList(),
     );

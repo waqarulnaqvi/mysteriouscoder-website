@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
-
 import '../../shared/constants.dart';
 
 class ZoomAnimations extends StatefulWidget {
@@ -86,9 +85,9 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
               end: Alignment.bottomRight,
               colors: [
                 Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
                 Theme.of(context).colorScheme.secondary,
-                Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+                Theme.of(context).colorScheme.secondary.withValues(alpha: 0.1),
               ],
               stops: const [
                 0.2,
@@ -99,7 +98,7 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.black.withOpacity(0.8),
+              color: Colors.black.withValues(alpha: 0.8),
               image: const DecorationImage(
                 fit: BoxFit.cover,
                 alignment: Alignment.bottomLeft,

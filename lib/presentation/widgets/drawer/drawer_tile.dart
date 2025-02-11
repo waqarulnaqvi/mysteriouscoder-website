@@ -27,7 +27,7 @@ class _DrawerTileState extends State<DrawerTile> {
         });
       },
       child: Container(
-        color: _isHover? dark.withOpacity(0.4):Colors.transparent ,
+        color: _isHover? dark.withValues(alpha: 0.4):Colors.transparent ,
         padding: const EdgeInsets.all(20),
         child: Row(
           children: [
