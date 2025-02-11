@@ -78,7 +78,8 @@ class _ServicesCardState extends State<ServiceCard> {
                 style: commonTextStyle(w, isHover,
                     fontWeight: FontWeight.w200,
                     fontSize: 13,
-                    color: whiteColor.withValues(alpha: 0.8)),
+                    // color: whiteColor.withValues(alpha: 0.8)
+                  ),
               ),
               spacerH(),
               if (ResponsiveLayout.isDesktop(context))
@@ -114,10 +115,10 @@ class _ServicesCardState extends State<ServiceCard> {
   }
 
   TextStyle commonTextStyle(double w, bool isHover,
-      {Color color = whiteColor, double? fontSize, FontWeight? fontWeight}) {
+      { double? fontSize, FontWeight? fontWeight}) {
     return TextStyle(
         color: (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
-            ? color
+            ?  Theme.of(context).colorScheme.surface
             : Theme.of(context).colorScheme.onSurface,
         fontSize: fontSize,
         fontWeight: fontWeight);
