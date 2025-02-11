@@ -12,13 +12,17 @@ List<NavItems> navItems = [
     icon: Icons.home,
     title: 'Home',
   ),
+  // NavItems(
+  //   icon: Icons.person,
+  //   title: 'About Us',
+  // ),
   NavItems(
     icon: Icons.handyman_outlined,
-    title: 'Skills',
+    title: 'Services',
   ),
   NavItems(
     icon: Icons.apps,
     title: 'Projects',
   ),
-  NavItems(title: 'Contact', icon: Icons.quick_contacts_mail)
+  NavItems(title: 'Contact Us', icon: Icons.quick_contacts_mail)
 ];

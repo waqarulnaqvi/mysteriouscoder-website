@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/custom_drawer.dart';
+import 'package:mysteriouscoder/presentation/widgets/layout/common/about_us.dart';
+import 'package:mysteriouscoder/presentation/widgets/layout/common/contact_us.dart';
+import 'package:mysteriouscoder/presentation/widgets/layout/common/projects.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/services.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/mobile/app_bar_mobile.dart';
 import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
 import 'package:mysteriouscoder/shared/constants.dart';
 import 'package:provider/provider.dart';
 import '../../shared/provider/theme_provider.dart';
+import '../widgets/layout/common/footer.dart';
 import '../widgets/layout/common/main_part.dart';
 import '../widgets/layout/web/app_bar_web.dart';
 import '../widgets/clipper/wave_container_clipper.dart';
@@ -63,9 +67,28 @@ class _HomePageState extends State<HomePage> {
             SingleChildScrollView(
               child: Column(
                 children: <Widget>[
+                  ///Main Part
                   MainPart(w: w, h: h),
                   CurvedDivider(),
+
+                  ///About Us Page
+                  AboutUs(w: w),
+                  CurvedDivider(),
+
+                  ///Services
                   Services(w: w, h: h),
+                  CurvedDivider(),
+
+                  ///Projects
+                  Projects(w: w, h: h),
+                  CurvedDivider(),
+
+                  ///Contact Us
+                  ContactUs(w:w,h:h),
+                  CurvedDivider(),
+
+                  ///Footer
+                  Footer(w: w,h:h),
                 ],
               ),
             ),
