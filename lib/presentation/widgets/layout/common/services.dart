@@ -40,7 +40,7 @@ class Services extends StatelessWidget {
           ),
           spacerH(40),
           const ResponsiveLayout(
-              mobile: ServicesMobile(h: 400,),
+              mobile: ServicesMobile(h: 390,),
               tablet: ServicesMobile(),
               desktop: ServicesWeb()),
           spacerH(40),

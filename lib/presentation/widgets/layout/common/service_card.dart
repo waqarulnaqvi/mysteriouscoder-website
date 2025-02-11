@@ -103,7 +103,7 @@ class _ServicesCardState extends State<ServiceCard> {
                           .map((e) => Row(
                                 children: [
                                   Flexible(child: Text('🛠   $e', style: commonTextStyle(w, isHover),
-                                  textAlign: TextAlign.center,),),
+                                  textAlign: TextAlign.start,),),
                                 ],
                               ))
                           .toList()),
