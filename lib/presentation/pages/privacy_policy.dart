@@ -27,7 +27,6 @@ class PrivacyPolicy extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.surface,
-        centerTitle: true,
         title: Text('Privacy Policy',
             style:
             reusableTextStyle(color: Theme.of(context).colorScheme.surface)),

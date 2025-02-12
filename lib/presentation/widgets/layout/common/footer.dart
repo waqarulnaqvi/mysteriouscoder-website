@@ -28,23 +28,18 @@ class Footer extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyPolicy()));
                 },
                 child: Text("Privacy Policy",
-                    style: TextStyle(
-                      color: Colors.white,
-                    )),
+                  style: footerTextStyle,),
               ),
               InkWell(
                 onTap: onTap,
                 child: Text("Service",
-                    style: TextStyle(
-                      color: Colors.white,
-                    )),
+                  style: footerTextStyle,
+                ),
               ),
 
               Text(
                 "© 2025 | Mysterious Coder",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: footerTextStyle,
               ),
             ],
           ),
@@ -53,3 +48,9 @@ class Footer extends StatelessWidget {
     );
   }
 }
+
+
+TextStyle footerTextStyle = TextStyle(
+  color: Colors.white,
+  fontFamily: 'Poppins',
+);

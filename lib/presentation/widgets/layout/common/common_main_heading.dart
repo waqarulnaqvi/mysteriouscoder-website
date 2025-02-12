@@ -14,6 +14,8 @@ class CommonMainHeading extends StatelessWidget {
       title,
       style: reusableTextStyle(
           fontSize: fontSize, color: color??Theme.of(context).colorScheme.onSurface),
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
     );
   }
 }

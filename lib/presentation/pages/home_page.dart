@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
+import 'package:mysteriouscoder/presentation/widgets/clipper/curved_divider_clipper.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/custom_drawer.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/about_us.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/contact_us.dart';
@@ -13,7 +14,6 @@ import '../../shared/provider/theme_provider.dart';
 import '../widgets/layout/common/footer.dart';
 import '../widgets/layout/common/main_part.dart';
 import '../widgets/layout/web/app_bar_web.dart';
-import '../widgets/clipper/wave_container_clipper.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -84,9 +84,11 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   ///Main Part
-                  MainPart(key: navbarKeys.first, w: w, h: h, onTap: () {
-                    scrollToSection(3);
-                  },),
+                  MainPart(key: navbarKeys.first, w: w, h: h,
+                    onTap: () {
+                      scrollToSection(3);
+                    },
+                  ),
                   CurvedDivider(),
 
                   ///About Us Page
@@ -105,9 +107,13 @@ class _HomePageState extends State<HomePage> {
                   ContactUs(key: navbarKeys[3], w: w, h: h),
 
                   ///Footer
-                  Footer(w: w, h: h, onTap: () {
-                    scrollToSection(1);
-                  },),
+                  Footer(
+                    w: w,
+                    h: h,
+                    onTap: () {
+                      scrollToSection(1);
+                    },
+                  ),
                 ],
               ),
             ),

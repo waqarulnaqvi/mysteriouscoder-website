@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 Gradient reusableAppBarGradient(BuildContext context) {
   return LinearGradient(
@@ -16,7 +15,8 @@ TextStyle reusableTextStyle({double fontSize = 18,Color color =Colors.white}) {
   return TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: fontSize,
-    fontFamily: GoogleFonts.dynaPuff().fontFamily,
+    fontFamily: "Montserrat",
+    // fontFamily: GoogleFonts.dynaPuff().fontFamily,
     color: color,
   );
 }

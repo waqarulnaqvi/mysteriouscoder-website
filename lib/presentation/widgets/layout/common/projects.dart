@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/common_sub_heading.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/global_widgets.dart';
+import 'package:mysteriouscoder/presentation/widgets/layout/mobile/projects_mobile.dart';
+import 'package:mysteriouscoder/presentation/widgets/layout/web/projects_web.dart';
 import 'package:mysteriouscoder/shared/constants.dart';
-
+import '../../../pages/responsive_layout.dart';
 import 'common_main_heading.dart';
 
 class Projects extends StatelessWidget {
@@ -21,7 +23,12 @@ class Projects extends StatelessWidget {
         spacerH(15),
         CommonSubHeading(title: Constants.services, w: w),
         spacerH(40),
-
+        ResponsiveLayout(
+          mobile: ProjectsMobile(h: 390),
+          tablet: ProjectsMobile(),
+          desktop: ProjectsWeb(h: h,w: w,)
+        ),
+        spacerH(40),
       ],
     );
   }

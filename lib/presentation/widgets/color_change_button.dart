@@ -27,7 +27,7 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
   }
 
   void startTimer(){
-    time?.cancel();
+      time?.cancel();
     time = Timer.periodic(Duration(milliseconds: 500), (timer) {
       _animatedWidth = 0.0;
       isPressed = false;
@@ -38,7 +38,7 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
 
   @override
   void dispose() {
-    time!.cancel();
+    time?.cancel();
     super.dispose();
   }
 
@@ -90,6 +90,7 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
                       ? Theme.of(context).colorScheme.surface
                       : Theme.of(context).colorScheme.onSurface,
                   fontSize: widget.fontSize,
+                  fontFamily: 'Poppins',
                 ),
               ),
             ),

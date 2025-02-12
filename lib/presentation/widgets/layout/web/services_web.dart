@@ -3,12 +3,13 @@ import 'package:mysteriouscoder/domain/data/services_utils.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/service_card.dart';
 
 class ServicesWeb extends StatelessWidget {
-  const ServicesWeb({super.key});
+  final double w;
+  final double h;
+  const ServicesWeb({super.key, required this.w, required this.h});
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+
     return Wrap(
       spacing: w * 0.03,
       runSpacing: h * 0.05,

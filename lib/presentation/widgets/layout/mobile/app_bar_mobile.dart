@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../../../../shared/constants.dart';
-import '../../../../shared/provider/theme_provider.dart';
 import '../../../../shared/styles.dart';
 import '../../static_image.dart';
 import '../../theme_controller.dart';

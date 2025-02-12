@@ -26,10 +26,10 @@ class Services extends StatelessWidget {
           spacerH(15),
           CommonSubHeading(title: Constants.services, w: w,),
           spacerH(40),
-          const ResponsiveLayout(
+          ResponsiveLayout(
               mobile: ServicesMobile(h: 390,),
               tablet: ServicesMobile(),
-              desktop: ServicesWeb()),
+              desktop: ServicesWeb(w: w, h: h)),
           spacerH(40),
         ],
       ),
