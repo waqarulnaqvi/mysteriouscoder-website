@@ -15,8 +15,9 @@ import 'global_widgets.dart';
 class MainPart extends StatelessWidget {
   final double w;
   final double h;
+  final VoidCallback onTap;
 
-  const MainPart({super.key, required this.w, required this.h});
+  const MainPart({super.key, required this.w, required this.h, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +133,7 @@ class MainPart extends StatelessWidget {
   Widget commonButton(BuildContext context,{double? w,double? h,double? fontSize}) {
     return ColorChangeButton(
       text: "Get in Touch",
-      onTap: () {},
+      onTap: onTap,
       w: w??160,
       h: h??45,
       fontSize: fontSize??13,
@@ -206,8 +207,9 @@ class _CommonSocialMediaPlatformsState extends State<CommonSocialMediaPlatforms>
   final Map<int, bool> _hoverStates = {};
   final Map<int, bool> _tapStates = {};
 
-  void updateTapState(int index) {
+  void updateTapState(int index, String url) {
     setState(() {
+      openUrl(url);
       _tapStates[index] = true;
     });
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -236,7 +238,7 @@ class _CommonSocialMediaPlatformsState extends State<CommonSocialMediaPlatforms>
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: InkWell(
-            onTap: () => updateTapState(i),
+            onTap: () => updateTapState(i, p.url),
             onHover: (hovering) => updateHoverState(i, hovering),
             child: Icon(
               p.icon,

@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                       Theme.of(context)
                           .colorScheme
                           .primary
-                          .withValues(alpha: 0.3),
+                          .withValues(alpha: 0.2),
                       BlendMode.darken)
                   : ColorFilter.mode(Colors.transparent, BlendMode.dst),
               child: Image.asset(
@@ -84,7 +84,9 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   ///Main Part
-                  MainPart(key: navbarKeys.first, w: w, h: h),
+                  MainPart(key: navbarKeys.first, w: w, h: h, onTap: () {
+                    scrollToSection(3);
+                  },),
                   CurvedDivider(),
 
                   ///About Us Page
@@ -103,7 +105,9 @@ class _HomePageState extends State<HomePage> {
                   ContactUs(key: navbarKeys[3], w: w, h: h),
 
                   ///Footer
-                  Footer(w: w, h: h),
+                  Footer(w: w, h: h, onTap: () {
+                    scrollToSection(1);
+                  },),
                 ],
               ),
             ),

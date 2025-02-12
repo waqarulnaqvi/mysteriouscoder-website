@@ -3,7 +3,8 @@ import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
 import '../../shared/constants.dart';
 
 class ZoomAnimations extends StatefulWidget {
-  const ZoomAnimations({Key? key}) : super(key: key);
+  final String icon;
+  const ZoomAnimations({super.key,String? icon}) : icon= icon?? StaticImage.logo;
 
   @override
   State<ZoomAnimations> createState() => _ZoomAnimationsState();
@@ -61,7 +62,6 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double w = size.width;
-    var theme = Theme.of(context);
 
     return SizedBox(
       width: w < Constants.maxPhoneWidth
@@ -99,10 +99,10 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.black.withValues(alpha: 0.8),
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
                 alignment: Alignment.bottomLeft,
-                image: AssetImage(StaticImage.logo),
+                image: AssetImage(widget.icon),
               ),
             ),
           ),
@@ -120,7 +120,7 @@ class CustomOutline extends StatelessWidget {
   final EdgeInsetsGeometry _padding;
 
   CustomOutline({
-    Key? key,
+    super.key,
     required double strokeWidth,
     required double radius,
     required Gradient gradient,
@@ -133,8 +133,7 @@ class CustomOutline extends StatelessWidget {
         _child = child,
         _width = width,
         _height = height,
-        _padding = padding,
-        super(key: key);
+        _padding = padding;
 
   @override
   Widget build(BuildContext context) {

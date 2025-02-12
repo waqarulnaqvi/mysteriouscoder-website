@@ -24,7 +24,7 @@ class Services extends StatelessWidget {
           spacerH(),
           CommonMainHeading(title: "Services"),
           spacerH(15),
-          CommonSubHeading(title: Constants.whatICanDO, w: w,),
+          CommonSubHeading(title: Constants.services, w: w,),
           spacerH(40),
           const ResponsiveLayout(
               mobile: ServicesMobile(h: 390,),

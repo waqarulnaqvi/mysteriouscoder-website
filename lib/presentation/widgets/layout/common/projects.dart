@@ -19,7 +19,7 @@ class Projects extends StatelessWidget {
         spacerH(),
         CommonMainHeading(title: "Projects"),
         spacerH(15),
-        CommonSubHeading(title: Constants.whatICanDO, w: w),
+        CommonSubHeading(title: Constants.services, w: w),
         spacerH(40),
 
       ],
