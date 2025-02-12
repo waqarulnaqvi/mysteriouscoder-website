@@ -6,7 +6,7 @@ class MaterialTheme {
   const MaterialTheme(this.textTheme);
 
   static ColorScheme lightScheme() {
-    return const ColorScheme(
+    return  ColorScheme(
       brightness: Brightness.light,
       primary: Color.fromRGBO(37, 146, 166, 1),
       surfaceTint: Color(0xff535a92),
@@ -17,8 +17,8 @@ class MaterialTheme {
       onSecondary:  Color(0xff000000),
       secondaryContainer: Color(0xffe0e0f9),
       onSecondaryContainer: Color(0xff181a2c),
-      tertiary: Color(0xff834c74),
-      onTertiary: Color(0xffffffff),
+      tertiary: Color.fromRGBO(37, 146, 166, 1),
+      onTertiary: Colors.white.withOpacity(0.55),
       tertiaryContainer: Color(0xffffd7f0),
       onTertiaryContainer: Color(0xff35082e),
       error: Color(0xffba1a1a),
@@ -61,7 +61,7 @@ class MaterialTheme {
   }
 
   static ColorScheme lightMediumContrastScheme() {
-    return const ColorScheme(
+    return ColorScheme(
       brightness: Brightness.light,
       primary: const Color.fromRGBO(37, 146, 166, 1),
       surfaceTint: Color(0xff535a92),
@@ -72,8 +72,8 @@ class MaterialTheme {
       onSecondary: Color(0xffd5ff00),
       secondaryContainer: Color(0xff727389),
       onSecondaryContainer: Color(0xffffffff),
-      tertiary: Color(0xff643157),
-      onTertiary: Color(0xffffffff),
+      tertiary: Color.fromRGBO(37, 146, 166, 1),
+      onTertiary: Colors.white.withOpacity(0.55),
       tertiaryContainer: Color(0xff9c628b),
       onTertiaryContainer: Color(0xffffffff),
       error: Color(0xff8c0009),
@@ -117,7 +117,7 @@ class MaterialTheme {
   }
 
   static ColorScheme lightHighContrastScheme() {
-    return const ColorScheme(
+    return  ColorScheme(
       brightness: Brightness.light,
       primary: const Color.fromRGBO(37, 146, 166, 1),
       surfaceTint: Color(0xff535a92),
@@ -128,8 +128,8 @@ class MaterialTheme {
       onSecondary: Color(0xffffffff),
       secondaryContainer: Color(0xff727389),
       onSecondaryContainer: Color(0xffffffff),
-      tertiary: Color(0xff3e0f35),
-      onTertiary: Color(0xffffffff),
+      tertiary: Color.fromRGBO(37, 146, 166, 1),
+      onTertiary: Colors.white.withOpacity(0.55),
       tertiaryContainer: Color(0xff643157),
       onTertiaryContainer: Color(0xffffffff),
       error: Color(0xff4e0002),
@@ -184,8 +184,8 @@ class MaterialTheme {
       onSecondary: Color.fromRGBO(249, 174, 59, 1),
       secondaryContainer: Color(0xff727389),
       onSecondaryContainer: Color(0xffe0e0f9),
-      tertiary: Color(0xfff6b2e0),
-      onTertiary: Color(0xff4e1e44),
+      tertiary: Colors.transparent,
+      onTertiary:Colors.transparent,
       tertiaryContainer: Color(0xff68355c),
       onTertiaryContainer: Color(0xffffd7f0),
       error: Color(0xffffb4ab),
@@ -240,8 +240,8 @@ class MaterialTheme {
       onSecondary: Color.fromRGBO(249, 174, 59, 1),
       secondaryContainer:  Color(0xffffffff),
       onSecondaryContainer: Color(0xff000000),
-      tertiary: Color(0xfffab6e5),
-      onTertiary: Color(0xff2f0328),
+      tertiary: Colors.transparent,
+      onTertiary:Colors.transparent,
       tertiaryContainer: Color(0xffbb7da9),
       onTertiaryContainer: Color(0xff000000),
       error: Color(0xffffbab1),
@@ -296,8 +296,8 @@ class MaterialTheme {
       onSecondary: Color.fromRGBO(249, 174, 59, 1),
       secondaryContainer:  Color(0xffffffff),
       onSecondaryContainer: Color(0xff000000),
-      tertiary: Color(0xfffff9f9),
-      onTertiary: Color(0xff000000),
+      tertiary: Colors.transparent,
+      onTertiary:Colors.transparent,
       tertiaryContainer: Color(0xfffab6e5),
       onTertiaryContainer: Color(0xff000000),
       error: Color(0xfffff9f9),

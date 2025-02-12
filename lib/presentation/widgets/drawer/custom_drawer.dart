@@ -9,10 +9,11 @@ import '../../../shared/constants.dart';
 import '../static_image.dart';
 
 class CustomDrawer extends StatelessWidget {
+  final Function(int) onNavItemTap;
   final double w;
   final double h;
 
-  const CustomDrawer({super.key, required this.w, required this.h});
+  const CustomDrawer({super.key, required this.w, required this.h, required this.onNavItemTap});
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +87,7 @@ class CustomDrawer extends StatelessWidget {
                       icon: navItems[index].icon,
                       title: navItems[index].title,
                       onTap: () {
-                        Navigator.pop(context);
+                        onNavItemTap(index);
                       });
                 },
                 itemCount: navItems.length,

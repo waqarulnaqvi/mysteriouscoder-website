@@ -1,10 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/domain/data/social_media_icons.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
 import 'package:mysteriouscoder/presentation/widgets/layout/common/common_main_heading.dart';
+import 'package:provider/provider.dart';
 import '../../../../shared/constants.dart';
+import '../../../../shared/provider/theme_provider.dart';
 import '../../color_change_button.dart';
 import '../../entrance_fader.dart';
 import '../../static_image.dart';
@@ -46,7 +47,7 @@ class MainPart extends StatelessWidget {
           CommonMainHeading(title: "Mysterious Coder",fontSize: 35,),
           commonSubHeading(context),
           spacerH(),
-          commonDescription(context,isMobile: true),
+          CommonDescription(isMobile: true),
           spacerH(),
           CommonSocialMediaPlatforms(),
           spacerH(),
@@ -73,7 +74,7 @@ class MainPart extends StatelessWidget {
             spacerH(5),
             commonSubHeading(context),
             spacerH(),
-            SizedBox(width: w * 0.5, child: commonDescription(context)),
+            SizedBox(width: w * 0.5, child: CommonDescription()),
             spacerH(),
             SizedBox(
               width: 240,
@@ -127,27 +128,6 @@ class MainPart extends StatelessWidget {
     );
   }
 
-  Widget commonDescription(BuildContext context,{bool isMobile=false}) {
-    return Text(
-      Constants.description
-      // "**Mysterious Coder** – Flutter Development Services\n\n"
-      //     "🚀 Mobile & Web App Development – High-quality solutions for Android, iOS, and web.\n\n"
-          // "🎨 Custom UI/UX Design – Smooth, user-friendly, and engaging interfaces.\n\n"
-          // "⚡ Fast & Scalable Apps – Optimized performance with clean, maintainable code.\n\n"
-          // "🔗 Seamless API Integration – Connecting your app with third-party services.\n\n"
-          // "🛠 Cross-Platform Efficiency – One codebase for multiple platforms.\n\n"
-          // "💼 Freelancing Solutions – Tailored services to meet your business needs.\n\n"
-          // "🔄 Maintenance & Support – Reliable post-launch updates and fixes.\n\n"
-          // "✨ Turning Ideas into Reality – Let’s build something amazing with Flutter!\n"
-        ,
-      style: TextStyle(
-        color: Theme.of(context).colorScheme.onSurface,
-        fontSize: 18,
-      ),
-      textAlign: isMobile ? TextAlign.center : TextAlign.start,
-    );
-
-  }
 
   Widget commonButton(BuildContext context,{double? w,double? h,double? fontSize}) {
     return ColorChangeButton(
@@ -160,6 +140,59 @@ class MainPart extends StatelessWidget {
   }
 
 }
+
+class CommonDescription extends StatefulWidget {
+  final bool isMobile;
+  const CommonDescription({super.key, this.isMobile=false});
+
+  @override
+  State<CommonDescription> createState() => _CommonDescriptionState();
+}
+
+class _CommonDescriptionState extends State<CommonDescription> {
+  bool isHover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    var provider=Provider.of<ThemeProvider>(context).mode;
+
+    return InkWell(
+      onTap: (){},
+      onHover: (hovering) {
+        setState(() {
+          isHover = hovering;
+        });
+      },
+      child:  Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: (isHover==true && provider==ThemeMode.light  )?Colors.white:  Theme.of(context).colorScheme.onTertiary,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Text(
+          Constants.description
+          // "**Mysterious Coder** – Flutter Development Services\n\n"
+          //     "🚀 Mobile & Web App Development – High-quality solutions for Android, iOS, and web.\n\n"
+          // "🎨 Custom UI/UX Design – Smooth, user-friendly, and engaging interfaces.\n\n"
+          // "⚡ Fast & Scalable Apps – Optimized performance with clean, maintainable code.\n\n"
+          // "🔗 Seamless API Integration – Connecting your app with third-party services.\n\n"
+          // "🛠 Cross-Platform Efficiency – One codebase for multiple platforms.\n\n"
+          // "💼 Freelancing Solutions – Tailored services to meet your business needs.\n\n"
+          // "🔄 Maintenance & Support – Reliable post-launch updates and fixes.\n\n"
+          // "✨ Turning Ideas into Reality – Let’s build something amazing with Flutter!\n"
+          ,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
+            fontSize: 18,
+          ),
+          textAlign: widget.isMobile ? TextAlign.center : TextAlign.start,
+        ),
+      ),
+    );
+  }
+}
+
+
 
 
 class CommonSocialMediaPlatforms extends StatefulWidget {

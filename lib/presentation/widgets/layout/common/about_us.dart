@@ -18,6 +18,7 @@ class AboutUs extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          spacerH(),
           CommonMainHeading(title: "About Us"),
           spacerH(15),
           CommonSubHeading(title: Constants.aboutUs, w: w,),
