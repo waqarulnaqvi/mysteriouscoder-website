@@ -11,9 +11,9 @@ class StaticImage{
   static const String logo = 'assets/icons/mysteriouscoder_logo.jpg';
 
   //Platform used Icons
-  static const String kotlinIcon = 'assets/icons/kotlin.png';
+  static const String kotlinIcon = 'assets/icons/kotlin_icon.png';
   static const String jetpackComposeIcon = 'assets/icons/jetpack_compose_icon.png';
-  static const String firebaseIcon = 'assets/icons/kotlin_icon.png';
+  static const String firebaseIcon = 'assets/icons/firebase_icon.png';
 
   //Projects Icons
   static const String brainBoosterIcon = 'assets/icons/projects/brain_booster_icon.png';

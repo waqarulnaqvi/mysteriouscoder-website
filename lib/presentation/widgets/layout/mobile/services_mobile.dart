@@ -31,7 +31,7 @@ class _ServicesMobileState extends State<ServicesMobile> {
           );
         },
         options: CarouselOptions(
-          viewportFraction: 0.6,
+          viewportFraction: 0.65,
           height: widget.h,
           autoPlay: true,
           autoPlayInterval: const Duration(seconds: 3),

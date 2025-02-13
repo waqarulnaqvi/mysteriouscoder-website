@@ -40,9 +40,9 @@ List<ProjectInfo> projectInfoList = [
         image: StaticImage.brainBoosterIcon,
       ),
       platformUsed: [
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
       linearGradient: linearGrad(0)),
@@ -57,9 +57,9 @@ List<ProjectInfo> projectInfoList = [
         image: StaticImage.classicWingedBirdIcon,
       ),
       platformUsed: [
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
       linearGradient: linearGrad(1)),
@@ -74,9 +74,9 @@ List<ProjectInfo> projectInfoList = [
         image: StaticImage.hindiShayariHubIcon,
       ),
       platformUsed: [
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
       linearGradient: linearGrad(2)),
@@ -91,9 +91,9 @@ List<ProjectInfo> projectInfoList = [
         image: StaticImage.mazedarHindiJokesIcon,
       ),
       platformUsed: [
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
       linearGradient: linearGrad(3)),
@@ -108,9 +108,9 @@ List<ProjectInfo> projectInfoList = [
         image: StaticImage.noteMasterIcon,
       ),
       platformUsed: [
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
       linearGradient: linearGrad(4)),
@@ -120,6 +120,7 @@ class PrivacyPolicyData {
   final String? title;
   final String? description;
   final String image;
+
   PrivacyPolicyData({this.title, this.description, required this.image});
 }
 
