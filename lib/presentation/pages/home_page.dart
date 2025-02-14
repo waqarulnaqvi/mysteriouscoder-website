@@ -24,7 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final List<GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
+  final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,8 @@ class _HomePageState extends State<HomePage> {
             desktop: AppBarWeb(
               w: w,
               onNavItemTap: (int navIndex) {
-                scrollToSection(navIndex);
+                navIndex==0?scrollToSection(navIndex):
+                scrollToSection(navIndex+1);
               },
             ),
           ),
@@ -84,33 +85,43 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   ///Main Part
-                  MainPart(key: navbarKeys.first, w: w, h: h,
-                    onTap: () {
-                      scrollToSection(3);
+                  MainPart(
+                    key: navbarKeys.first,
+                    w: w,
+                    h: h,
+                    onTap: ()
+                    {
+                      scrollToSection(4);
                     },
                   ),
                   CurvedDivider(),
 
                   ///About Us Page
-                  AboutUs(w: w),
+                  AboutUs(
+                    w: w,
+                    key: navbarKeys[1],
+                  ),
                   CurvedDivider(),
 
                   ///Services
-                  Services(key: navbarKeys[1], w: w, h: h),
+                  Services(key: navbarKeys[2], w: w, h: h),
                   CurvedDivider(),
 
                   ///Projects
-                  Projects(key: navbarKeys[2], w: w, h: h),
+                  Projects(key: navbarKeys[3], w: w, h: h),
                   CurvedDivider(),
 
                   ///Contact Us
-                  ContactUs(key: navbarKeys[3], w: w, h: h),
+                  ContactUs(key: navbarKeys[4], w: w, h: h),
 
                   ///Footer
                   Footer(
                     w: w,
                     h: h,
-                    onTap: () {
+                    serviceTap: () {
+                      scrollToSection(2);
+                    },
+                    aboutUsTap: () {
                       scrollToSection(1);
                     },
                   ),

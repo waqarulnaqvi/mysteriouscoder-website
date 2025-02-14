@@ -76,7 +76,10 @@ class PrivacyPolicy extends StatelessWidget {
           ),
         ),
         spacerH(10),
-        CommonMainHeading(title:title??"Mysterious Coder" ,fontSize: 35,),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: CommonMainHeading(title:title??"Mysterious Coder" ,fontSize: w<Constants.maxPhoneWidth?25 :(w<Constants.maxTabletWidth?30:35),),
+        ),
         spacerH(),
        CommonDescriptionPrivacyPolicy(title: description?? Constants.mysteriousCoderPrivacyPolicy, w: w),
         spacerH(40),

@@ -53,7 +53,7 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
             decoration: BoxDecoration(
               border: Border.all(
                   color: Theme.of(context).colorScheme.onSurface, width: 1.5),
-              borderRadius: BorderRadius.circular(3),
+              borderRadius: BorderRadius.circular(5),
             ),
           ),
         AnimatedContainer(
@@ -61,7 +61,7 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
           height: widget.h,
           width: _animatedWidth,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(3),
+            borderRadius: BorderRadius.circular(5),
             gradient: themeGradient,
           ),
         ),

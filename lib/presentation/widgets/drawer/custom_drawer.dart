@@ -87,7 +87,8 @@ class CustomDrawer extends StatelessWidget {
                       icon: navItems[index].icon,
                       title: navItems[index].title,
                       onTap: () {
-                        onNavItemTap(index);
+                        index==0?onNavItemTap(index):
+                        onNavItemTap(index+1);
                       });
                 },
                 itemCount: navItems.length,

@@ -5,8 +5,9 @@ import '../../../pages/privacy_policy.dart';
 class Footer extends StatelessWidget {
   final double w;
   final double h;
-  final VoidCallback onTap;
-  const Footer({super.key, required this.w, required this.h, required this.onTap});
+  final VoidCallback serviceTap;
+  final VoidCallback aboutUsTap;
+  const Footer({super.key, required this.w, required this.h, required this.serviceTap, required this.aboutUsTap});
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,22 @@ class Footer extends StatelessWidget {
                 child: Text("Privacy Policy",
                   style: footerTextStyle,),
               ),
+
               InkWell(
-                onTap: onTap,
+                onTap: aboutUsTap,
+                child: Text("About Us",
+                  style: footerTextStyle,
+                ),
+              ),
+
+              InkWell(
+                onTap: serviceTap,
                 child: Text("Service",
                   style: footerTextStyle,
                 ),
               ),
+
+
 
               Text(
                 "© 2025 | Mysterious Coder",

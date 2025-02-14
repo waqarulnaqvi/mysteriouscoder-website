@@ -24,11 +24,13 @@ class _ProjectsMobileState extends State<ProjectsMobile> {
     return CarouselSlider.builder(
       itemCount: projectInfoList.length ,
       itemBuilder: (BuildContext context, int itemIndex,int i){
-         return ProjectCard(projectInfo: projectInfoList[itemIndex],
-         isSelected: itemIndex==_currentIndex,);
+         return IntrinsicHeight(
+           child: ProjectCard(projectInfo: projectInfoList[itemIndex],
+           isSelected: itemIndex==_currentIndex,),
+         );
       },
       options: CarouselOptions(
-        viewportFraction: 0.65,
+        viewportFraction: 0.8,
         height: widget.h,
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),

@@ -28,7 +28,7 @@ class _ProjectCardState extends State<ProjectCard> {
     ProjectInfo pi = widget.projectInfo;
 
     return SizedBox(
-      width: ResponsiveLayout.isTablet(context) ? 500 : 350,
+      width: ResponsiveLayout.isTablet(context) ? 500 : 400,
       // height: 1000,
       child: Stack(
         alignment: Alignment.topCenter,
@@ -81,15 +81,14 @@ class _ProjectCardState extends State<ProjectCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         spacerH(60),
-
                         Center(
                           child: Text(pi.name,
                               textAlign: TextAlign.center,
-                              style: commonTextStyle(w, isHover,fontFamily: 'Montserrat',fontWeight: FontWeight.w700)),
+                              style: commonTextStyle(w, isHover,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w700)),
                         ),
-
                         spacerH(),
-
                         Container(
                           width: w,
                           margin: const EdgeInsets.only(left: 10, right: 10),
@@ -107,7 +106,6 @@ class _ProjectCardState extends State<ProjectCard> {
                           ),
                         ),
                         spacerH(),
-
                         Text(
                           pi.description,
                           textAlign: TextAlign.center,
@@ -147,7 +145,6 @@ class _ProjectCardState extends State<ProjectCard> {
                           ),
                         ),
                         spacerH(),
-
                         Text(
                           "Platform Used:",
                           textAlign: TextAlign.start,
@@ -196,61 +193,43 @@ class _ProjectCardState extends State<ProjectCard> {
                             // color: whiteColor.withValues(alpha: 0.8)
                           ),
                         ),
-
                         spacerH(),
-
                         Wrap(
                             spacing: 10.0,
                             runSpacing: 10.0,
                             children: pi.availableOn
                                 .map(
                                   (e) => InkWell(
-                                    onTap: (){
+                                    onTap: () {
                                       openUrl(e.url);
                                     },
                                     child: Chip(
-                                      backgroundColor: Theme.of(context).colorScheme.primary,
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.primary,
                                       label: Text(
                                         e.name,
                                         style: reusableTextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13),
+                                            color: Colors.white, fontSize: 13),
                                       ),
                                       avatar: e.type == IconType.iconData
-                                          ? Icon(e.icon,color: Colors.white)
-                                          : Image(image: e.icon,color: Colors.white,),
+                                          ? Icon(e.icon, color: Colors.white)
+                                          : Image(
+                                              image: e.icon,
+                                              color: Colors.white,
+                                            ),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(3),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
                                           side: BorderSide(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSurface,
-                                        width: 1.0,
-                                      )),
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSurface,
+                                            width: 1.0,
+                                          )),
                                     ),
                                   ),
                                 )
                                 .toList())
-
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   crossAxisAlignment: CrossAxisAlignment.center,
-                        //   children: [
-                        //     Text("Available on: ",
-                        //         textAlign: TextAlign.center,
-                        //         style: commonTextStyle(w, isHover)),
-                        //     InkWell(
-                        //       onTap: () {
-                        //         openUrl(pi.playStoreLink!);
-                        //       },
-                        //       child: Icon(
-                        //         FontAwesomeIcons.googlePlay,
-                        //         color: Theme.of(context).colorScheme.onSurface,
-                        //         size: 15,
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
                       ],
                     ),
                   ),
@@ -264,12 +243,10 @@ class _ProjectCardState extends State<ProjectCard> {
             child: Container(
               width: 90,
               height: 90,
+              padding: const EdgeInsets.all(2),
               decoration: BoxDecoration(
+                gradient: pi.linearGradient,
                 shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.black, // Border color
-                  width: 2.0, // Border width
-                ),
               ),
               child: CircleAvatar(
                 radius: 40,
@@ -283,14 +260,15 @@ class _ProjectCardState extends State<ProjectCard> {
   }
 
   TextStyle commonTextStyle(double w, bool isHover,
-      {double? fontSize, FontWeight? fontWeight,String fontFamily='Poppins'}) {
+      {double? fontSize,
+      FontWeight? fontWeight,
+      String fontFamily = 'Poppins'}) {
     return TextStyle(
         color: (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
             ? Colors.white
             : Theme.of(context).colorScheme.onSurface,
         fontSize: fontSize,
         fontWeight: fontWeight,
-      fontFamily: 'Poppins'
-    );
+        fontFamily: 'Poppins');
   }
 }
