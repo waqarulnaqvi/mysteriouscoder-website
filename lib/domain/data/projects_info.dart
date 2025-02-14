@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
 import 'package:mysteriouscoder/shared/constants.dart';
 
@@ -7,8 +8,7 @@ class ProjectInfo {
   final String description;
   final String icon;
   final String mainImage;
-  final String? playStoreLink;
-  final String? appStoreLink;
+  final List<AvailableOn> availableOn;
   final String? githubLink;
   final LinearGradient linearGradient;
   final List<PlatformUsed> platformUsed;
@@ -21,8 +21,7 @@ class ProjectInfo {
     required this.icon,
     required this.mainImage,
     required this.linearGradient,
-    this.appStoreLink,
-    this.playStoreLink,
+    required this.availableOn,
     this.githubLink,
     this.privacyPolicyData,
   });
@@ -34,7 +33,6 @@ List<ProjectInfo> projectInfoList = [
       description: Constants.brainBoosterDescription,
       icon: StaticImage.brainBoosterIcon,
       mainImage: StaticImage.brainBoosterMainImage,
-      playStoreLink: Constants.brainBoosterPlayStoreLink,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.brainBooster,
         image: StaticImage.brainBoosterIcon,
@@ -45,13 +43,17 @@ List<ProjectInfo> projectInfoList = [
         PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
-      linearGradient: linearGrad(0)),
+      linearGradient: linearGrad(0), availableOn: [
+         AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.googlePlay, type: IconType.iconData, name: 'Google Play'),
+        AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
+       // AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
+]
+),
   ProjectInfo(
       name: Constants.classicWingedBird,
       description: Constants.classicWingedBirdDescription,
       icon: StaticImage.classicWingedBirdIcon,
       mainImage: StaticImage.classicWingedBirdMainImage,
-      playStoreLink: Constants.classicWingedBirdPlayStoreLink,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.classicWingedBird,
         image: StaticImage.classicWingedBirdIcon,
@@ -62,13 +64,16 @@ List<ProjectInfo> projectInfoList = [
         PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
-      linearGradient: linearGrad(1)),
+      linearGradient: linearGrad(1), availableOn:[
+     AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.googlePlay,type: IconType.iconData, name: 'Google Play'),
+       AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
+     // AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
+      ]),
   ProjectInfo(
       name: Constants.hindiShayariHub,
       description: Constants.hindiShayariHubDescription,
       icon: StaticImage.hindiShayariHubIcon,
       mainImage: StaticImage.hindiShayariHubMainImage,
-      playStoreLink: Constants.hindiShayariHubPlayStoreLink,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.hindiShayariHub,
         image: StaticImage.hindiShayariHubIcon,
@@ -79,13 +84,16 @@ List<ProjectInfo> projectInfoList = [
         PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
-      linearGradient: linearGrad(2)),
+      linearGradient: linearGrad(2), availableOn: [
+      AvailableOn(url: Constants.hindiShayariHubPlayStoreLink, icon: FontAwesomeIcons.googlePlay,type: IconType.iconData, name: 'Google Play'),
+       AvailableOn(url: Constants.hindiShayariHubPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
+        // AvailableOn(url: Constants.hindiShayariHubPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
+ ] ),
   ProjectInfo(
       name: Constants.mazedarHindiJokes,
       description: Constants.mazedarHindiJokesDescription,
       icon: StaticImage.mazedarHindiJokesIcon,
       mainImage: StaticImage.mazedarHindiJokesMainImage,
-      playStoreLink: Constants.mazedarHindiJokesPlayStoreLink,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.mazedarHindiJokes,
         image: StaticImage.mazedarHindiJokesIcon,
@@ -96,13 +104,16 @@ List<ProjectInfo> projectInfoList = [
         PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
-      linearGradient: linearGrad(3)),
+      linearGradient: linearGrad(3), availableOn: [
+       AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.googlePlay,type: IconType.iconData, name: 'Google Play'),
+      AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
+     // AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.store, type: IconType.iconData,name :'OPPO AppStore'),
+      ]),
   ProjectInfo(
       name: Constants.noteMaster,
       description: Constants.noteMasterDescription,
       icon: StaticImage.noteMasterIcon,
       mainImage: StaticImage.noteMasterMainImage,
-      playStoreLink: Constants.noteMasterPlayStoreLink,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.noteMaster,
         image: StaticImage.noteMasterIcon,
@@ -113,8 +124,30 @@ List<ProjectInfo> projectInfoList = [
         PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
       ],
-      linearGradient: linearGrad(4)),
+      linearGradient: linearGrad(4), availableOn:[
+      AvailableOn(url: Constants.noteMasterPlayStoreLink, icon: FontAwesomeIcons.googlePlay, type:IconType.iconData, name: 'Google Play'),
+      AvailableOn(url: Constants.noteMasterPlayStoreLink, icon: FontAwesomeIcons.amazon ,type :IconType.iconData,name: 'Amazon AppStore'),
+       // AvailableOn(url: Constants.noteMasterPlayStoreLink, icon: FontAwesomeIcons.store ,type :IconType.iconData,name :'OPPO AppStore'),
+      ])
 ];
+
+enum IconType { iconData, custom }
+
+
+class AvailableOn {
+  final String url;
+  final String name;
+  final IconType type;
+  final dynamic icon;
+
+  AvailableOn({
+    required this.name,
+    required this.type,
+    required this.url,
+    required this.icon,
+  });
+}
+
 
 class PrivacyPolicyData {
   final String? title;
@@ -137,7 +170,7 @@ class PlatformUsed {
 LinearGradient linearGrad(int i) => LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: color[i],
+      colors: color[i.clamp(0, color.length - 1)],
     );
 
 final List<List<Color>> color = [

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mysteriouscoder/domain/data/projects_info.dart';
 import 'package:mysteriouscoder/presentation/pages/privacy_policy.dart';
 import 'package:mysteriouscoder/shared/styles.dart';
@@ -86,29 +85,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         Center(
                           child: Text(pi.name,
                               textAlign: TextAlign.center,
-                              style: commonTextStyle(w, isHover)),
-                        ),
-
-                        spacerH(),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text("Available on: ",
-                                textAlign: TextAlign.center,
-                                style: commonTextStyle(w, isHover)),
-                            InkWell(
-                              onTap: () {
-                                openUrl(pi.playStoreLink!);
-                              },
-                              child: Icon(
-                                FontAwesomeIcons.googlePlay,
-                                color: Theme.of(context).colorScheme.onSurface,
-                                size: 15,
-                              ),
-                            ),
-                          ],
+                              style: commonTextStyle(w, isHover,fontFamily: 'Montserrat',fontWeight: FontWeight.w700)),
                         ),
 
                         spacerH(),
@@ -181,10 +158,6 @@ class _ProjectCardState extends State<ProjectCard> {
                             // color: whiteColor.withValues(alpha: 0.8)
                           ),
                         ),
-
-                        // Wrap(
-                        //   children: pi.platformUsed.
-                        // ),
                         spacerH(),
                         Wrap(
                             spacing: 10.0,
@@ -213,6 +186,71 @@ class _ProjectCardState extends State<ProjectCard> {
                                     ))
                                 .toList()),
                         spacerH(),
+                        Text(
+                          "Available on:",
+                          textAlign: TextAlign.start,
+                          style: commonTextStyle(
+                            w, isHover,
+                            fontWeight: FontWeight.w200,
+                            fontSize: 13,
+                            // color: whiteColor.withValues(alpha: 0.8)
+                          ),
+                        ),
+
+                        spacerH(),
+
+                        Wrap(
+                            spacing: 10.0,
+                            runSpacing: 10.0,
+                            children: pi.availableOn
+                                .map(
+                                  (e) => InkWell(
+                                    onTap: (){
+                                      openUrl(e.url);
+                                    },
+                                    child: Chip(
+                                      backgroundColor: Theme.of(context).colorScheme.primary,
+                                      label: Text(
+                                        e.name,
+                                        style: reusableTextStyle(
+                                            color: Colors.white,
+                                            fontSize: 13),
+                                      ),
+                                      avatar: e.type == IconType.iconData
+                                          ? Icon(e.icon,color: Colors.white)
+                                          : Image(image: e.icon,color: Colors.white,),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(3),
+                                          side: BorderSide(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurface,
+                                        width: 1.0,
+                                      )),
+                                    ),
+                                  ),
+                                )
+                                .toList())
+
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   crossAxisAlignment: CrossAxisAlignment.center,
+                        //   children: [
+                        //     Text("Available on: ",
+                        //         textAlign: TextAlign.center,
+                        //         style: commonTextStyle(w, isHover)),
+                        //     InkWell(
+                        //       onTap: () {
+                        //         openUrl(pi.playStoreLink!);
+                        //       },
+                        //       child: Icon(
+                        //         FontAwesomeIcons.googlePlay,
+                        //         color: Theme.of(context).colorScheme.onSurface,
+                        //         size: 15,
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                       ],
                     ),
                   ),
@@ -245,12 +283,14 @@ class _ProjectCardState extends State<ProjectCard> {
   }
 
   TextStyle commonTextStyle(double w, bool isHover,
-      {double? fontSize, FontWeight? fontWeight}) {
+      {double? fontSize, FontWeight? fontWeight,String fontFamily='Poppins'}) {
     return TextStyle(
         color: (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
-            ? Theme.of(context).colorScheme.surface
+            ? Colors.white
             : Theme.of(context).colorScheme.onSurface,
         fontSize: fontSize,
-        fontWeight: fontWeight);
+        fontWeight: fontWeight,
+      fontFamily: 'Poppins'
+    );
   }
 }

@@ -24,8 +24,8 @@ class Projects extends StatelessWidget {
         CommonSubHeading(title: Constants.services, w: w),
         spacerH(40),
         ResponsiveLayout(
-          mobile: ProjectsMobile(h: 390),
-          tablet: ProjectsMobile(),
+          mobile: ProjectsMobile(h: h*1.2),
+          tablet: ProjectsMobile(h:h*1.15),
           desktop: ProjectsWeb(h: h,w: w,)
         ),
         spacerH(40),

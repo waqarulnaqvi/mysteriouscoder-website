@@ -5,7 +5,7 @@ import 'package:mysteriouscoder/presentation/widgets/layout/common/project_card.
 
 class ProjectsMobile extends StatefulWidget {
   final double h;
-  const ProjectsMobile({super.key, this.h=350});
+  const ProjectsMobile({super.key,required this.h});
 
   @override
   State<ProjectsMobile> createState() => _ProjectsMobileState();
@@ -29,7 +29,7 @@ class _ProjectsMobileState extends State<ProjectsMobile> {
       },
       options: CarouselOptions(
         viewportFraction: 0.65,
-        height: 700,
+        height: widget.h,
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
         enlargeCenterPage: true,
