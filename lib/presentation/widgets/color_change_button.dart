@@ -9,7 +9,7 @@ class ColorChangeButton extends StatefulWidget {
   final double h;
   final double fontSize;
 
-  const ColorChangeButton({super.key, required this.text, required this.onTap,required this.w,required this.h, required this.fontSize});
+  const ColorChangeButton({super.key, this.text ="Get in Touch", required this.onTap, this.w=200,this.h=50, this.fontSize=16});
 
   @override
   State<ColorChangeButton> createState() => _ColorChangeButtonState();

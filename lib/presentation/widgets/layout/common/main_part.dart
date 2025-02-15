@@ -59,7 +59,7 @@ class MainPart extends StatelessWidget {
           spacerH(),
           // w < Constants.maxPhoneWidth?
           // commonButton(context):
-          commonButton(context, w: 200, h: 50, fontSize: 16),
+          ColorChangeButton( onTap: onTap),
           spacerH(40),
         ],
       ),
@@ -93,7 +93,7 @@ class MainPart extends StatelessWidget {
                 children: [
                   CommonSocialMediaPlatforms(),
                   spacerH(),
-                  commonButton(context, w: 220, h: 50, fontSize: 16),
+                  ColorChangeButton(w: 220, h: 50, fontSize: 16, onTap: onTap,),
                 ],
               ),
             ),
@@ -135,18 +135,10 @@ class MainPart extends StatelessWidget {
       ],
     );
   }
-
-  Widget commonButton(BuildContext context,
-      {double? w, double? h, double? fontSize}) {
-    return ColorChangeButton(
-      text: "Get in Touch",
-      onTap: onTap,
-      w: w ?? 160,
-      h: h ?? 45,
-      fontSize: fontSize ?? 13,
-    );
-  }
 }
+
+
+
 
 class CommonDescription extends StatefulWidget {
   final bool isMobile;

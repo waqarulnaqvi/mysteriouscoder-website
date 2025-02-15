@@ -12,6 +12,7 @@ class Constants{
 
   static const String aboutUs = "Welcome to Mysterious Coder, where innovation meets creativity! We are passionate developers dedicated to crafting exceptional apps, games, and digital experiences. With expertise in Android, Flutter, and cutting-edge technologies, we strive to push boundaries and deliver seamless solutions. Whether it's mobile apps, game development, or software innovation, Mysterious Coder is here to turn ideas into reality.";
 
+  static const String contactUsDescription="Have questions, feedback, or business inquiries? We’d love to hear from you! Reach out to us using the contact form below, or connect with us via email or social media. Our team is here to assist you and will respond as soon as possible.";
 
   static const String description =
       "🚀 Mobile & Web App Development – High-quality solutions for Android, iOS, and web.\n\n⚡ Fast & Scalable Apps – Optimized performance with clean, maintainable code.\n\n🛠 Cross-Platform Efficiency – One codebase for multiple platforms.\n\n💼 Freelancing Solutions – Tailored services to meet diverse business needs.";
