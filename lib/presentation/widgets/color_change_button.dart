@@ -9,7 +9,13 @@ class ColorChangeButton extends StatefulWidget {
   final double h;
   final double fontSize;
 
-  const ColorChangeButton({super.key, this.text ="Get in Touch", required this.onTap, this.w=200,this.h=50, this.fontSize=16});
+  const ColorChangeButton(
+      {super.key,
+      this.text = "Get in Touch",
+      required this.onTap,
+      this.w = 200,
+      this.h = 50,
+      this.fontSize = 16});
 
   @override
   State<ColorChangeButton> createState() => _ColorChangeButtonState();
@@ -26,14 +32,15 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
     super.initState();
   }
 
-  void startTimer(){
-      time?.cancel();
+  void startTimer() {
+    time?.cancel();
     time = Timer.periodic(Duration(milliseconds: 500), (timer) {
-      _animatedWidth = 0.0;
+      if(isHover==false) {
+        _animatedWidth = 0.0;
+      }
       isPressed = false;
       setState(() {});
     });
-
   }
 
   @override
@@ -65,37 +72,49 @@ class _ColorChangeButtonState extends State<ColorChangeButton> {
             gradient: themeGradient,
           ),
         ),
-        InkWell(
-          onHover: (hovering) {
-               isHover = hovering;
-            _animatedWidth = hovering ? widget.w : 0.0;
-            setState(() {});
-          },
-          onTap: () {
-            setState(() {
-              isPressed = true;
-              _animatedWidth = widget.w;
-            });
-            widget.onTap();
-            startTimer();
-          },
-          child: SizedBox(
-            height: widget.h,
-            width: widget.w,
-            child: Center(
-              child: Text(
-                widget.text.toUpperCase(),
-                style: TextStyle(
-                  color: (isHover||isPressed)
-                      ? Theme.of(context).colorScheme.surface
-                      : Theme.of(context).colorScheme.onSurface,
-                  fontSize: widget.fontSize,
-                  fontFamily: 'Poppins',
+        // MouseRegion(
+        //   onEnter: (_) => setState(() {
+        //     isHover = true;
+        //     _animatedWidth = widget.w;
+        //   }),
+        //   onExit: (_) => setState(() {
+        //     isHover = false;
+        //     if (!isPressed) _animatedWidth = 0.0;
+        //   }),
+        //   child:
+          InkWell(
+            onHover: (hovering) {
+              setState(() {
+                isHover = hovering;
+                _animatedWidth = hovering || isPressed ? widget.w : 0.0;
+              });
+            },
+            onTap: () {
+              setState(() {
+                isPressed = true;
+                _animatedWidth = widget.w;
+              });
+              widget.onTap();
+              startTimer();
+            },
+            child: SizedBox(
+              height: widget.h,
+              width: widget.w,
+              child: Center(
+                child: Text(
+                  widget.text.toUpperCase(),
+                  style: TextStyle(
+                    color: (isHover || isPressed)
+                        ? Theme.of(context).colorScheme.surface
+                        : Theme.of(context).colorScheme.onSurface,
+                    fontSize: widget.fontSize,
+                    fontFamily: 'Poppins',
+                  ),
                 ),
               ),
             ),
           ),
-        )
+        // )
       ],
     );
   }

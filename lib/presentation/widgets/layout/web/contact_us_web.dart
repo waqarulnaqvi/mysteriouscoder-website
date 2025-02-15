@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../../shared/constants.dart';
 import '../common/contact_us.dart';
@@ -40,6 +41,7 @@ class ContactUsWeb extends StatelessWidget {
                   child: ReusableTextField(
                     controller: firstNameController,
                     hintText: "First Name",
+                    prefixIcon: Icons.person,
                   ),
                 ),
                 spacerW(15),
@@ -47,6 +49,8 @@ class ContactUsWeb extends StatelessWidget {
                   child: ReusableTextField(
                     controller: lastNameController,
                     hintText: "Last Name",
+                    isRequired: false,
+                    prefixIcon: Icons.person,
                   ),
                 ),
               ],
@@ -59,20 +63,29 @@ class ContactUsWeb extends StatelessWidget {
                 Expanded(
                   child: ReusableTextField(
                     controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
                     hintText: "Email",
+                    isRequired: false,
+                    prefixIcon: Icons.email,
                   ),
                 ),
                 spacerW(15),
                 Expanded(
-                  child: ReusableTextField(
+                  child: ReusablePhoneTextField(
                     controller: phoneNumberController,
                     hintText: "Phone Number",
+                    keyboardType: TextInputType.phone,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    disableLengthCheck: true,
                     isRequired: false,
                   ),
                 ),
               ],
             ),
             spacerH(15),
+
             ReusableTextField(
               controller: messageController,
               hintText: "Message",

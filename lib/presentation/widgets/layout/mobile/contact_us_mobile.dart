@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../common/contact_us.dart';
 import '../common/global_widgets.dart';
@@ -31,21 +32,31 @@ class ContactUsMobile extends StatelessWidget {
             ReusableTextField(
               controller: firstNameController,
               hintText: "First Name",
+              prefixIcon: Icons.person,
             ),
             spacerH(15),
             ReusableTextField(
               controller: lastNameController,
               hintText: "Last Name",
+              isRequired: false,
+              prefixIcon: Icons.person,
             ),
             spacerH(15),
             ReusableTextField(
               controller: emailController,
               hintText: "Email",
+              keyboardType: TextInputType.emailAddress,
+              isRequired: false,
+              prefixIcon: Icons.email,
             ),
             spacerH(15),
-            ReusableTextField(
+        ReusablePhoneTextField(
               controller: phoneNumberController,
               hintText: "Phone Number",
+              keyboardType: TextInputType.phone,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
               isRequired: false,
             ),
             spacerH(15),
