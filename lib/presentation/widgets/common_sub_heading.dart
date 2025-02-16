@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
-import '../../../../shared/constants.dart';
-import '../../../../shared/provider/theme_provider.dart';
+import '../../core/constants.dart';
 
 class CommonSubHeading extends StatefulWidget {
   final double w;

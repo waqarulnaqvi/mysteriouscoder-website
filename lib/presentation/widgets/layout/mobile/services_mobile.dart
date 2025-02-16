@@ -1,11 +1,15 @@
+
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import '../../../../domain/data/services_utils.dart';
-import '../common/service_card.dart';
+import 'package:flutter/cupertino.dart';
+
+import '../../../models/services_utils.dart';
+import '../../../../core/constants.dart';
+import '../../service_card.dart';
 
 class ServicesMobile extends StatefulWidget {
+  final double w;
   final double h;
-  const ServicesMobile({super.key, this.h =350});
+  const ServicesMobile({super.key, this.h =350, required this.w});
 
   @override
   State<ServicesMobile> createState() => _ServicesMobileState();
@@ -31,7 +35,7 @@ class _ServicesMobileState extends State<ServicesMobile> {
           );
         },
         options: CarouselOptions(
-          viewportFraction: 0.65,
+          viewportFraction: widget.w < Constants.maxPhoneWidth ? 0.9 : 0.6,
           height: widget.h,
           autoPlay: true,
           autoPlayInterval: const Duration(seconds: 3),

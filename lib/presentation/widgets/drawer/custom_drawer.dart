@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/domain/data/nav_items.dart';
+import 'package:mysteriouscoder/presentation/models/nav_items.dart';
+import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/drawer_tile.dart';
-import 'package:mysteriouscoder/shared/provider/theme_provider.dart';
-import 'package:mysteriouscoder/shared/styles.dart';
+import 'package:mysteriouscoder/core/styles.dart';
 import 'package:provider/provider.dart';
 
-import '../../../shared/constants.dart';
+import '../../../core/constants.dart';
 import '../static_image.dart';
 
 class CustomDrawer extends StatelessWidget {

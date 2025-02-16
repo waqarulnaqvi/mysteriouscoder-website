@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
-import 'package:mysteriouscoder/presentation/widgets/clipper/curved_divider_clipper.dart';
-import 'package:mysteriouscoder/presentation/widgets/drawer/custom_drawer.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/about_us.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/contact_us.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/projects.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/services.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/mobile/app_bar_mobile.dart';
-import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
-import 'package:mysteriouscoder/shared/constants.dart';
+import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
-import '../../shared/provider/theme_provider.dart';
+import '../../core/constants.dart';
+import '../widgets/clipper/curved_divider_clipper.dart';
+import '../widgets/drawer/custom_drawer.dart';
+import '../widgets/layout/common/about_us.dart';
+import '../widgets/layout/common/contact_us.dart';
 import '../widgets/layout/common/footer.dart';
 import '../widgets/layout/common/main_part.dart';
+import '../widgets/layout/common/projects.dart';
+import '../widgets/layout/common/services.dart';
+import '../widgets/layout/mobile/app_bar_mobile.dart';
 import '../widgets/layout/web/app_bar_web.dart';
+import '../widgets/static_image.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -52,8 +52,9 @@ class _HomePageState extends State<HomePage> {
             desktop: AppBarWeb(
               w: w,
               onNavItemTap: (int navIndex) {
-                navIndex==0?scrollToSection(navIndex):
-                scrollToSection(navIndex+1);
+                navIndex == 0
+                    ? scrollToSection(navIndex)
+                    : scrollToSection(navIndex + 1);
               },
             ),
           ),
@@ -81,52 +82,51 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // Foreground Content (Column)
-            SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  ///Main Part
-                  MainPart(
-                    key: navbarKeys.first,
-                    w: w,
-                    h: h,
-                    onTap: ()
-                    {
-                      scrollToSection(4);
-                    },
-                  ),
-                  CurvedDivider(),
+            ListView(
+              padding: EdgeInsets.zero, // Avoid extra spacing
+              physics: BouncingScrollPhysics(), // Smooth scrolling
+              children: [
+                ///Main Part
+                MainPart(
+                  key: navbarKeys.first,
+                  w: w,
+                  h: h,
+                  onTap: () {
+                    scrollToSection(4);
+                  },
+                ),
+                CurvedDivider(),
 
-                  ///About Us Page
-                  AboutUs(
-                    w: w,
-                    key: navbarKeys[1],
-                  ),
-                  CurvedDivider(),
+                ///About Us Page
+                AboutUs(
+                  w: w,
+                  key: navbarKeys[1],
+                ),
+                CurvedDivider(),
 
-                  ///Services
-                  Services(key: navbarKeys[2], w: w, h: h),
-                  CurvedDivider(),
+                ///Services
+                Services(key: navbarKeys[2], w: w, h: h),
+                CurvedDivider(),
 
-                  ///Projects
-                  Projects(key: navbarKeys[3], w: w, h: h),
-                  CurvedDivider(),
+                ///Projects
+                Projects(key: navbarKeys[3], w: w, h: h),
+                CurvedDivider(),
 
-                  ///Contact Us
-                  ContactUs(key: navbarKeys[4], w: w, h: h),
+                ///Contact Us
+                ContactUs(key: navbarKeys[4], w: w, h: h),
 
-                  ///Footer
-                  Footer(
-                    w: w,
-                    h: h,
-                    serviceTap: () {
-                      scrollToSection(2);
-                    },
-                    aboutUsTap: () {
-                      scrollToSection(1);
-                    },
-                  ),
-                ],
-              ),
+                ///Footer
+                Footer(
+                  w: w,
+                  h: h,
+                  serviceTap: () {
+                    scrollToSection(2);
+                  },
+                  aboutUsTap: () {
+                    scrollToSection(1);
+                  },
+                ),
+              ],
             ),
           ],
         ));

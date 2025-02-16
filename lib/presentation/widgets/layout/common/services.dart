@@ -1,11 +1,14 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/global_widgets.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/web/services_web.dart';
-import '../../../../shared/constants.dart';
+
+import '../../../../core/constants.dart';
+import '../../../pages/responsive_layout.dart';
+import '../../common_main_heading.dart';
+import '../../common_sub_heading.dart';
+import '../../global_widgets.dart';
 import '../mobile/services_mobile.dart';
-import 'common_main_heading.dart';
-import 'common_sub_heading.dart';
+import '../web/services_web.dart';
 
 class Services extends StatelessWidget {
   final double w;
@@ -24,11 +27,19 @@ class Services extends StatelessWidget {
           spacerH(),
           CommonMainHeading(title: "Services"),
           spacerH(15),
-          CommonSubHeading(title: Constants.services, w: w,),
+          CommonSubHeading(
+            title: Constants.services,
+            w: w,
+          ),
           spacerH(40),
           ResponsiveLayout(
-              mobile: ServicesMobile(h: 390,),
-              tablet: ServicesMobile(),
+              mobile: ServicesMobile(
+                w: w,
+                h: 390,
+              ),
+              tablet: ServicesMobile(
+                w: w,
+              ),
               desktop: ServicesWeb(w: w, h: h)),
           spacerH(40),
         ],

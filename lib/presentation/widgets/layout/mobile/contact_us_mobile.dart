@@ -1,8 +1,10 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mysteriouscoder/presentation/widgets/reusable_text_field.dart';
 
-import '../common/contact_us.dart';
-import '../common/global_widgets.dart';
+import '../../global_widgets.dart';
 
 class ContactUsMobile extends StatelessWidget {
   final TextEditingController firstNameController;
@@ -50,7 +52,7 @@ class ContactUsMobile extends StatelessWidget {
               prefixIcon: Icons.email,
             ),
             spacerH(15),
-        ReusablePhoneTextField(
+            ReusablePhoneTextField(
               controller: phoneNumberController,
               hintText: "Phone Number",
               keyboardType: TextInputType.phone,
@@ -59,13 +61,13 @@ class ContactUsMobile extends StatelessWidget {
               ],
               isRequired: false,
             ),
-            spacerH(15),
+            spacerH(5),
             ReusableTextField(
               controller: messageController,
               hintText: "Message",
-              maxLines: 6,
+              maxLines: 8,
             ),
-            spacerH(15),
+            spacerH(10),
           ],
         ),
       ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/pages/home_page.dart';
-import 'package:mysteriouscoder/shared/constants.dart';
-import 'package:mysteriouscoder/shared/theme.dart';
-import 'package:mysteriouscoder/shared/util.dart';
+import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
+import 'package:mysteriouscoder/core/constants.dart';
+import 'package:mysteriouscoder/core/theme.dart';
+import 'package:mysteriouscoder/core/utils/util.dart';
 import 'package:provider/provider.dart';
-import 'shared/provider/theme_provider.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(

@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../domain/data/nav_items.dart';
-import '../../../../shared/constants.dart';
-import '../../../../shared/provider/theme_provider.dart';
-import '../../../../shared/styles.dart';
+
+import 'package:flutter/material.dart';
+import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
+import '../../../models/nav_items.dart';
+import '../../../../core/constants.dart';
+import '../../../../core/styles.dart';
 import '../../static_image.dart';
 import '../../theme_controller.dart';
 
@@ -63,7 +64,7 @@ class AppBarWeb extends StatelessWidget {
                           child: Container(
                               width: 100,
                               height: 40,
-                              margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                              margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
 
                               decoration: BoxDecoration(
                                 gradient: provider.hoveredItem==index? provider.themeMode==ThemeMode.light ? grayBlack:grayWhite :LinearGradient(colors: [Colors.transparent, Colors.transparent]),

@@ -1,6 +1,9 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/global_widgets.dart';
+
 import '../../../pages/privacy_policy.dart';
+import '../../global_widgets.dart';
 
 class Footer extends StatelessWidget {
   final double w;

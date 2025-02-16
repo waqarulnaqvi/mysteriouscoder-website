@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/common_main_heading.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/common_sub_heading.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/global_widgets.dart';
-import 'package:mysteriouscoder/shared/constants.dart';
+import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
-import '../../shared/provider/theme_provider.dart';
-import '../../shared/styles.dart';
+import '../../core/constants.dart';
+import '../../core/styles.dart';
+import '../widgets/common_main_heading.dart';
+import '../widgets/common_sub_heading.dart';
 import '../widgets/entrance_fader.dart';
+import '../widgets/global_widgets.dart';
 import '../widgets/static_image.dart';
 import '../widgets/theme_controller.dart';
 import '../widgets/zoom_animation.dart';
@@ -15,6 +15,7 @@ class PrivacyPolicy extends StatelessWidget {
   final String? icon;
   final String? title;
   final String? description;
+
   const PrivacyPolicy({super.key, this.title, this.description, this.icon});
 
   @override
@@ -28,67 +29,62 @@ class PrivacyPolicy extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.surface,
         title: Text('Privacy Policy',
-            style:
-            reusableTextStyle(color: Theme.of(context).colorScheme.surface)),
-        actions: [
-          ThemeController(),
-          spacerW()
-        ],
+            style: reusableTextStyle(
+                color: Theme.of(context).colorScheme.surface)),
+        actions: [ThemeController(), spacerW()],
       ),
-
-    body: Stack(
-    children: [
-    // Background with ColorFiltered
-    ColorFiltered(
-    colorFilter: provider.mode == ThemeMode.light
-    ? ColorFilter.mode(
-    Theme.of(context)
-        .colorScheme
-        .primary
-        .withValues(alpha: 0.2),
-    BlendMode.darken)
-        : ColorFilter.mode(Colors.transparent, BlendMode.dst),
-    child: Image.asset(
-    provider.mode == ThemeMode.dark
-    ? StaticImage.darkTheme
-        : StaticImage.lightTheme,
-    fit: BoxFit.cover,
-    width: w,
-    height: h,
-    ),
-    ),
-
-    // Foreground Content (Column)
-    SingleChildScrollView(
-    child: SizedBox(
-      width: w,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        spacerH(),
-       EntranceFader(
-          offset: Offset(0, 0),
-          delay: Duration(seconds: 1),
-          duration: Duration(milliseconds: 800),
-          child: ZoomAnimations(
-            icon: icon
+      body: Stack(children: [
+        // Background with ColorFiltered
+        ColorFiltered(
+          colorFilter: provider.mode == ThemeMode.light
+              ? ColorFilter.mode(
+                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
+                  BlendMode.darken)
+              : ColorFilter.mode(Colors.transparent, BlendMode.dst),
+          child: Image.asset(
+            provider.mode == ThemeMode.dark
+                ? StaticImage.darkTheme
+                : StaticImage.lightTheme,
+            fit: BoxFit.cover,
+            width: w,
+            height: h,
           ),
         ),
-        spacerH(10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: CommonMainHeading(title:title??"Mysterious Coder" ,fontSize: w<Constants.maxPhoneWidth?25 :(w<Constants.maxTabletWidth?30:35),),
-        ),
-        spacerH(),
-       CommonDescriptionPrivacyPolicy(title: description?? Constants.mysteriousCoderPrivacyPolicy, w: w),
-        spacerH(40),
 
-      ],
-      ),
-    ))
-    ]
-    ),
+        // Foreground Content (Column)
+        SingleChildScrollView(
+            child: SizedBox(
+          width: w,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              spacerH(),
+              EntranceFader(
+                offset: Offset(0, 0),
+                delay: Duration(seconds: 1),
+                duration: Duration(milliseconds: 800),
+                child: ZoomAnimations(icon: icon),
+              ),
+              spacerH(10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: CommonMainHeading(
+                  title: title ?? "Mysterious Coder",
+                  fontSize: w < Constants.maxPhoneWidth
+                      ? 25
+                      : (w < Constants.maxTabletWidth ? 30 : 35),
+                ),
+              ),
+              spacerH(),
+              CommonDescriptionPrivacyPolicy(
+                  title: description ?? Constants.mysteriousCoderPrivacyPolicy,
+                  w: w),
+              spacerH(40),
+            ],
+          ),
+        ))
+      ]),
     );
   }
 }

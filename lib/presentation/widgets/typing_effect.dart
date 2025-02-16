@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/shared/styles.dart';
+import 'package:mysteriouscoder/core/styles.dart';
 
 class TypingEffect extends StatefulWidget{
   final String text;

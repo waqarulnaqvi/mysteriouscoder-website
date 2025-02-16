@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../shared/styles.dart';
+import '../../core/styles.dart';
 
 class ColorChangeButton extends StatefulWidget {
   final String text;

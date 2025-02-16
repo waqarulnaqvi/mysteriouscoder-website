@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/project_card.dart';
 
-import '../../../../domain/data/projects_info.dart';
+
+import 'package:flutter/material.dart';
+
+import '../../../models/projects_info.dart';
+import '../../project_card.dart';
 
 class ProjectsWeb extends StatelessWidget {
   final double h;
@@ -10,11 +12,16 @@ class ProjectsWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-        spacing: w * 0.03,
-        runSpacing: h * 0.05,
-        alignment: WrapAlignment.start,
-        crossAxisAlignment: WrapCrossAlignment.start,
-        children: projectInfoList.asMap().entries.map((e) => ProjectCard(projectInfo: e.value,h: 350,)).toList());
+    return SizedBox(
+      width:w * 0.9,
+      child: Center(
+        child: Wrap(
+            spacing: w * 0.03,
+            runSpacing: h * 0.05,
+            alignment: WrapAlignment.start,
+            crossAxisAlignment: WrapCrossAlignment.start,
+            children: projectInfoList.asMap().entries.map((e) => ProjectCard(projectInfo: e.value,h: 350,)).toList()),
+      ),
+    );
   }
 }

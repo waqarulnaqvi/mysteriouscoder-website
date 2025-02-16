@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mysteriouscoder/domain/data/services_utils.dart';
-import 'package:mysteriouscoder/shared/constants.dart';
-import '../../../../shared/styles.dart';
-import '../../../pages/responsive_layout.dart';
+import 'package:mysteriouscoder/presentation/models/services_utils.dart';
+import 'package:mysteriouscoder/core/constants.dart';
+import '../../core/styles.dart';
+import '../pages/responsive_layout.dart';
 import 'global_widgets.dart';
 
 class ServiceCard extends StatefulWidget {
@@ -39,7 +39,7 @@ class _ServicesCardState extends State<ServiceCard> {
               }
             : null,
         child: Container(
-          width: ResponsiveLayout.isTablet(context) ? 500 : 350,
+          width: ResponsiveLayout.isTablet(context) ? 500 : 380,
           height: widget.h,
           // height: ResponsiveLayout.isMobile(context) ? 450 : 400,
           // height: AppDimensions.normalize(100),
@@ -82,23 +82,24 @@ class _ServicesCardState extends State<ServiceCard> {
                   ),
               ),
               spacerH(),
-              if (ResponsiveLayout.isDesktop(context))
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: widget.service.tool
-                        .map((e) => Row(
-                              children: [
-                                Text('🛠   ',
-                                    style: commonTextStyle(w, isHover)),
-                                Text(e, style: commonTextStyle(w, isHover)),
-                              ],
-                            ))
-                        .toList()),
-              if (ResponsiveLayout.isMobile(context) ||
-                  ResponsiveLayout.isTablet(context))
+              // if (ResponsiveLayout.isDesktop(context))
+              //   Column(
+              //       crossAxisAlignment: CrossAxisAlignment.start,
+              //       children: widget.service.tool
+              //           .map((e) => Row(
+              //                 children: [
+              //                   Text('🛠   ',
+              //                       style: commonTextStyle(w, isHover)),
+              //                   Text(e, style: commonTextStyle(w, isHover)),
+              //                 ],
+              //               ))
+              //           .toList()),
+              // if (ResponsiveLayout.isMobile(context) ||
+              //     ResponsiveLayout.isTablet(context))
                 Expanded(
                   child: ListView(
                       padding: EdgeInsets.zero,
+                      physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       children: widget.service.tool
                           .map((e) => Row(
@@ -118,7 +119,7 @@ class _ServicesCardState extends State<ServiceCard> {
       { double? fontSize, FontWeight? fontWeight}) {
     return TextStyle(
         color: (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
-            ?  Theme.of(context).colorScheme.surface
+            ?  Colors.white
             : Theme.of(context).colorScheme.onSurface,
         fontSize: fontSize,
         fontWeight: fontWeight);

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
-import 'package:mysteriouscoder/shared/constants.dart';
+import 'package:mysteriouscoder/core/constants.dart';
 
 class ProjectInfo {
   final String name;
@@ -40,15 +40,23 @@ List<ProjectInfo> projectInfoList = [
       platformUsed: [
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
       ],
-      linearGradient: linearGrad(0), availableOn: [
-         AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.googlePlay, type: IconType.iconData, name: 'Google Play'),
-        AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
-       // AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
-]
-),
+      linearGradient: linearGrad(0),
+      availableOn: [
+        AvailableOn(
+            url: Constants.brainBoosterPlayStoreLink,
+            icon: FontAwesomeIcons.googlePlay,
+            type: IconType.iconData,
+            name: 'Google Play'),
+        AvailableOn(
+            url: Constants.brainBoosterPlayStoreLink,
+            icon: FontAwesomeIcons.amazon,
+            type: IconType.iconData,
+            name: 'Amazon AppStore'),
+        // AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
+      ]),
   ProjectInfo(
       name: Constants.classicWingedBird,
       description: Constants.classicWingedBirdDescription,
@@ -61,13 +69,22 @@ List<ProjectInfo> projectInfoList = [
       platformUsed: [
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
       ],
-      linearGradient: linearGrad(1), availableOn:[
-     AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.googlePlay,type: IconType.iconData, name: 'Google Play'),
-       AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
-     // AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
+      linearGradient: linearGrad(1),
+      availableOn: [
+        AvailableOn(
+            url: Constants.classicWingedBirdPlayStoreLink,
+            icon: FontAwesomeIcons.googlePlay,
+            type: IconType.iconData,
+            name: 'Google Play'),
+        AvailableOn(
+            url: Constants.classicWingedBirdPlayStoreLink,
+            icon: FontAwesomeIcons.amazon,
+            type: IconType.iconData,
+            name: 'Amazon AppStore'),
+        // AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
       ]),
   ProjectInfo(
       name: Constants.hindiShayariHub,
@@ -81,14 +98,23 @@ List<ProjectInfo> projectInfoList = [
       platformUsed: [
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
       ],
-      linearGradient: linearGrad(2), availableOn: [
-      AvailableOn(url: Constants.hindiShayariHubPlayStoreLink, icon: FontAwesomeIcons.googlePlay,type: IconType.iconData, name: 'Google Play'),
-       AvailableOn(url: Constants.hindiShayariHubPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
+      linearGradient: linearGrad(2),
+      availableOn: [
+        AvailableOn(
+            url: Constants.hindiShayariHubPlayStoreLink,
+            icon: FontAwesomeIcons.googlePlay,
+            type: IconType.iconData,
+            name: 'Google Play'),
+        AvailableOn(
+            url: Constants.hindiShayariHubPlayStoreLink,
+            icon: FontAwesomeIcons.amazon,
+            type: IconType.iconData,
+            name: 'Amazon AppStore'),
         // AvailableOn(url: Constants.hindiShayariHubPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
- ] ),
+      ]),
   ProjectInfo(
       name: Constants.mazedarHindiJokes,
       description: Constants.mazedarHindiJokesDescription,
@@ -101,13 +127,22 @@ List<ProjectInfo> projectInfoList = [
       platformUsed: [
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
       ],
-      linearGradient: linearGrad(3), availableOn: [
-       AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.googlePlay,type: IconType.iconData, name: 'Google Play'),
-      AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.amazon,type: IconType.iconData,name: 'Amazon AppStore'),
-     // AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.store, type: IconType.iconData,name :'OPPO AppStore'),
+      linearGradient: linearGrad(3),
+      availableOn: [
+        AvailableOn(
+            url: Constants.mazedarHindiJokesPlayStoreLink,
+            icon: FontAwesomeIcons.googlePlay,
+            type: IconType.iconData,
+            name: 'Google Play'),
+        AvailableOn(
+            url: Constants.mazedarHindiJokesPlayStoreLink,
+            icon: FontAwesomeIcons.amazon,
+            type: IconType.iconData,
+            name: 'Amazon AppStore'),
+        // AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.store, type: IconType.iconData,name :'OPPO AppStore'),
       ]),
   ProjectInfo(
       name: Constants.noteMaster,
@@ -121,18 +156,26 @@ List<ProjectInfo> projectInfoList = [
       platformUsed: [
         PlatformUsed(
             name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
         PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
       ],
-      linearGradient: linearGrad(4), availableOn:[
-      AvailableOn(url: Constants.noteMasterPlayStoreLink, icon: FontAwesomeIcons.googlePlay, type:IconType.iconData, name: 'Google Play'),
-      AvailableOn(url: Constants.noteMasterPlayStoreLink, icon: FontAwesomeIcons.amazon ,type :IconType.iconData,name: 'Amazon AppStore'),
-       // AvailableOn(url: Constants.noteMasterPlayStoreLink, icon: FontAwesomeIcons.store ,type :IconType.iconData,name :'OPPO AppStore'),
+      linearGradient: linearGrad(4),
+      availableOn: [
+        AvailableOn(
+            url: Constants.noteMasterPlayStoreLink,
+            icon: FontAwesomeIcons.googlePlay,
+            type: IconType.iconData,
+            name: 'Google Play'),
+        AvailableOn(
+            url: Constants.noteMasterPlayStoreLink,
+            icon: FontAwesomeIcons.amazon,
+            type: IconType.iconData,
+            name: 'Amazon AppStore'),
+        // AvailableOn(url: Constants.noteMasterPlayStoreLink, icon: FontAwesomeIcons.store ,type :IconType.iconData,name :'OPPO AppStore'),
       ])
 ];
 
 enum IconType { iconData, custom }
-
 
 class AvailableOn {
   final String url;
@@ -147,7 +190,6 @@ class AvailableOn {
     required this.icon,
   });
 }
-
 
 class PrivacyPolicyData {
   final String? title;

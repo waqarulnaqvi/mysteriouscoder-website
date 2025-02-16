@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/shared/constants.dart';
+import 'package:mysteriouscoder/core/constants.dart';
 
 /*
   ResponsiveLayout is a widget that allows you to build different layouts for different screen sizes.

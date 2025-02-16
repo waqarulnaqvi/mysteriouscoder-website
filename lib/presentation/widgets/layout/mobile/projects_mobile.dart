@@ -1,11 +1,15 @@
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/domain/data/projects_info.dart';
-import 'package:mysteriouscoder/presentation/widgets/layout/common/project_card.dart';
+
+import '../../../models/projects_info.dart';
+import '../../../../core/constants.dart';
+import '../../project_card.dart';
 
 class ProjectsMobile extends StatefulWidget {
+  final double w;
   final double h;
-  const ProjectsMobile({super.key,required this.h});
+  const ProjectsMobile({super.key,required this.h, required this.w});
 
   @override
   State<ProjectsMobile> createState() => _ProjectsMobileState();
@@ -24,13 +28,11 @@ class _ProjectsMobileState extends State<ProjectsMobile> {
     return CarouselSlider.builder(
       itemCount: projectInfoList.length ,
       itemBuilder: (BuildContext context, int itemIndex,int i){
-         return IntrinsicHeight(
-           child: ProjectCard(projectInfo: projectInfoList[itemIndex],
-           isSelected: itemIndex==_currentIndex,),
-         );
+         return  ProjectCard(projectInfo: projectInfoList[itemIndex],
+           isSelected: itemIndex==_currentIndex,);
       },
       options: CarouselOptions(
-        viewportFraction: 0.8,
+        viewportFraction: widget.w < Constants.maxPhoneWidth ? 0.9 : 0.6,
         height: widget.h,
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),

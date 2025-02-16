@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/shared/styles.dart';
+import 'package:mysteriouscoder/core/styles.dart';
 
-import '../../../shared/global.dart';
+import '../../../core/global.dart';
 
 class DrawerTile extends StatefulWidget {
   final IconData icon;

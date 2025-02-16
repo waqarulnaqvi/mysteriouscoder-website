@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/styles.dart';
+import '../../core/styles.dart';
 
 class CommonMainHeading extends StatelessWidget {
   final String title;
@@ -16,6 +16,7 @@ class CommonMainHeading extends StatelessWidget {
           fontSize: fontSize, color: color??Theme.of(context).colorScheme.onSurface),
       overflow: TextOverflow.ellipsis,
       maxLines: 1,
+
     );
   }
 }

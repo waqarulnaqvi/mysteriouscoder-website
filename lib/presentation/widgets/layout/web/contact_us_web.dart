@@ -1,9 +1,11 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../shared/constants.dart';
-import '../common/contact_us.dart';
-import '../common/global_widgets.dart';
+import '../../../../core/constants.dart';
+import '../../global_widgets.dart';
+import '../../reusable_text_field.dart';
 
 class ContactUsWeb extends StatelessWidget {
   final TextEditingController firstNameController;
@@ -58,7 +60,7 @@ class ContactUsWeb extends StatelessWidget {
             spacerH(15),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: ReusableTextField(
@@ -78,20 +80,19 @@ class ContactUsWeb extends StatelessWidget {
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
                     ],
-                    disableLengthCheck: true,
                     isRequired: false,
                   ),
                 ),
               ],
             ),
-            spacerH(15),
+            spacerH(10),
 
             ReusableTextField(
               controller: messageController,
               hintText: "Message",
-              maxLines: 6,
+              maxLines: 8,
             ),
-            spacerH(15),
+            spacerH(10),
           ],
         ),
       ),

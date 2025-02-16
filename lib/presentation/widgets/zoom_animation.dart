@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
-import '../../shared/constants.dart';
+import '../../core/constants.dart';
 
 class ZoomAnimations extends StatefulWidget {
   final String icon;

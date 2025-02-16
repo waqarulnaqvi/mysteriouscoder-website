@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../shared/provider/theme_provider.dart';
 
 class ThemeController extends StatelessWidget {
   const ThemeController({super.key});

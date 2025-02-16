@@ -1,6 +1,9 @@
+
+
 import 'package:flutter/material.dart';
-import '../../../../shared/constants.dart';
-import '../../../../shared/styles.dart';
+
+import '../../../../core/constants.dart';
+import '../../../../core/styles.dart';
 import '../../static_image.dart';
 import '../../theme_controller.dart';
 

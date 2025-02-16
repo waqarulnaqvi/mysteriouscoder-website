@@ -16,28 +16,31 @@ class SocialMediaIcons {
 }
 
 List<SocialMediaIcons> socialMediaIconsList = [
-  SocialMediaIcons
-    (
+
+  SocialMediaIcons(
       icon: FontAwesomeIcons.facebook,
       url: "https://www.facebook.com/profile.php?id=100094268001160",
       iconColor: const Color(0xff3b5998),
       iconSize: 28),
-
-  SocialMediaIcons(icon: FontAwesomeIcons.whatsapp,
+  SocialMediaIcons(
+      icon: FontAwesomeIcons.whatsapp,
       iconColor: const Color(0xff25d366),
       url: "https://whatsapp.com/channel/0029Vb1Se9gKrWR1TBGlCs1x",
       iconSize: 30),
-
+  SocialMediaIcons(
+      icon: FontAwesomeIcons.googlePlay,
+      url: "https://play.google.com/store/apps/developer?id=Mysterious+Coder",
+      iconColor:const Color.fromRGBO(37, 146, 166, 1),
+      iconSize: 28),
   SocialMediaIcons(
       icon: FontAwesomeIcons.youtube,
       iconColor: const Color(0xffff0000),
       url: "https://youtube.com/@mysterious_coder?si=YXohokmpArHfb82O",
       iconSize: 30),
-
   SocialMediaIcons(
       icon: FontAwesomeIcons.instagram,
       iconColor: const Color(0xffc13584),
-      url: "https://www.instagram.com/mysteriouscoder__?igsh=MTI5eGpxanE5ZGd5Mg==",
+      url:
+          "https://www.instagram.com/mysteriouscoder__?igsh=MTI5eGpxanE5ZGd5Mg==",
       iconSize: 28),
 ];
-

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/domain/data/projects_info.dart';
+import 'package:mysteriouscoder/presentation/models/projects_info.dart';
 import 'package:mysteriouscoder/presentation/pages/privacy_policy.dart';
-import 'package:mysteriouscoder/shared/styles.dart';
-
-import '../../../../shared/constants.dart';
-import '../../../pages/responsive_layout.dart';
+import 'package:mysteriouscoder/core/styles.dart';
+import '../../core/constants.dart';
+import '../pages/responsive_layout.dart';
 import 'global_widgets.dart';
 
 class ProjectCard extends StatefulWidget {
@@ -28,7 +27,7 @@ class _ProjectCardState extends State<ProjectCard> {
     ProjectInfo pi = widget.projectInfo;
 
     return SizedBox(
-      width: ResponsiveLayout.isTablet(context) ? 500 : 400,
+      width: ResponsiveLayout.isTablet(context) ? 500 : 380,
       // height: 1000,
       child: Stack(
         alignment: Alignment.topCenter,
@@ -75,10 +74,15 @@ class _ProjectCardState extends State<ProjectCard> {
                               Theme.of(context).colorScheme.surface,
                               Theme.of(context).colorScheme.surface
                             ]),
+                      boxShadow:
+                      (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
+                          ? [primaryColorShadow]
+                          : [blackColorShadow],
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
                       children: [
                         spacerH(60),
                         Center(
@@ -91,7 +95,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         spacerH(),
                         Container(
                           width: w,
-                          margin: const EdgeInsets.only(left: 10, right: 10),
+                          margin: const EdgeInsets.only(left: 5, right: 5),
                           padding: const EdgeInsets.all(2),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
@@ -158,7 +162,8 @@ class _ProjectCardState extends State<ProjectCard> {
                         spacerH(),
                         Wrap(
                             spacing: 10.0,
-                            runSpacing: 10.0,
+                            runSpacing: 20.0,
+                            alignment: WrapAlignment.spaceEvenly,
                             children: pi.platformUsed
                                 .map((e) => Chip(
                                       padding: const EdgeInsets.symmetric(
@@ -197,6 +202,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         Wrap(
                             spacing: 10.0,
                             runSpacing: 10.0,
+                            alignment: WrapAlignment.spaceAround,
                             children: pi.availableOn
                                 .map(
                                   (e) => InkWell(
