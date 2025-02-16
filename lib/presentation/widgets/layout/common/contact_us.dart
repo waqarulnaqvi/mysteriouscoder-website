@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
@@ -38,8 +37,11 @@ class _ContactUsState extends State<ContactUs> {
     final String lastName = lastNameController.text.trim();
     var countryCode =
         Provider.of<ThemeProvider>(context, listen: false).countryCode;
+    var contactRequiredTrue =
+        Provider.of<ThemeProvider>(context,listen: false);
 
     if (firstname.isNotEmpty && message.isNotEmpty) {
+      contactRequiredTrue.contactRequiredTrue = false;
       final Uri emailUri = Uri(
         scheme: 'mailto',
         path: 'mysteriouscoderofficial@gmail.com',
@@ -50,12 +52,15 @@ class _ContactUsState extends State<ContactUs> {
       if (await canLaunchUrl(emailUri)) {
         await launchUrl(emailUri);
       } else {
-        IconSnackBar.show(context,
-            label: "Could not launch email app!",
-            snackBarType: SnackBarType.fail,
-        labelTextStyle: TextStyle(color: Colors.white));
-      }
+        if(mounted) {
+          IconSnackBar.show(context,
+              label: "Could not launch email app!",
+              snackBarType: SnackBarType.fail,
+              labelTextStyle: TextStyle(color: Colors.white));
+        }
+          }
     } else {
+      contactRequiredTrue.contactRequiredTrue = true;
       IconSnackBar.show(context,
           label: "One or more required fields are empty!",
           snackBarType: SnackBarType.alert,

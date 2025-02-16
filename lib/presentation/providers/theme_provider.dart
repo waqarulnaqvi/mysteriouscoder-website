@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 class ThemeProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.light;
   int _hoveredIndex = -1;
+  bool _contactRequiredTrue = false;
   String _countryCode = "+91";
+
+  //Getter for contactRequiredColor
+  bool get contactRequiredTrue => _contactRequiredTrue;
 
   //Getter for countryCode
   String get countryCode => _countryCode;
@@ -14,6 +18,11 @@ class ThemeProvider extends ChangeNotifier {
   //Getter for mode
   ThemeMode get mode => themeMode;
 
+  //Setter for contactRequiredColor
+  set contactRequiredTrue(bool value) {
+    _contactRequiredTrue = value;
+    notifyListeners();
+  }
 
   //Setter for countryCode
   set countryCode(String code) {
@@ -32,7 +41,4 @@ class ThemeProvider extends ChangeNotifier {
     _hoveredIndex = index;
     notifyListeners();
   }
-
-
-
 }

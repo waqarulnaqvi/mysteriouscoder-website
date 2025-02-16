@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
+import 'package:mysteriouscoder/presentation/widgets/global_widgets.dart';
 import 'package:provider/provider.dart';
 import '../../../models/nav_items.dart';
 import '../../../../core/constants.dart';
@@ -62,9 +63,10 @@ class AppBarWeb extends StatelessWidget {
                             onNavItemTap(index);
                           },
                           child: Container(
-                              width: 100,
+                              width: 120,
                               height: 40,
-                              margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                              margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
 
                               decoration: BoxDecoration(
                                 gradient: provider.hoveredItem==index? provider.themeMode==ThemeMode.light ? grayBlack:grayWhite :LinearGradient(colors: [Colors.transparent, Colors.transparent]),
@@ -83,6 +85,7 @@ class AppBarWeb extends StatelessWidget {
                 )
                 .toList(),
           ),
+          spacerW(),
           ThemeController(),
           const Spacer(flex: 1,),
         ],

@@ -4,7 +4,6 @@ import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/drawer_tile.dart';
 import 'package:mysteriouscoder/core/styles.dart';
 import 'package:provider/provider.dart';
-
 import '../../../core/constants.dart';
 import '../static_image.dart';
 

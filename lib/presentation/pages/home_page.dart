@@ -25,6 +25,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
+  // bool _isLoading = true;
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   Future.delayed(Duration(milliseconds: 2500), () {
+  //     setState(() {
+  //       _isLoading = false;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -82,52 +92,66 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // Foreground Content (Column)
-            ListView(
-              padding: EdgeInsets.zero, // Avoid extra spacing
-              physics: BouncingScrollPhysics(), // Smooth scrolling
-              children: [
-                ///Main Part
-                MainPart(
-                  key: navbarKeys.first,
-                  w: w,
-                  h: h,
-                  onTap: () {
-                    scrollToSection(4);
-                  },
-                ),
-                CurvedDivider(),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  ///Main Part
+                  MainPart(
+                    key: navbarKeys.first,
+                    w: w,
+                    h: h,
+                    onTap: () {
+                      scrollToSection(4);
+                    },
+                  ),
+                  CurvedDivider(),
 
-                ///About Us Page
-                AboutUs(
-                  w: w,
-                  key: navbarKeys[1],
-                ),
-                CurvedDivider(),
+                  ///About Us Page
+                  AboutUs(
+                    w: w,
+                    key: navbarKeys[1],
+                  ),
+                  CurvedDivider(),
 
-                ///Services
-                Services(key: navbarKeys[2], w: w, h: h),
-                CurvedDivider(),
+                  ///Services
+                  Services(key: navbarKeys[2], w: w, h: h),
+                  CurvedDivider(),
 
-                ///Projects
-                Projects(key: navbarKeys[3], w: w, h: h),
-                CurvedDivider(),
+                  ///Projects
+                  Projects(key: navbarKeys[3], w: w, h: h),
+                  CurvedDivider(),
 
-                ///Contact Us
-                ContactUs(key: navbarKeys[4], w: w, h: h),
+                  ///Contact Us
+                  ContactUs(key: navbarKeys[4], w: w, h: h),
 
-                ///Footer
-                Footer(
-                  w: w,
-                  h: h,
-                  serviceTap: () {
-                    scrollToSection(2);
-                  },
-                  aboutUsTap: () {
-                    scrollToSection(1);
-                  },
-                ),
-              ],
+                  ///Footer
+                  Footer(
+                    w: w,
+                    h: h,
+                    serviceTap: () {
+                      scrollToSection(2);
+                    },
+                    aboutUsTap: () {
+                      scrollToSection(1);
+                    },
+                  ),
+                ],
+              ),
             ),
+
+            // SpinKit Loading Indicator
+            // if(_isLoading)
+            // Container(
+            //   width: w,
+            //   height: h,
+            //   color:  Theme.of(context)
+            //       .colorScheme
+            //       .primary
+            //       .withValues(alpha: 0.2),
+            //   child: Center(
+            //     child: SpinKitFadingCircle(color: Colors.black.withValues(alpha: 0.2), size: 50.0),
+            //   )
+            // )
           ],
         ));
   }

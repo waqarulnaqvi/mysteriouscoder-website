@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/core/styles.dart';
 
-import '../../../core/global.dart';
 
 class DrawerTile extends StatefulWidget {
   final IconData icon;
@@ -27,7 +26,7 @@ class _DrawerTileState extends State<DrawerTile> {
         });
       },
       child: Container(
-        color: _isHover? dark.withValues(alpha: 0.4):Colors.transparent ,
+        color: _isHover? Color.fromRGBO(37, 146, 166, 1).withValues(alpha: 0.4):Colors.transparent ,
         padding: const EdgeInsets.all(20),
         child: Row(
           children: [

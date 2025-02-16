@@ -14,6 +14,10 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  Future<void> _initializeApp() async {
+    await Future.delayed(Duration(milliseconds: 500));
+  }
+
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = createTextTheme(
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
     );
 
     MaterialTheme theme = MaterialTheme(textTheme);
-    final mode =Provider.of<ThemeProvider>(context).mode;
+    final mode = Provider.of<ThemeProvider>(context).mode;
 
     return MaterialApp(
       title: Constants.title,
