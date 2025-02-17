@@ -207,10 +207,20 @@ class AnimatedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedTextKit(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("We Offer",
+            style: reusableTextStyle2(
+                context: context)),
+        spacerW(5),
+        AnimatedTextKit(
           isRepeatingAnimation: true,
           repeatForever: true,
           animatedTexts: animatedTextList(context),
+        ),
+      ],
     );
   }
 }
@@ -218,11 +228,11 @@ class AnimatedText extends StatelessWidget {
 List<TyperAnimatedText> animatedTextList(BuildContext context) =>[
   TyperAnimatedText(Constants.animationText1,
       speed: const Duration(milliseconds: 50),
-      textStyle: reusableTextStyle2(context: context),),
+      textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.bold),),
   TyperAnimatedText(Constants.animationText2,
       speed: const Duration(milliseconds: 50),
-      textStyle: reusableTextStyle2(context: context),),
+    textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.bold),),
   TyperAnimatedText(Constants.animationText3,
       speed: const Duration(milliseconds: 50),
-      textStyle: reusableTextStyle2(context: context),)
+    textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.bold),),
 ];

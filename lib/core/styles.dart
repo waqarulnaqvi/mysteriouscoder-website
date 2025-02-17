@@ -21,11 +21,13 @@ TextStyle reusableTextStyle({double fontSize = 18,Color color =Colors.white}) {
   );
 }
 
-TextStyle reusableTextStyle2({required BuildContext context}) {
+TextStyle reusableTextStyle2({required BuildContext context ,double fontSize = 18,FontWeight? fontWeight}) {
   return TextStyle(
       fontFamily: 'Poppins',
       color: Theme.of(context).colorScheme.onSurface,
-      fontSize: 18);
+      fontSize: fontSize,
+  fontWeight: fontWeight);
+
 }
 
 
