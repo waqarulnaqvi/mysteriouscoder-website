@@ -6,7 +6,8 @@ class CommonMainHeading extends StatelessWidget {
   final String title;
   final double fontSize;
   final Color? color;
-  const CommonMainHeading({super.key, required this.title,this.fontSize =30, this.color});
+  final int maxLines;
+  const CommonMainHeading({super.key, required this.title,this.fontSize =30, this.color, this.maxLines=1});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,8 @@ class CommonMainHeading extends StatelessWidget {
       style: reusableTextStyle(
           fontSize: fontSize, color: color??Theme.of(context).colorScheme.onSurface),
       overflow: TextOverflow.ellipsis,
-      maxLines: 1,
+      maxLines: maxLines,
+      textAlign: TextAlign.center,
 
     );
   }

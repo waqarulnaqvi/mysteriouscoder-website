@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mysteriouscoder/presentation/models/projects_info.dart';
-import 'package:mysteriouscoder/presentation/pages/privacy_policy.dart';
 import 'package:mysteriouscoder/core/styles.dart';
 import '../../core/constants.dart';
 import '../pages/responsive_layout.dart';
@@ -128,13 +127,10 @@ class _ProjectCardState extends State<ProjectCard> {
                           icon: Icons.privacy_tip,
                           isImage: false,
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PrivacyPolicy(
-                                          title: pi.privacyPolicyData!.title,
-                                          icon: pi.privacyPolicyData!.image,
-                                        )));
+                            Navigator.pushNamed(context, '/privacy_policy/${pi.routeName}',
+                                arguments: PrivacyPolicyData(
+                                    image: pi.privacyPolicyData!.image,
+                                    title: pi.privacyPolicyData!.title));
                           },
                         ),
                         spacerH(),

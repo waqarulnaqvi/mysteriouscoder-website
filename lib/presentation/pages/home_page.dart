@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
@@ -182,3 +183,5 @@ class CurvedDivider extends StatelessWidget {
     );
   }
 }
+
+

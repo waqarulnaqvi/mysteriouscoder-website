@@ -1,15 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:mysteriouscoder/presentation/models/projects_info.dart';
 import 'package:mysteriouscoder/presentation/pages/home_page.dart';
+import 'package:mysteriouscoder/presentation/pages/privacy_policy.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/core/constants.dart';
 import 'package:mysteriouscoder/core/theme.dart';
 import 'package:mysteriouscoder/core/utils/util.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await _loadFonts();
   runApp(ChangeNotifierProvider(
       create: (context) => ThemeProvider(), child: MyApp()));
 }
+
+ Future<void> _loadFonts() async {
+  // Load Poppins font
+  final fontLoaderPoppins = FontLoader('Poppins')
+    ..addFont(rootBundle.load('assets/fonts/Poppins-Regular.ttf'));
+
+  // Load Montserrat font
+  final fontLoaderMontserrat = FontLoader('Montserrat')
+    ..addFont(rootBundle.load('assets/fonts/Montserrat-Regular.ttf'));
+
+  // Load both fonts
+  await Future.wait([
+    fontLoaderPoppins.load(),
+    fontLoaderMontserrat.load(),
+  ]);
+}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -31,7 +53,19 @@ class MyApp extends StatelessWidget {
       darkTheme: theme.dark(),
       themeMode: mode,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      initialRoute: '/',
+      onGenerateRoute: (settings) {
+        if (settings.name?.startsWith('/privacy_policy/') == true) {
+          // final piName = settings.name?.split('/')[2]; // Extract the dynamic part, e.g., pi.name
+          final args = settings.arguments as PrivacyPolicyData?;
+          return MaterialPageRoute(
+              builder: (context) => PrivacyPolicy(
+                  title: args?.title,
+                  icon: args?.image,
+                  description: args?.description));
+        }
+        return MaterialPageRoute(builder: (context) => HomePage());
+      },
     );
   }
 }

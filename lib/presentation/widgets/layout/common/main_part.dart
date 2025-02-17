@@ -1,5 +1,8 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/widgets/common_description.dart';
+import '../../../../core/constants.dart';
+import '../../../../core/styles.dart';
 import '../../../models/social_media_icons.dart';
 import '../../../pages/responsive_layout.dart';
 import '../../color_change_button.dart';
@@ -48,6 +51,8 @@ class MainPart extends StatelessWidget {
             fontSize: 35,
           ),
           commonSubHeading(context),
+          spacerH(5),
+          AnimatedText(),
           spacerH(),
           CommonDescription(),
           spacerH(),
@@ -78,6 +83,8 @@ class MainPart extends StatelessWidget {
             ),
             spacerH(5),
             commonSubHeading(context),
+            spacerH(5),
+            AnimatedText(),
             spacerH(),
             SizedBox(width: w * 0.5, child: CommonDescription(textAlign: TextAlign.start,)),
             spacerH(),
@@ -120,10 +127,7 @@ class MainPart extends StatelessWidget {
       children: [
         Text(
           "Hello there! Stay a while and explore!",
-          style: TextStyle(
-              fontFamily: 'Poppins',
-              color: Theme.of(context).colorScheme.onSurface,
-              fontSize: 18),
+          style: reusableTextStyle2(context: context),
           textAlign: TextAlign.center,
         ),
         spacerW(10),
@@ -197,3 +201,28 @@ class _CommonSocialMediaPlatformsState
     );
   }
 }
+
+class AnimatedText extends StatelessWidget {
+  const AnimatedText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedTextKit(
+          isRepeatingAnimation: true,
+          repeatForever: true,
+          animatedTexts: animatedTextList(context),
+    );
+  }
+}
+
+List<TyperAnimatedText> animatedTextList(BuildContext context) =>[
+  TyperAnimatedText(Constants.animationText1,
+      speed: const Duration(milliseconds: 50),
+      textStyle: reusableTextStyle2(context: context),),
+  TyperAnimatedText(Constants.animationText2,
+      speed: const Duration(milliseconds: 50),
+      textStyle: reusableTextStyle2(context: context),),
+  TyperAnimatedText(Constants.animationText3,
+      speed: const Duration(milliseconds: 50),
+      textStyle: reusableTextStyle2(context: context),)
+];

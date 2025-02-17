@@ -13,8 +13,10 @@ class ProjectInfo {
   final LinearGradient linearGradient;
   final List<PlatformUsed> platformUsed;
   final PrivacyPolicyData? privacyPolicyData;
+  final String routeName;
 
-  ProjectInfo({
+  ProjectInfo( {
+    required this.routeName,
     required this.platformUsed,
     required this.name,
     required this.description,
@@ -29,6 +31,7 @@ class ProjectInfo {
 
 List<ProjectInfo> projectInfoList = [
   ProjectInfo(
+      routeName: Constants.brainBoosterRoute,
       name: Constants.brainBooster,
       description: Constants.brainBoosterDescription,
       icon: StaticImage.brainBoosterIcon,
@@ -58,6 +61,7 @@ List<ProjectInfo> projectInfoList = [
         // AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
       ]),
   ProjectInfo(
+      routeName: Constants.classicWingedBirdRoute,
       name: Constants.classicWingedBird,
       description: Constants.classicWingedBirdDescription,
       icon: StaticImage.classicWingedBirdIcon,
@@ -87,6 +91,7 @@ List<ProjectInfo> projectInfoList = [
         // AvailableOn(url: Constants.classicWingedBirdPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
       ]),
   ProjectInfo(
+      routeName: Constants.hindiShayariHubRoute,
       name: Constants.hindiShayariHub,
       description: Constants.hindiShayariHubDescription,
       icon: StaticImage.hindiShayariHubIcon,
@@ -116,6 +121,7 @@ List<ProjectInfo> projectInfoList = [
         // AvailableOn(url: Constants.hindiShayariHubPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
       ]),
   ProjectInfo(
+      routeName: Constants.mazedarHindiJokesRoute,
       name: Constants.mazedarHindiJokes,
       description: Constants.mazedarHindiJokesDescription,
       icon: StaticImage.mazedarHindiJokesIcon,
@@ -145,6 +151,7 @@ List<ProjectInfo> projectInfoList = [
         // AvailableOn(url: Constants.mazedarHindiJokesPlayStoreLink, icon: FontAwesomeIcons.store, type: IconType.iconData,name :'OPPO AppStore'),
       ]),
   ProjectInfo(
+      routeName: Constants.noteMasterRoute,
       name: Constants.noteMaster,
       description: Constants.noteMasterDescription,
       icon: StaticImage.noteMasterIcon,

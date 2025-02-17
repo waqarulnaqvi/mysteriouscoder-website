@@ -21,6 +21,16 @@ TextStyle reusableTextStyle({double fontSize = 18,Color color =Colors.white}) {
   );
 }
 
+TextStyle reusableTextStyle2({required BuildContext context}) {
+  return TextStyle(
+      fontFamily: 'Poppins',
+      color: Theme.of(context).colorScheme.onSurface,
+      fontSize: 18);
+}
+
+
+
+
 
 const primaryColor = Color(0xFF09FBD3);
 const secondaryColor = Color(0xFFFE53BB);

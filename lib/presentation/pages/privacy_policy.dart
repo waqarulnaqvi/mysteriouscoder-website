@@ -15,8 +15,9 @@ class PrivacyPolicy extends StatelessWidget {
   final String? icon;
   final String? title;
   final String? description;
+  final String? returnValue;
 
-  const PrivacyPolicy({super.key, this.title, this.description, this.icon});
+  const PrivacyPolicy({super.key, this.title, this.description, this.icon, this.returnValue='mysteriouscoder'});
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +71,7 @@ class PrivacyPolicy extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: CommonMainHeading(
+                  maxLines: 2,
                   title: title ?? "Mysterious Coder",
                   fontSize: w < Constants.maxPhoneWidth
                       ? 25
