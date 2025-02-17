@@ -32,7 +32,7 @@ class _ProjectsMobileState extends State<ProjectsMobile> {
            isSelected: itemIndex==_currentIndex,);
       },
       options: CarouselOptions(
-        viewportFraction: widget.w < Constants.maxPhoneWidth ? 0.9 : 0.6,
+        viewportFraction: widget.w < Constants.maxPhoneWidth ? 0.8 : 0.6,
         height: widget.h,
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),

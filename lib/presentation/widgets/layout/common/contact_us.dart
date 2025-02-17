@@ -6,8 +6,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/constants.dart';
 import '../../../pages/responsive_layout.dart';
 import '../../color_change_button.dart';
+import '../../common_description.dart';
 import '../../common_main_heading.dart';
-import '../../common_sub_heading.dart';
 import '../../global_widgets.dart';
 import '../mobile/contact_us_mobile.dart';
 import '../web/contact_us_web.dart';
@@ -38,7 +38,7 @@ class _ContactUsState extends State<ContactUs> {
     var countryCode =
         Provider.of<ThemeProvider>(context, listen: false).countryCode;
     var contactRequiredTrue =
-        Provider.of<ThemeProvider>(context,listen: false);
+        Provider.of<ThemeProvider>(context, listen: false);
 
     if (firstname.isNotEmpty && message.isNotEmpty) {
       contactRequiredTrue.contactRequiredTrue = false;
@@ -52,13 +52,13 @@ class _ContactUsState extends State<ContactUs> {
       if (await canLaunchUrl(emailUri)) {
         await launchUrl(emailUri);
       } else {
-        if(mounted) {
+        if (mounted) {
           IconSnackBar.show(context,
               label: "Could not launch email app!",
               snackBarType: SnackBarType.fail,
               labelTextStyle: TextStyle(color: Colors.white));
         }
-          }
+      }
     } else {
       contactRequiredTrue.contactRequiredTrue = true;
       IconSnackBar.show(context,
@@ -87,9 +87,13 @@ class _ContactUsState extends State<ContactUs> {
         spacerH(),
         CommonMainHeading(title: "Contact Us"),
         spacerH(),
-        CommonSubHeading(
-          title: Constants.contactUsDescription,
-          w: widget.w,
+        SizedBox(
+          width: widget.w < Constants.maxTabletWidth
+              ? widget.w * 0.9
+              : widget.w * 0.8,
+          child: CommonDescription(
+            text: Constants.contactUsDescription,
+          ),
         ),
         spacerH(),
         ResponsiveLayout(
@@ -137,4 +141,3 @@ class _ContactUsState extends State<ContactUs> {
     );
   }
 }
-

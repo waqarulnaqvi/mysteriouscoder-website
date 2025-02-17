@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mysteriouscoder/presentation/models/projects_info.dart';
 import 'package:mysteriouscoder/presentation/pages/privacy_policy.dart';
 import 'package:mysteriouscoder/core/styles.dart';
@@ -74,8 +75,9 @@ class _ProjectCardState extends State<ProjectCard> {
                               Theme.of(context).colorScheme.surface,
                               Theme.of(context).colorScheme.surface
                             ]),
-                      boxShadow:
-                      (w > Constants.maxTabletWidth ? isHover : widget.isSelected)
+                      boxShadow: (w > Constants.maxTabletWidth
+                              ? isHover
+                              : widget.isSelected)
                           ? [primaryColorShadow]
                           : [blackColorShadow],
                     ),
@@ -121,7 +123,10 @@ class _ProjectCardState extends State<ProjectCard> {
                           ),
                         ),
                         spacerH(),
-                        InkWell(
+                        ReusableChipButton(
+                          text: "Privacy Policy",
+                          icon: Icons.privacy_tip,
+                          isImage: false,
                           onTap: () {
                             Navigator.push(
                                 context,
@@ -131,22 +136,6 @@ class _ProjectCardState extends State<ProjectCard> {
                                           icon: pi.privacyPolicyData!.image,
                                         )));
                           },
-                          child: Chip(
-                            label: Text(
-                              "Privacy Policy",
-                              style: reusableTextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.onSurface,
-                                  fontSize: 13),
-                            ),
-                            avatar: const Icon(Icons.privacy_tip),
-                            shape: StadiumBorder(
-                              side: BorderSide(
-                                color: Theme.of(context).colorScheme.onSurface,
-                                width: 1.0,
-                              ),
-                            ),
-                          ),
                         ),
                         spacerH(),
                         Text(
@@ -165,27 +154,8 @@ class _ProjectCardState extends State<ProjectCard> {
                             runSpacing: 20.0,
                             alignment: WrapAlignment.spaceEvenly,
                             children: pi.platformUsed
-                                .map((e) => Chip(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 10.0, horizontal: 10.0),
-                                      label: Text(
-                                        e.name,
-                                        style: reusableTextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .onSurface,
-                                            fontSize: 13),
-                                      ),
-                                      avatar: Image.asset(e.icon),
-                                      shape: StadiumBorder(
-                                        side: BorderSide(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onSurface,
-                                          width: 1.0,
-                                        ),
-                                      ),
-                                    ))
+                                .map((e) => ReusableChipButton(
+                                    text: e.name, icon: e.icon))
                                 .toList()),
                         spacerH(),
                         Text(
@@ -207,6 +177,7 @@ class _ProjectCardState extends State<ProjectCard> {
                                 .map(
                                   (e) => InkWell(
                                     onTap: () {
+                                      HapticFeedback.vibrate();
                                       openUrl(e.url);
                                     },
                                     child: Chip(
@@ -278,3 +249,141 @@ class _ProjectCardState extends State<ProjectCard> {
         fontFamily: 'Poppins');
   }
 }
+
+class ReusableChipButton extends StatefulWidget {
+  final String text;
+  final dynamic icon;
+  final VoidCallback? onTap;
+  final bool isImage;
+
+  const ReusableChipButton(
+      {super.key,
+      required this.text,
+      required this.icon,
+      this.onTap,
+      this.isImage = true});
+
+  @override
+  State<ReusableChipButton> createState() => _ReusableChipButtonState();
+}
+
+class _ReusableChipButtonState extends State<ReusableChipButton> {
+  static const _animationPadding =
+      EdgeInsets.symmetric(vertical: 2, horizontal: 2);
+  static const _withoutAnimationPadding =
+      EdgeInsets.symmetric(vertical: 0, horizontal: 0);
+  EdgeInsets _currentPadding = _withoutAnimationPadding;
+  bool _isHover = false;
+
+  void onTap() {
+    setState(() {
+      _currentPadding = _animationPadding;
+    });
+    if (!_isHover) {
+      Future.delayed(Duration(milliseconds: 1000), () {
+        setState(() {
+          _currentPadding = _withoutAnimationPadding;
+        });
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (hovering) {
+        _isHover = hovering;
+        setState(() {
+          _currentPadding =
+              _isHover ? _animationPadding : _withoutAnimationPadding;
+        });
+      },
+      onTap: () {
+        HapticFeedback.vibrate();
+        onTap();
+        widget.onTap?.call();
+      },
+      child: Chip(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        label: AnimatedPadding(
+          curve: Curves.easeInOut,
+          padding: _currentPadding,
+          duration: const Duration(milliseconds: 1000),
+          child: Text(
+            widget.text,
+            style: reusableTextStyle(
+                color: Theme.of(context).colorScheme.onSurface, fontSize: 13),
+          ),
+        ),
+        avatar: widget.isImage
+            ? Image.asset(widget.icon)
+            : Icon(
+                widget.icon,
+              ),
+        shape: StadiumBorder(
+          side: BorderSide(
+            color: Theme.of(context).colorScheme.onSurface,
+            width: 1.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//Old Platform used code
+// .map((e) => InkWell(
+//       onTap: () {
+//         HapticFeedback.vibrate();
+//       },
+//       child: Chip(
+//         padding: const EdgeInsets.symmetric(
+//             vertical: 10.0, horizontal: 10.0),
+//         label: Text(
+//           e.name,
+//           style: reusableTextStyle(
+//               color: Theme.of(context)
+//                   .colorScheme
+//                   .onSurface,
+//               fontSize: 13),
+//         ),
+//         avatar: Image.asset(e.icon),
+//         shape: StadiumBorder(
+//           side: BorderSide(
+//             color: Theme.of(context)
+//                 .colorScheme
+//                 .onSurface,
+//             width: 1.0,
+//           ),
+//         ),
+//       ),
+//     ))
+
+//Old Privacy Policy code
+//                     InkWell(
+//                           onTap: () {
+//                             Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                     builder: (context) => PrivacyPolicy(
+//                                           title: pi.privacyPolicyData!.title,
+//                                           icon: pi.privacyPolicyData!.image,
+//                                         )));
+//                           },
+//                           child: Chip(
+//                             label: Text(
+//                               "Privacy Policy",
+//                               style: reusableTextStyle(
+//                                   color:
+//                                       Theme.of(context).colorScheme.onSurface,
+//                                   fontSize: 13),
+//                             ),
+//                             avatar: const Icon(Icons.privacy_tip),
+//                             shape: StadiumBorder(
+//                               side: BorderSide(
+//                                 color: Theme.of(context).colorScheme.onSurface,
+//                                 width: 1.0,
+//                               ),
+//                             ),
+//                           ),
+//                         ),

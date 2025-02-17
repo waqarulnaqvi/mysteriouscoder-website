@@ -1,11 +1,8 @@
-
-
 import 'package:flutter/material.dart';
-
 import '../../../../core/constants.dart';
 import '../../../pages/responsive_layout.dart';
+import '../../common_description.dart';
 import '../../common_main_heading.dart';
-import '../../common_sub_heading.dart';
 import '../../global_widgets.dart';
 import '../mobile/services_mobile.dart';
 import '../web/services_web.dart';
@@ -27,9 +24,11 @@ class Services extends StatelessWidget {
           spacerH(),
           CommonMainHeading(title: "Services"),
           spacerH(15),
-          CommonSubHeading(
-            title: Constants.services,
-            w: w,
+          SizedBox(
+            width: w < Constants.maxTabletWidth ? w * 0.9 : w * 0.8,
+            child: CommonDescription(
+              text: Constants.servicesDescription,
+            ),
           ),
           spacerH(40),
           ResponsiveLayout(

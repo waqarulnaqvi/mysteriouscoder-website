@@ -4,13 +4,20 @@ class Constants{
   static const String appVersion = '1.0.0';
   static const String appDescription = 'Mysterious Coder Official Website';
 
-  static const String services =
+  static const String servicesDescription =
       "I specialize in web, Android, and iOS app development using Jetpack Compose and Flutter, "
       "backed by Firebase for seamless backend integration. I build high-performance, scalable, and "
       "user-friendly applications tailored to your needs. Whether it's crafting a dynamic mobile app "
       "or a responsive web solution, I ensure top-quality development with modern technologies.";
 
-  static const String aboutUs = "Welcome to Mysterious Coder, where innovation meets creativity! We are passionate developers dedicated to crafting exceptional apps, games, and digital experiences. With expertise in Android, Flutter, and cutting-edge technologies, we strive to push boundaries and deliver seamless solutions. Whether it's mobile apps, game development, or software innovation, Mysterious Coder is here to turn ideas into reality.";
+  static const String projectsDescription =
+      "This project showcases expertise in web, Android, and iOS app development using Jetpack Compose and Flutter, "
+      "integrated with Firebase for a seamless backend experience. It delivers high-performance, scalable, and "
+      "user-friendly solutions tailored to diverse needs. Designed with modern technologies, it ensures a smooth, "
+      "efficient, and engaging user experience across platforms.";
+
+
+  static const String aboutUsDescription = "Welcome to Mysterious Coder, where innovation meets creativity! We are passionate developers dedicated to crafting exceptional apps, games, and digital experiences. With expertise in Android, Flutter, and cutting-edge technologies, we strive to push boundaries and deliver seamless solutions. Whether it's mobile apps, game development, or software innovation, Mysterious Coder is here to turn ideas into reality.";
 
   static const String contactUsDescription="Have questions, feedback, or business inquiries? We’d love to hear from you! Reach out to us using the contact form below, or connect with us via email or social media. Our team is here to assist you and will respond as soon as possible.";
 
@@ -36,12 +43,21 @@ class Constants{
   static const String mazedarHindiJokesDescription = "Mazedar Hindi Jokes is a fun app packed with hilarious Hindi jokes to brighten your day. From witty one-liners to laugh-out-loud stories, enjoy endless entertainment. Easily share jokes with friends and family. Download now on the Google Play Store for daily laughter!";
   static const String noteMasterDescription = "NoteMaster: Offline Organizer is your go-to app for organizing notes, tasks, and ideas without needing an internet connection. Perfect for managing to-do lists, reminders, and important thoughts. Stay organized anytime, anywhere. Download now on the Google Play Store!";
 
-  //Projects Links
+  //Projects Links:
+
+  //Play Store Links
   static const String brainBoosterPlayStoreLink = "https://play.google.com/store/apps/details?id=com.mysteriouscoder.brainbooster";
   static const String classicWingedBirdPlayStoreLink = "https://play.google.com/store/apps/details?id=com.mysteriouscoder.classicwingedbird";
   static const String hindiShayariHubPlayStoreLink = "https://play.google.com/store/apps/details?id=com.mysteriouscoder.hindishayarihub";
   static const String mazedarHindiJokesPlayStoreLink = "https://play.google.com/store/apps/details?id=com.mysteriouscoder.mazedarhindijokes";
   static const String noteMasterPlayStoreLink = "https://play.google.com/store/apps/details?id=com.mysteriouscoder.notemaster";
+
+  //Amazon App Store Links
+  static const String brainBoosterAmazonAppStoreLink = "https://www.amazon.com/dp/B0DLPBJKQD/ref=apps_sf_sta";
+  static const String classicWingedBirdAmazonAppStoreLink = "https://www.amazon.com/dp/B0DLRTWTMD/ref=apps_sf_sta";
+  static const String hindiShayariHubAmazonAppStoreLink = "https://www.amazon.com/dp/B0DLVBZBT8/ref=apps_sf_sta";
+  static const String mazedarHindiJokesAmazonAppStoreLink = "https://www.amazon.com/dp/B0CX6Q2H9M/ref=apps_sf_sta";
+  static const String noteMasterAmazonAppStoreLink = "https://www.amazon.com/dp/B0DLT7LCTJ/ref=apps_sf_sta";
 
   //Privacy Policy
  static const String mysteriousCoderPrivacyPolicy = """

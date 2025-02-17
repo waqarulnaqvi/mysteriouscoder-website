@@ -51,7 +51,7 @@ List<ProjectInfo> projectInfoList = [
             type: IconType.iconData,
             name: 'Google Play'),
         AvailableOn(
-            url: Constants.brainBoosterPlayStoreLink,
+            url: Constants.brainBoosterAmazonAppStoreLink,
             icon: FontAwesomeIcons.amazon,
             type: IconType.iconData,
             name: 'Amazon AppStore'),
@@ -80,7 +80,7 @@ List<ProjectInfo> projectInfoList = [
             type: IconType.iconData,
             name: 'Google Play'),
         AvailableOn(
-            url: Constants.classicWingedBirdPlayStoreLink,
+            url: Constants.classicWingedBirdAmazonAppStoreLink,
             icon: FontAwesomeIcons.amazon,
             type: IconType.iconData,
             name: 'Amazon AppStore'),
@@ -109,7 +109,7 @@ List<ProjectInfo> projectInfoList = [
             type: IconType.iconData,
             name: 'Google Play'),
         AvailableOn(
-            url: Constants.hindiShayariHubPlayStoreLink,
+            url: Constants.hindiShayariHubAmazonAppStoreLink,
             icon: FontAwesomeIcons.amazon,
             type: IconType.iconData,
             name: 'Amazon AppStore'),
@@ -138,7 +138,7 @@ List<ProjectInfo> projectInfoList = [
             type: IconType.iconData,
             name: 'Google Play'),
         AvailableOn(
-            url: Constants.mazedarHindiJokesPlayStoreLink,
+            url: Constants.mazedarHindiJokesAmazonAppStoreLink,
             icon: FontAwesomeIcons.amazon,
             type: IconType.iconData,
             name: 'Amazon AppStore'),
@@ -167,7 +167,7 @@ List<ProjectInfo> projectInfoList = [
             type: IconType.iconData,
             name: 'Google Play'),
         AvailableOn(
-            url: Constants.noteMasterPlayStoreLink,
+            url: Constants.noteMasterAmazonAppStoreLink,
             icon: FontAwesomeIcons.amazon,
             type: IconType.iconData,
             name: 'Amazon AppStore'),

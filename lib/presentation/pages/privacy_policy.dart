@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
+import 'package:mysteriouscoder/presentation/widgets/privacy_policy_description.dart';
 import 'package:provider/provider.dart';
 import '../../core/constants.dart';
 import '../../core/styles.dart';
 import '../widgets/common_main_heading.dart';
-import '../widgets/common_sub_heading.dart';
 import '../widgets/entrance_fader.dart';
 import '../widgets/global_widgets.dart';
 import '../widgets/static_image.dart';
@@ -77,7 +77,7 @@ class PrivacyPolicy extends StatelessWidget {
                 ),
               ),
               spacerH(),
-              CommonDescriptionPrivacyPolicy(
+              PrivacyPolicyDescription(
                   title: description ?? Constants.mysteriousCoderPrivacyPolicy,
                   w: w),
               spacerH(40),

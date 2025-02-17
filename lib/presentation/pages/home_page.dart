@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
     double h = MediaQuery.of(context).size.height;
     var provider = Provider.of<ThemeProvider>(context);
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         key: _scaffoldKey,
         endDrawer: CustomDrawer(
           onNavItemTap: (int navIndex) {

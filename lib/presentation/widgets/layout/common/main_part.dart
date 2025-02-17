@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:mysteriouscoder/presentation/widgets/common_description.dart';
 import '../../../models/social_media_icons.dart';
-import '../../../../core/constants.dart';
 import '../../../pages/responsive_layout.dart';
 import '../../color_change_button.dart';
 import '../../common_main_heading.dart';
@@ -52,7 +49,7 @@ class MainPart extends StatelessWidget {
           ),
           commonSubHeading(context),
           spacerH(),
-          CommonDescription(isMobile: true),
+          CommonDescription(),
           spacerH(),
           CommonSocialMediaPlatforms(),
           spacerH(),
@@ -82,7 +79,7 @@ class MainPart extends StatelessWidget {
             spacerH(5),
             commonSubHeading(context),
             spacerH(),
-            SizedBox(width: w * 0.5, child: CommonDescription()),
+            SizedBox(width: w * 0.5, child: CommonDescription(textAlign: TextAlign.start,)),
             spacerH(),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -139,80 +136,7 @@ class MainPart extends StatelessWidget {
   }
 }
 
-class CommonDescription extends StatefulWidget {
-  final bool isMobile;
 
-  const CommonDescription({super.key, this.isMobile = false});
-
-  @override
-  State<CommonDescription> createState() => _CommonDescriptionState();
-}
-
-class _CommonDescriptionState extends State<CommonDescription> {
-  bool isHover = false;
-  bool isColorChanged = false;
-
-  @override
-  Widget build(BuildContext context) {
-    var provider = Provider.of<ThemeProvider>(context).mode;
-
-    return InkWell(
-      onTap: provider == ThemeMode.light
-          ? () {
-              setState(() {
-                HapticFeedback.vibrate();
-                isColorChanged = true;
-              });
-              Future.delayed(const Duration(milliseconds: 500), () {
-                if (mounted) {
-                  setState(() {
-                    isColorChanged = false;
-                  });
-                }
-              });
-            }
-          : null,
-      onHover: (hovering) {
-        setState(() {
-          isHover = hovering;
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: ((isHover == true && provider == ThemeMode.light) ||
-                  isColorChanged)
-              ? Colors.white
-              : Theme.of(context).colorScheme.onTertiary,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: AnimatedPadding(
-          curve: Curves.easeInOut,
-          padding: EdgeInsets.all(provider == ThemeMode.light ? 20 : 0),
-          duration: const Duration(milliseconds: 1000),
-          child: Text(
-            Constants.description
-            // "**Mysterious Coder** – Flutter Development Services\n\n"
-            //     "🚀 Mobile & Web App Development – High-quality solutions for Android, iOS, and web.\n\n"
-            // "🎨 Custom UI/UX Design – Smooth, user-friendly, and engaging interfaces.\n\n"
-            // "⚡ Fast & Scalable Apps – Optimized performance with clean, maintainable code.\n\n"
-            // "🔗 Seamless API Integration – Connecting your app with third-party services.\n\n"
-            // "🛠 Cross-Platform Efficiency – One codebase for multiple platforms.\n\n"
-            // "💼 Freelancing Solutions – Tailored services to meet your business needs.\n\n"
-            // "🔄 Maintenance & Support – Reliable post-launch updates and fixes.\n\n"
-            // "✨ Turning Ideas into Reality – Let’s build something amazing with Flutter!\n"
-            ,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
-              fontSize: 18,
-              fontFamily: 'Poppins',
-            ),
-            textAlign: widget.isMobile ? TextAlign.center : TextAlign.start,
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class CommonSocialMediaPlatforms extends StatefulWidget {
   const CommonSocialMediaPlatforms({super.key});

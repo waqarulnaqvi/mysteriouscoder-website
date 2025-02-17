@@ -14,10 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  Future<void> _initializeApp() async {
-    await Future.delayed(Duration(milliseconds: 500));
-  }
-
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = createTextTheme(
