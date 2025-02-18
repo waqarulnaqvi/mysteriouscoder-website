@@ -12,9 +12,19 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _loadFonts();
+  // setPreferredOrientations();
   runApp(ChangeNotifierProvider(
       create: (context) => ThemeProvider(), child: MyApp()));
 }
+
+// void setPreferredOrientations() {
+//   SystemChrome.setPreferredOrientations([
+//     DeviceOrientation.portraitUp,
+//     DeviceOrientation.portraitDown,
+//     DeviceOrientation.landscapeLeft,
+//     DeviceOrientation.landscapeRight,
+//   ]);
+// }
 
  Future<void> _loadFonts() async {
   // Load Poppins font

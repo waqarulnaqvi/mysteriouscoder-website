@@ -85,7 +85,7 @@ class MainPart extends StatelessWidget {
             commonSubHeading(context),
             spacerH(5),
             AnimatedText(),
-            spacerH(),
+            spacerH(15),
             SizedBox(width: w * 0.5, child: CommonDescription(textAlign: TextAlign.start,)),
             spacerH(),
             Column(
@@ -133,7 +133,7 @@ class MainPart extends StatelessWidget {
         spacerW(10),
         Image.asset(
           StaticImage.hi,
-          height: 35,
+          height: 30,
         ),
       ],
     );
@@ -207,20 +207,21 @@ class AnimatedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("We Offer",
-            style: reusableTextStyle2(
-                context: context)),
-        spacerW(5),
+    return
+    // Row(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   crossAxisAlignment: CrossAxisAlignment.start,
+    //   children: [
+    //     Text("We Offer",
+    //         style: reusableTextStyle2(
+    //             context: context)),
+    //     spacerW(5),
         AnimatedTextKit(
           isRepeatingAnimation: true,
           repeatForever: true,
           animatedTexts: animatedTextList(context),
-        ),
-      ],
+        // ),
+      // ],
     );
   }
 }
@@ -228,11 +229,11 @@ class AnimatedText extends StatelessWidget {
 List<TyperAnimatedText> animatedTextList(BuildContext context) =>[
   TyperAnimatedText(Constants.animationText1,
       speed: const Duration(milliseconds: 50),
-      textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.bold),),
+      textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.w600),),
   TyperAnimatedText(Constants.animationText2,
       speed: const Duration(milliseconds: 50),
-    textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.bold),),
+    textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.w600),),
   TyperAnimatedText(Constants.animationText3,
       speed: const Duration(milliseconds: 50),
-    textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.bold),),
+    textStyle: reusableTextStyle2(context: context,fontWeight: FontWeight.w600),),
 ];
