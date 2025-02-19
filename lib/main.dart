@@ -97,3 +97,22 @@ class MyApp extends StatelessWidget {
 //     );
 //   }
 // }
+
+
+///firebase.json
+//{
+//   "hosting": {
+//     "public": "build/web",
+//     "ignore": [
+//       "firebase.json",
+//       "**/.*",
+//       "**/node_modules/**"
+//     ],
+//     "rewrites": [
+//       {
+//         "source": "/privacypolicy{,/**}",
+//         "destination": "/index.html"
+//       }
+//     ]
+//   }
+// }
