@@ -27,7 +27,6 @@ class Footer extends StatelessWidget {
               InkWell(
                 onTap: (){
                   context.go('/privacypolicy/');
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyPolicy()));
                 },
                 child: Text("Privacy Policy",
                   style: footerTextStyle,),
