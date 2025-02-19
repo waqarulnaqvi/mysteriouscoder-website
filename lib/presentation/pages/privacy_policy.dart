@@ -16,8 +16,15 @@ class PrivacyPolicy extends StatelessWidget {
   final String? title;
   final String? description;
   final String? returnValue;
+  final Color? color;
 
-  const PrivacyPolicy({super.key, this.title, this.description, this.icon, this.returnValue='mysteriouscoder'});
+  const PrivacyPolicy(
+      {super.key,
+      this.color,
+      this.title,
+      this.description,
+      this.icon,
+      this.returnValue = 'mysteriouscoder'});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +72,10 @@ class PrivacyPolicy extends StatelessWidget {
                 offset: Offset(0, 0),
                 delay: Duration(seconds: 1),
                 duration: Duration(milliseconds: 800),
-                child: ZoomAnimations(icon: icon),
+                child: ZoomAnimations(
+                  icon: icon,
+                  color: color,
+                ),
               ),
               spacerH(10),
               Padding(

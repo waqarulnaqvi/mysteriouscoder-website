@@ -28,6 +28,8 @@ dependencies:
 #  flutter_spinkit: ^5.2.1                   # For using loading spinners
   flutter_native_splash: ^2.4.4              # For setting splash screen
   animated_text_kit: ^4.2.3                  # For using animated text
+  go_router: ^14.8.0                         # For establishing routes in the URL
+  url_strategy: ^0.3.0                       # For removing # from URL
 
 dev_dependencies:
   flutter_test:

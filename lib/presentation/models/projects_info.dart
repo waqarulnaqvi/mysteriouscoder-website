@@ -15,7 +15,7 @@ class ProjectInfo {
   final PrivacyPolicyData? privacyPolicyData;
   final String routeName;
 
-  ProjectInfo( {
+  ProjectInfo({
     required this.routeName,
     required this.platformUsed,
     required this.name,
@@ -38,6 +38,7 @@ List<ProjectInfo> projectInfoList = [
       mainImage: StaticImage.brainBoosterMainImage,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.brainBooster,
+        color: Color.fromARGB(255, 15, 97, 164),
         image: StaticImage.brainBoosterIcon,
       ),
       platformUsed: [
@@ -67,6 +68,7 @@ List<ProjectInfo> projectInfoList = [
       icon: StaticImage.classicWingedBirdIcon,
       mainImage: StaticImage.classicWingedBirdMainImage,
       privacyPolicyData: PrivacyPolicyData(
+        color: Color.fromARGB(255, 15, 97, 164),
         title: Constants.classicWingedBird,
         image: StaticImage.classicWingedBirdIcon,
       ),
@@ -98,6 +100,7 @@ List<ProjectInfo> projectInfoList = [
       mainImage: StaticImage.hindiShayariHubMainImage,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.hindiShayariHub,
+        color: Color.fromARGB(219, 183, 71, 203),
         image: StaticImage.hindiShayariHubIcon,
       ),
       platformUsed: [
@@ -129,6 +132,7 @@ List<ProjectInfo> projectInfoList = [
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.mazedarHindiJokes,
         image: StaticImage.mazedarHindiJokesIcon,
+        color: Color.fromARGB(255, 197, 130, 60),
       ),
       platformUsed: [
         PlatformUsed(
@@ -157,6 +161,7 @@ List<ProjectInfo> projectInfoList = [
       icon: StaticImage.noteMasterIcon,
       mainImage: StaticImage.noteMasterMainImage,
       privacyPolicyData: PrivacyPolicyData(
+        color: Color.fromARGB(255, 197, 130, 60),
         title: Constants.noteMaster,
         image: StaticImage.noteMasterIcon,
       ),
@@ -202,8 +207,10 @@ class PrivacyPolicyData {
   final String? title;
   final String? description;
   final String image;
+  final Color? color;
 
-  PrivacyPolicyData({this.title, this.description, required this.image});
+  PrivacyPolicyData(
+      {this.title, this.description, required this.image, this.color});
 }
 
 class PlatformUsed {

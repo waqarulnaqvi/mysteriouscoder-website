@@ -4,7 +4,10 @@ import '../../core/constants.dart';
 
 class ZoomAnimations extends StatefulWidget {
   final String icon;
-  const ZoomAnimations({super.key,String? icon}) : icon= icon?? StaticImage.logo;
+  final Color? color;
+
+  const ZoomAnimations({super.key, String? icon, this.color})
+      : icon = icon ?? StaticImage.logo;
 
   @override
   State<ZoomAnimations> createState() => _ZoomAnimationsState();
@@ -26,10 +29,7 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
 
     sizeAnimation = Tween(begin: 0.0, end: 0.2).animate(CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.40, 0.75, curve: Curves.easeOut)))
-
-
-    ;
+        curve: const Interval(0.40, 0.75, curve: Curves.easeOut)));
     _controller.forward();
     _controller.addListener(() {
       setState(() {});
@@ -76,25 +76,42 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
           strokeWidth: 5,
           radius: size.width * 0.2,
           padding: const EdgeInsets.all(5),
-          width: w * (sizeAnimation.value + (w < Constants.maxPhoneWidth
-              ? 0.15 : (w < Constants.maxTabletWidth ? 0.06 : 0))),
-          height:  w * (sizeAnimation.value + (w < Constants.maxPhoneWidth
-              ? 0.15 : (w < Constants.maxTabletWidth ? 0.06 : 0))),
+          width: w *
+              (sizeAnimation.value +
+                  (w < Constants.maxPhoneWidth
+                      ? 0.15
+                      : (w < Constants.maxTabletWidth ? 0.06 : 0))),
+          height: w *
+              (sizeAnimation.value +
+                  (w < Constants.maxPhoneWidth
+                      ? 0.15
+                      : (w < Constants.maxTabletWidth ? 0.06 : 0))),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
+              colors: widget.color != null
+                  ? [
+                    widget.color!,
+                    widget.color!.withValues(alpha: 0.2),
                 Theme.of(context).colorScheme.secondary,
-                Theme.of(context).colorScheme.secondary.withValues(alpha: 0.1),
-              ],
-              stops: const [
-                0.2,
-                0.4,
-                0.6,
-                1
-              ]),
+                Theme.of(context)
+                    .colorScheme
+                    .secondary
+                    .withValues(alpha: 0.1),
+              ]
+                  : [
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withValues(alpha: 0.2),
+                      Theme.of(context).colorScheme.secondary,
+                      Theme.of(context)
+                          .colorScheme
+                          .secondary
+                          .withValues(alpha: 0.1),
+                    ],
+              stops: const [0.2, 0.4, 0.6, 1]),
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,

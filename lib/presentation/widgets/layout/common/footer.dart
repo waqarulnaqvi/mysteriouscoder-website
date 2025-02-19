@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../global_widgets.dart';
 
 class Footer extends StatelessWidget {
@@ -25,7 +26,7 @@ class Footer extends StatelessWidget {
             children: [
               InkWell(
                 onTap: (){
-                  Navigator.pushNamed(context, '/privacy_policy/mysteriouscoder');
+                  context.go('/privacy_policy/mysteriouscoder');
                   // Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyPolicy()));
                 },
                 child: Text("Privacy Policy",
