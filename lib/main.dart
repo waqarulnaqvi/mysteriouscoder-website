@@ -10,8 +10,8 @@ import 'package:url_strategy/url_strategy.dart';
 import 'core/router.dart';
 
 void main() async {
-  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   await _loadFonts();
   runApp(ChangeNotifierProvider(
       create: (context) => ThemeProvider(), child: const MyApp()));

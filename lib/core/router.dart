@@ -11,7 +11,12 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: '/privacy_policy/:name', // ✅ Dynamic route parameter
+      path: '/privacypolicy',
+      builder: (context, state) => const PrivacyPolicy(),
+    ),
+
+    GoRoute(
+      path: '/privacypolicy/:name', // ✅ Dynamic route parameter
       builder: (context, state) {
         final policyData = state.extra as PrivacyPolicyData?;
         return PrivacyPolicy(

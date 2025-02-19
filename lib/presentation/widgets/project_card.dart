@@ -128,7 +128,7 @@ class _ProjectCardState extends State<ProjectCard> {
                           icon: Icons.privacy_tip,
                           isImage: false,
                           onTap: () {
-                            context.go( '/privacy_policy/${pi.routeName}',
+                            context.go( '/privacypolicy/${pi.routeName}',
                                 extra: PrivacyPolicyData(
                                   color: pi.privacyPolicyData!.color,
                                     image: pi.privacyPolicyData!.image,
