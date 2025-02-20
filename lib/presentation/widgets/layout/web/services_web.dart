@@ -1,8 +1,6 @@
-
-
 import 'package:flutter/material.dart';
-
-import '../../../models/services_utils.dart';
+import 'package:provider/provider.dart';
+import '../../../providers/website_info_provider.dart';
 import '../../service_card.dart';
 
 class ServicesWeb extends StatelessWidget {
@@ -13,6 +11,8 @@ class ServicesWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var servicesList =
+        Provider.of<WebsiteInfoProvider>(context).getServicesList;
     return SizedBox(
       width: w * 0.9,
       child: Center(
@@ -21,7 +21,7 @@ class ServicesWeb extends StatelessWidget {
           runSpacing: h * 0.05,
           alignment: WrapAlignment.start,
           crossAxisAlignment: WrapCrossAlignment.start,
-          children: servicesUtils
+          children: servicesList
               .asMap()
               .entries
               .map(

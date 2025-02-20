@@ -1,15 +1,15 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../../models/services_utils.dart';
+import 'package:mysteriouscoder/presentation/providers/website_info_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../../core/constants.dart';
 import '../../service_card.dart';
 
 class ServicesMobile extends StatefulWidget {
   final double w;
   final double h;
-  const ServicesMobile({super.key, this.h =350, required this.w});
+
+  const ServicesMobile({super.key, this.h = 350, required this.w});
 
   @override
   State<ServicesMobile> createState() => _ServicesMobileState();
@@ -23,14 +23,16 @@ class _ServicesMobileState extends State<ServicesMobile> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
+    var servicesList =
+        Provider.of<WebsiteInfoProvider>(context).getServicesList;
+
     return CarouselSlider.builder(
-        itemCount: servicesUtils.length,
+        itemCount: servicesList.length,
         itemBuilder: (BuildContext context, int itemIndex, int i) {
           return ServiceCard(
-            service: servicesUtils[itemIndex],
+            service: servicesList[itemIndex],
             isSelected: itemIndex == _currentIndex,
           );
         },
@@ -46,7 +48,7 @@ class _ServicesMobileState extends State<ServicesMobile> {
           onPageChanged: (index, reason) {
             if (mounted) {
               setState(() {
-                _currentIndex = index.clamp(0, servicesUtils.length - 1);
+                _currentIndex = index.clamp(0, servicesList.length - 1);
               });
             }
           },

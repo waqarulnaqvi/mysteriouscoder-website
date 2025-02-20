@@ -1,8 +1,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../models/projects_info.dart';
+import '../../../providers/website_info_provider.dart';
 import '../../project_card.dart';
 
 class ProjectsWeb extends StatelessWidget {
@@ -12,6 +14,8 @@ class ProjectsWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var projectList= Provider.of<WebsiteInfoProvider>(context,listen: false).getProjectList;
+
     return SizedBox(
       width:w * 0.9,
       child: Center(
@@ -20,7 +24,7 @@ class ProjectsWeb extends StatelessWidget {
             runSpacing: h * 0.05,
             alignment: WrapAlignment.start,
             crossAxisAlignment: WrapCrossAlignment.start,
-            children: projectInfoList.asMap().entries.map((e) => ProjectCard(projectInfo: e.value,h: 350,)).toList()),
+            children: projectList.asMap().entries.map((e) => ProjectCard(projectInfo: e.value,h: 350,)).toList()),
       ),
     );
   }

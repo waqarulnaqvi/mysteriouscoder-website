@@ -1,9 +1,8 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
-import '../../../models/projects_info.dart';
+import 'package:provider/provider.dart';
 import '../../../../core/constants.dart';
+import '../../../providers/website_info_provider.dart';
 import '../../project_card.dart';
 
 class ProjectsMobile extends StatefulWidget {
@@ -25,10 +24,12 @@ class _ProjectsMobileState extends State<ProjectsMobile> {
 
   @override
   Widget build(BuildContext context) {
+    var projectList= Provider.of<WebsiteInfoProvider>(context,listen: false).getProjectList;
+
     return CarouselSlider.builder(
-      itemCount: projectInfoList.length ,
+      itemCount:  projectList.length,
       itemBuilder: (BuildContext context, int itemIndex,int i){
-         return  ProjectCard(projectInfo: projectInfoList[itemIndex],
+         return  ProjectCard(projectInfo: projectList[itemIndex],
            isSelected: itemIndex==_currentIndex,);
       },
       options: CarouselOptions(
@@ -43,7 +44,7 @@ class _ProjectsMobileState extends State<ProjectsMobile> {
         onPageChanged: (index, reason) {
           if (mounted) {
             setState(() {
-              _currentIndex = index.clamp(0,projectInfoList.length-1);
+              _currentIndex = index.clamp(0,projectList.length-1);
             });
           }
         },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mysteriouscoder/presentation/providers/website_info_provider.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/core/constants.dart';
 import 'package:mysteriouscoder/core/theme.dart';
@@ -13,8 +14,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
   await _loadFonts();
-  runApp(ChangeNotifierProvider(
-      create: (context) => ThemeProvider(), child: const MyApp()));
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => ThemeProvider()),
+      ChangeNotifierProvider(create: (context) => WebsiteInfoProvider()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 Future<void> _loadFonts() async {
@@ -58,9 +64,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 //
@@ -97,7 +100,6 @@ class MyApp extends StatelessWidget {
 //     );
 //   }
 // }
-
 
 ///firebase.json
 //{

@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
-import '../presentation/models/projects_info.dart';
+import 'package:provider/provider.dart';
 import '../presentation/pages/home_page.dart';
 import '../presentation/pages/privacy_policy.dart';
+import '../presentation/providers/website_info_provider.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/',
@@ -11,19 +12,20 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: '/privacypolicy',
-      builder: (context, state) => const PrivacyPolicy(),
-    ),
-
+        path: '/privacypolicy',
+        builder: (context, state) => const PrivacyPolicy()),
     GoRoute(
-      path: '/privacypolicy/:name', // ✅ Dynamic route parameter
+      path: '/privacypolicy/:name',
       builder: (context, state) {
-        final policyData = state.extra as PrivacyPolicyData?;
+        final name = state.pathParameters['name'];
+        var privacyPolicy =
+            Provider.of<WebsiteInfoProvider>(context, listen: false)
+                .fetchPrivacyData(name!);
         return PrivacyPolicy(
-          title: policyData?.title,
-          icon: policyData?.image,
-          color: policyData?.color,
-          description: policyData?.description,
+          title: privacyPolicy?.title,
+          icon: privacyPolicy?.image,
+          color: privacyPolicy?.color,
+          description: privacyPolicy?.description,
         );
       },
     ),
