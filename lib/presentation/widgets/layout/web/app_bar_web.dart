@@ -1,13 +1,11 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/presentation/widgets/global_widgets.dart';
 import 'package:provider/provider.dart';
+import '../../../../core/constants/static_assets.dart';
 import '../../../models/nav_items.dart';
-import '../../../../core/constants.dart';
+import '../../../../core/constants/constants.dart';
 import '../../../../core/styles.dart';
-import '../../static_image.dart';
 import '../../theme_controller.dart';
 
 class AppBarWeb extends StatelessWidget {
@@ -35,7 +33,7 @@ class AppBarWeb extends StatelessWidget {
             padding: EdgeInsets.all(6.0),
             child: CircleAvatar(
               backgroundImage:
-                  AssetImage(StaticImage.logo),
+                  AssetImage(StaticAssets.logo),
               radius: 20,
             ),
           ),

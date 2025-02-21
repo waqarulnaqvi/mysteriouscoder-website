@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/presentation/widgets/privacy_policy_description.dart';
 import 'package:provider/provider.dart';
-import '../../core/constants.dart';
+import '../../core/constants/constants.dart';
+import '../../core/constants/static_assets.dart';
 import '../../core/styles.dart';
 import '../widgets/common_main_heading.dart';
 import '../widgets/entrance_fader.dart';
 import '../widgets/global_widgets.dart';
-import '../widgets/static_image.dart';
 import '../widgets/theme_controller.dart';
 import '../widgets/zoom_animation.dart';
 
@@ -40,7 +40,11 @@ class PrivacyPolicy extends StatelessWidget {
         // leading: IconButton(
         //   icon: Icon(Icons.arrow_back), // Back button icon
         //   onPressed: () {
-        //     context.go('/');
+        //     final router = GoRouter.of(context);
+        //     if (router.canPop()) {
+        //       router.pop(); // Ensures GoRouter handles the back press// Prevents default system back behavior
+        //     }
+        //    context.go('/');
         //   },
         // ),
         title: Text('Privacy Policy',
@@ -58,8 +62,8 @@ class PrivacyPolicy extends StatelessWidget {
               : ColorFilter.mode(Colors.transparent, BlendMode.dst),
           child: Image.asset(
             provider.mode == ThemeMode.dark
-                ? StaticImage.darkTheme
-                : StaticImage.lightTheme,
+                ? StaticAssets.darkTheme
+                : StaticAssets.lightTheme,
             fit: BoxFit.cover,
             width: w,
             height: h,

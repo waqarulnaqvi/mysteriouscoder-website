@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mysteriouscoder/presentation/models/services_utils.dart';
-import 'package:mysteriouscoder/core/constants.dart';
+import 'package:mysteriouscoder/core/constants/constants.dart';
 import '../../core/styles.dart';
 import '../pages/responsive_layout.dart';
 import 'global_widgets.dart';

@@ -4,8 +4,8 @@ import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/presentation/widgets/drawer/drawer_tile.dart';
 import 'package:mysteriouscoder/core/styles.dart';
 import 'package:provider/provider.dart';
-import '../../../core/constants.dart';
-import '../static_image.dart';
+import '../../../core/constants/constants.dart';
+import '../../../core/constants/static_assets.dart';
 
 class CustomDrawer extends StatelessWidget {
   final Function(int) onNavItemTap;
@@ -62,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
                     const CircleAvatar(
                       radius: 45,
                       backgroundImage: AssetImage(
-                        StaticImage.logo,
+                        StaticAssets.logo,
                       ),
                     ),
                     const SizedBox(

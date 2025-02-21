@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mysteriouscoder/core/constants.dart';
+import 'package:mysteriouscoder/core/constants/constants.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/theme_provider.dart';

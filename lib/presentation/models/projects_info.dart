@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
-import 'package:mysteriouscoder/core/constants.dart';
+import 'package:mysteriouscoder/core/constants/constants.dart';
+import '../../core/constants/static_assets.dart';
 
 class ProjectInfo {
   final String name;
@@ -34,18 +34,18 @@ List<ProjectInfo> projectInfoList = [
       routeName: Constants.brainBoosterRoute,
       name: Constants.brainBooster,
       description: Constants.brainBoosterDescription,
-      icon: StaticImage.brainBoosterIcon,
-      mainImage: StaticImage.brainBoosterMainImage,
+      icon: StaticAssets.brainBoosterIcon,
+      mainImage: StaticAssets.brainBoosterMainImage,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.brainBooster,
         color: Color.fromARGB(255, 15, 97, 164),
-        image: StaticImage.brainBoosterIcon,
+        image: StaticAssets.brainBoosterIcon,
       ),
       platformUsed: [
         PlatformUsed(
-            name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
+            name: 'Jetpack Compose', icon: StaticAssets.jetpackComposeIcon),
+        PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticAssets.kotlinIcon),
       ],
       linearGradient: linearGrad(0),
       availableOn: [
@@ -65,18 +65,18 @@ List<ProjectInfo> projectInfoList = [
       routeName: Constants.classicWingedBirdRoute,
       name: Constants.classicWingedBird,
       description: Constants.classicWingedBirdDescription,
-      icon: StaticImage.classicWingedBirdIcon,
-      mainImage: StaticImage.classicWingedBirdMainImage,
+      icon: StaticAssets.classicWingedBirdIcon,
+      mainImage: StaticAssets.classicWingedBirdMainImage,
       privacyPolicyData: PrivacyPolicyData(
         color: Color.fromARGB(255, 15, 97, 164),
         title: Constants.classicWingedBird,
-        image: StaticImage.classicWingedBirdIcon,
+        image: StaticAssets.classicWingedBirdIcon,
       ),
       platformUsed: [
         PlatformUsed(
-            name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
+            name: 'Jetpack Compose', icon: StaticAssets.jetpackComposeIcon),
+        PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticAssets.kotlinIcon),
       ],
       linearGradient: linearGrad(1),
       availableOn: [
@@ -96,18 +96,18 @@ List<ProjectInfo> projectInfoList = [
       routeName: Constants.hindiShayariHubRoute,
       name: Constants.hindiShayariHub,
       description: Constants.hindiShayariHubDescription,
-      icon: StaticImage.hindiShayariHubIcon,
-      mainImage: StaticImage.hindiShayariHubMainImage,
+      icon: StaticAssets.hindiShayariHubIcon,
+      mainImage: StaticAssets.hindiShayariHubMainImage,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.hindiShayariHub,
         color: Color.fromARGB(219, 183, 71, 203),
-        image: StaticImage.hindiShayariHubIcon,
+        image: StaticAssets.hindiShayariHubIcon,
       ),
       platformUsed: [
         PlatformUsed(
-            name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
+            name: 'Jetpack Compose', icon: StaticAssets.jetpackComposeIcon),
+        PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticAssets.kotlinIcon),
       ],
       linearGradient: linearGrad(2),
       availableOn: [
@@ -127,18 +127,18 @@ List<ProjectInfo> projectInfoList = [
       routeName: Constants.mazedarHindiJokesRoute,
       name: Constants.mazedarHindiJokes,
       description: Constants.mazedarHindiJokesDescription,
-      icon: StaticImage.mazedarHindiJokesIcon,
-      mainImage: StaticImage.mazedarHindiJokesMainImage,
+      icon: StaticAssets.mazedarHindiJokesIcon,
+      mainImage: StaticAssets.mazedarHindiJokesMainImage,
       privacyPolicyData: PrivacyPolicyData(
         title: Constants.mazedarHindiJokes,
-        image: StaticImage.mazedarHindiJokesIcon,
+        image: StaticAssets.mazedarHindiJokesIcon,
         color: Color.fromARGB(255, 197, 130, 60),
       ),
       platformUsed: [
         PlatformUsed(
-            name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
+            name: 'Jetpack Compose', icon: StaticAssets.jetpackComposeIcon),
+        PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticAssets.kotlinIcon),
       ],
       linearGradient: linearGrad(3),
       availableOn: [
@@ -158,18 +158,18 @@ List<ProjectInfo> projectInfoList = [
       routeName: Constants.noteMasterRoute,
       name: Constants.noteMaster,
       description: Constants.noteMasterDescription,
-      icon: StaticImage.noteMasterIcon,
-      mainImage: StaticImage.noteMasterMainImage,
+      icon: StaticAssets.noteMasterIcon,
+      mainImage: StaticAssets.noteMasterMainImage,
       privacyPolicyData: PrivacyPolicyData(
         color: Color.fromARGB(255, 197, 130, 60),
         title: Constants.noteMaster,
-        image: StaticImage.noteMasterIcon,
+        image: StaticAssets.noteMasterIcon,
       ),
       platformUsed: [
         PlatformUsed(
-            name: 'Jetpack Compose', icon: StaticImage.jetpackComposeIcon),
-        PlatformUsed(name: 'Firebase', icon: StaticImage.firebaseIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticImage.kotlinIcon),
+            name: 'Jetpack Compose', icon: StaticAssets.jetpackComposeIcon),
+        PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
+        PlatformUsed(name: 'Kotlin', icon: StaticAssets.kotlinIcon),
       ],
       linearGradient: linearGrad(4),
       availableOn: [

@@ -1,10 +1,7 @@
-
-
 import 'package:flutter/material.dart';
-
-import '../../../../core/constants.dart';
+import '../../../../core/constants/constants.dart';
+import '../../../../core/constants/static_assets.dart';
 import '../../../../core/styles.dart';
-import '../../static_image.dart';
 import '../../theme_controller.dart';
 
 class AppBarMobile extends StatelessWidget {
@@ -18,7 +15,7 @@ class AppBarMobile extends StatelessWidget {
       leading: const Padding(
         padding: EdgeInsets.all(8.0),
         child: CircleAvatar(
-          backgroundImage: AssetImage(StaticImage.logo),
+          backgroundImage: AssetImage(StaticAssets.logo),
           radius: 20,
         ),
       ),

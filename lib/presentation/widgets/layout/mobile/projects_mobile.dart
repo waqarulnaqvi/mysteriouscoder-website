@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/constants.dart';
+import '../../../../core/constants/constants.dart';
 import '../../../providers/website_info_provider.dart';
 import '../../project_card.dart';
 

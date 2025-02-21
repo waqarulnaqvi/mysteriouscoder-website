@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../core/constants.dart';
+import '../../../../core/constants/constants.dart';
 import '../../global_widgets.dart';
 import '../../reusable_text_field.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../core/constants.dart';
+import '../../core/constants/constants.dart';
 
 
 class PrivacyPolicyDescription extends StatefulWidget {

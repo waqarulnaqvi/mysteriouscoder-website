@@ -1,9 +1,9 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:mysteriouscoder/core/constants/static_assets.dart';
 import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
-import '../../core/constants.dart';
+import '../../core/constants/constants.dart';
 import '../widgets/clipper/curved_divider_clipper.dart';
 import '../widgets/drawer/custom_drawer.dart';
 import '../widgets/layout/common/about_us.dart';
@@ -14,7 +14,6 @@ import '../widgets/layout/common/projects.dart';
 import '../widgets/layout/common/services.dart';
 import '../widgets/layout/mobile/app_bar_mobile.dart';
 import '../widgets/layout/web/app_bar_web.dart';
-import '../widgets/static_image.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -85,8 +84,8 @@ class _HomePageState extends State<HomePage> {
                   : ColorFilter.mode(Colors.transparent, BlendMode.dst),
               child: Image.asset(
                 provider.mode == ThemeMode.dark
-                    ? StaticImage.darkTheme
-                    : StaticImage.lightTheme,
+                    ? StaticAssets.darkTheme
+                    : StaticAssets.lightTheme,
                 fit: BoxFit.cover,
                 width: w,
                 height: h,

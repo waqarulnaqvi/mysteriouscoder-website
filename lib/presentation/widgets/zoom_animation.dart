@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mysteriouscoder/presentation/widgets/static_image.dart';
-import '../../core/constants.dart';
+import 'package:mysteriouscoder/core/constants/static_assets.dart';
+import '../../core/constants/constants.dart';
 
 class ZoomAnimations extends StatefulWidget {
   final String icon;
   final Color? color;
 
   const ZoomAnimations({super.key, String? icon, this.color})
-      : icon = icon ?? StaticImage.logo;
+      : icon = icon ?? StaticAssets.logo;
 
   @override
   State<ZoomAnimations> createState() => _ZoomAnimationsState();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants.dart';
+import '../../../../core/constants/constants.dart';
 import '../../../pages/responsive_layout.dart';
 import '../../common_description.dart';
 import '../../common_main_heading.dart';

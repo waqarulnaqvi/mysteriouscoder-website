@@ -3,7 +3,7 @@ import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../../core/constants.dart';
+import '../../../../core/constants/constants.dart';
 import '../../../pages/responsive_layout.dart';
 import '../../color_change_button.dart';
 import '../../common_description.dart';

@@ -1,4 +1,4 @@
-class StaticImage{
+class StaticAssets{
 
   //Gifs
   static const String hi = 'assets/animation/gifs/hi.gif';

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mysteriouscoder/presentation/providers/website_info_provider.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
-import 'package:mysteriouscoder/core/constants.dart';
+import 'package:mysteriouscoder/core/constants/constants.dart';
 import 'package:mysteriouscoder/core/theme.dart';
 import 'package:mysteriouscoder/core/utils/util.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
-import 'core/router.dart';
+import 'core/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
       darkTheme: theme.dark(),
       themeMode: mode,
       debugShowCheckedModeBanner: false,
-      routerConfig: router, // ✅ Use GoRouter
+      routerConfig: AppRouter.router, // ✅ Use GoRouter
     );
   }
 }

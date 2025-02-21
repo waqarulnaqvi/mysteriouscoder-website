@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/widgets/common_description.dart';
-import '../../../../core/constants.dart';
+import '../../../../core/constants/constants.dart';
 import '../../common_main_heading.dart';
 import '../../global_widgets.dart';
 
