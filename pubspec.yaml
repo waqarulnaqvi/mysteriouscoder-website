@@ -30,7 +30,7 @@ dependencies:
   animated_text_kit: ^4.2.3                  # For using animated text
   go_router: ^14.8.0                         # For establishing routes in the URL
   url_strategy: ^0.3.0                       # For removing # from URL
-
+  turn_page_transition: ^0.4.0               # For using page turn transition
 dev_dependencies:
   flutter_test:
     sdk: flutter

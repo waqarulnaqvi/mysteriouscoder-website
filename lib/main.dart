@@ -7,7 +7,6 @@ import 'package:mysteriouscoder/core/theme.dart';
 import 'package:mysteriouscoder/core/utils/util.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
-
 import 'core/router.dart';
 
 void main() async {

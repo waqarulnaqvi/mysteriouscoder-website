@@ -79,7 +79,7 @@ class Constants{
 Privacy Policy
 
 
-Effective Date: February 12, 2025
+Effective Date: February 20, 2025
 
 Welcome to our App. This Privacy Policy describes how we collect, use, and share your personal information. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the App.
 
