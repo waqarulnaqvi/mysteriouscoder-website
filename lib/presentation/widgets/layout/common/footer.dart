@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../global_widgets.dart';
 
@@ -32,6 +33,7 @@ class Footer extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
+                  HapticFeedback.vibrate();
                   context.go('/privacypolicy');
                 },
                 child: Text(
