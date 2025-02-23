@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
 import 'package:mysteriouscoder/presentation/widgets/privacy_policy_description.dart';
 import 'package:provider/provider.dart';
