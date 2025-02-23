@@ -1,16 +1,16 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/core/constants/static_assets.dart';
+import 'package:mysteriouscoder/presentation/widgets/animation/entrance_fader.dart';
 import 'package:mysteriouscoder/presentation/widgets/common_description.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/styles.dart';
 import '../../../models/social_media_icons.dart';
 import '../../../pages/responsive_layout.dart';
-import '../../color_change_button.dart';
+import '../../buttons/color_change_button.dart';
 import '../../common_main_heading.dart';
-import '../../entrance_fader.dart';
 import '../../global_widgets.dart';
-import '../../zoom_animation.dart';
+import '../../animation/zoom_animation.dart';
 
 class MainPart extends StatelessWidget {
   final double w;

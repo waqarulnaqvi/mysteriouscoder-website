@@ -1,11 +1,7 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:mysteriouscoder/presentation/widgets/card/project_card.dart';
 import 'package:provider/provider.dart';
-
-import '../../../models/projects_info.dart';
 import '../../../providers/website_info_provider.dart';
-import '../../project_card.dart';
 
 class ProjectsWeb extends StatelessWidget {
   final double h;

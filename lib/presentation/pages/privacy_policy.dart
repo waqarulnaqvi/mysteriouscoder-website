@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mysteriouscoder/presentation/providers/theme_provider.dart';
+import 'package:mysteriouscoder/presentation/widgets/animation/entrance_fader.dart';
 import 'package:mysteriouscoder/presentation/widgets/privacy_policy_description.dart';
 import 'package:provider/provider.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/static_assets.dart';
 import '../../core/styles.dart';
 import '../widgets/common_main_heading.dart';
-import '../widgets/entrance_fader.dart';
 import '../widgets/global_widgets.dart';
 import '../widgets/theme_controller.dart';
-import '../widgets/zoom_animation.dart';
+import '../widgets/animation/zoom_animation.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   final String? icon;

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:mysteriouscoder/presentation/providers/website_info_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constants/constants.dart';
-import '../../service_card.dart';
+import '../../card/service_card.dart';
 
 class ServicesMobile extends StatefulWidget {
   final double w;

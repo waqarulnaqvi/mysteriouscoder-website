@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../../global_widgets.dart';
-import '../../reusable_text_field.dart';
+import '../../text_field/reusable_text_field.dart';
 
 class ContactUsWeb extends StatelessWidget {
   final TextEditingController firstNameController;

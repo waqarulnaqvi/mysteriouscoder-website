@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../pages/responsive_layout.dart';
-import '../../color_change_button.dart';
+import '../../buttons/color_change_button.dart';
 import '../../common_description.dart';
 import '../../common_main_heading.dart';
 import '../../global_widgets.dart';

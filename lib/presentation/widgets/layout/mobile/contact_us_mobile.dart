@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mysteriouscoder/presentation/widgets/reusable_text_field.dart';
+import 'package:mysteriouscoder/presentation/widgets/text_field/reusable_text_field.dart';
 
 import '../../global_widgets.dart';
 

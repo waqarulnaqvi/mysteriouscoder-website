@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../providers/website_info_provider.dart';
-import '../../service_card.dart';
+import '../../card/service_card.dart';
 
 class ServicesWeb extends StatelessWidget {
   final double w;

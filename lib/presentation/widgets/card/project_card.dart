@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mysteriouscoder/core/constants/constants.dart';
 import 'package:mysteriouscoder/presentation/models/projects_info.dart';
 import 'package:mysteriouscoder/core/styles.dart';
-import '../../core/constants/constants.dart';
-import '../pages/responsive_layout.dart';
-import 'global_widgets.dart';
+import 'package:mysteriouscoder/presentation/pages/responsive_layout.dart';
+import 'package:mysteriouscoder/presentation/widgets/global_widgets.dart';
+
 
 class ProjectCard extends StatefulWidget {
   final ProjectInfo projectInfo;

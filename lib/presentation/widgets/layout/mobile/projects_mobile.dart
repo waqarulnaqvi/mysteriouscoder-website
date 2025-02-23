@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:mysteriouscoder/presentation/widgets/card/project_card.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../providers/website_info_provider.dart';
-import '../../project_card.dart';
 
 class ProjectsMobile extends StatefulWidget {
   final double w;
