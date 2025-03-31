@@ -43,9 +43,9 @@ List<ProjectInfo> projectInfoList = [
       ),
       platformUsed: [
         PlatformUsed(
-            name: 'Jetpack Compose', icon: StaticAssets.jetpackComposeIcon),
+            name: 'Flutter', icon: StaticAssets.flutterIcon),
         PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
-        PlatformUsed(name: 'Kotlin', icon: StaticAssets.kotlinIcon),
+        PlatformUsed(name: 'Dart', icon: StaticAssets.dartIcon),
       ],
       linearGradient: linearGrad(0),
       availableOn: [

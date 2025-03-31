@@ -43,12 +43,11 @@ class Constants{
   static const String noteMaster = 'NoteMaster: Offline Organizer';
 
   //Projects Description
-  static const String brainBoosterDescription = "Brain Booster is an audio app with binaural beats and calming music to improve focus, clarity, and relaxation. Ideal for meditation, studying, or stress relief, it offers customizable playlists and a helpful FAQ section. Download now on the Google Play Store!";
+  static const String brainBoosterDescription = "Brain Booster: Sound Therapy is an audio app with binaural beats, soothing music, and guided meditation sessions to improve focus, clarity, and relaxation. Ideal for meditation, studying, or stress relief, it offers customizable playlists and a helpful FAQ section. 🎶🧘‍♂️✨";
   static const String classicWingedBirdDescription = "Classic Winged Bird is a fun and addictive game featuring classic Flappy Bird gameplay. Navigate through obstacles while unlocking various bird characters and dynamic backgrounds. Enjoy easy tap controls and a high-score challenge, all available on the Play Store!";
   static const String hindiShayariHubDescription = "Explore the best Hindi Shayari with Hindi Shayari Hub! Discover Shayari for love, friendship, sadness, and more. Easily share your favorite Shayari with friends. Enjoy a simple design and growing categories. Available now on the Google Play Store for all Shayari lovers!";
   static const String mazedarHindiJokesDescription = "Mazedar Hindi Jokes is a fun app packed with hilarious Hindi jokes to brighten your day. From witty one-liners to laugh-out-loud stories, enjoy endless entertainment. Easily share jokes with friends and family. Download now on the Google Play Store for daily laughter!";
   static const String noteMasterDescription = "NoteMaster: Offline Organizer is your go-to app for organizing notes, tasks, and ideas without needing an internet connection. Perfect for managing to-do lists, reminders, and important thoughts. Stay organized anytime, anywhere. Download now on the Google Play Store!";
-
 
   //Projects Routes Name
   static const String brainBoosterRoute = 'brainbooster';

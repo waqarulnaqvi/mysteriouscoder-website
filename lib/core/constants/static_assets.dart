@@ -14,9 +14,11 @@ class StaticAssets{
   static const String kotlinIcon = 'assets/icons/kotlin_icon.png';
   static const String jetpackComposeIcon = 'assets/icons/jetpack_compose_icon.png';
   static const String firebaseIcon = 'assets/icons/firebase_icon.png';
+  static const String flutterIcon = 'assets/icons/flutter_icon.png';
+  static const String dartIcon = 'assets/icons/dart_icon.png';
 
   //Projects Icons
-  static const String brainBoosterIcon = 'assets/icons/projects/brain_booster_icon.png';
+  static const String brainBoosterIcon = 'assets/icons/projects/brain_booster_icon.jpg';
   static const String classicWingedBirdIcon = 'assets/icons/projects/classic_winged_bird_icon.png';
   static const String hindiShayariHubIcon = 'assets/icons/projects/hindi_shayari_hub_icon.png';
   static const String mazedarHindiJokesIcon = 'assets/icons/projects/mazedar_hindi_jokes_icon.png';

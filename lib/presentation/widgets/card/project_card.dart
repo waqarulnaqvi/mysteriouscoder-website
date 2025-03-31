@@ -30,6 +30,7 @@ class _ProjectCardState extends State<ProjectCard> {
 
     return SizedBox(
       width: ResponsiveLayout.isTablet(context) ? 500 : 380,
+      height: widget.h,
       // height: 1000,
       child: Stack(
         alignment: Alignment.topCenter,
@@ -66,6 +67,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     padding: const EdgeInsets.only(
                         left: 15, right: 15, top: 15, bottom: 25),
                     width: w,
+                    height: widget.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       gradient: (w > Constants.maxTabletWidth

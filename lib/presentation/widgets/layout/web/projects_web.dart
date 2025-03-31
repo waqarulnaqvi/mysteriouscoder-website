@@ -20,7 +20,7 @@ class ProjectsWeb extends StatelessWidget {
             runSpacing: h * 0.05,
             alignment: WrapAlignment.start,
             crossAxisAlignment: WrapCrossAlignment.start,
-            children: projectList.asMap().entries.map((e) => ProjectCard(projectInfo: e.value,h: 350,)).toList()),
+            children: projectList.asMap().entries.map((e) => ProjectCard(projectInfo: e.value,h: 800,)).toList()),
       ),
     );
   }
