@@ -1,6 +1,6 @@
 # mysteriouscoder
 
-A new Flutter project.
+Mysterious Coder – Expert Flutter Development for Web, Android & iOS. Build high-performance, cross-platform apps with modern UI/UX and seamless functionality.
 
 ## Getting Started
 
