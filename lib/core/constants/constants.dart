@@ -36,7 +36,7 @@ class Constants{
 
   //Projects Constants
   //Projects Name
-  static const String brainBooster = 'Brain Booster : Focus & Relax';
+  static const String brainBooster = 'Brain Booster: Sound Therapy';
   static const String classicWingedBird = 'Classic Winged Bird';
   static const String hindiShayariHub = 'Hindi Shayari Hub';
   static const String mazedarHindiJokes = 'Mazedar Hindi Jokes';
