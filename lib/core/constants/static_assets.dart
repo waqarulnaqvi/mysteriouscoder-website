@@ -19,6 +19,7 @@ class StaticAssets{
 
   //Projects Icons
   static const String brainBoosterIcon = 'assets/icons/projects/brain_booster_icon.jpg';
+  static const String budgetFlowIcon = 'assets/icons/projects/budget_flow_icon.png';
   static const String classicWingedBirdIcon = 'assets/icons/projects/classic_winged_bird_icon.png';
   static const String hindiShayariHubIcon = 'assets/icons/projects/hindi_shayari_hub_icon.png';
   static const String mazedarHindiJokesIcon = 'assets/icons/projects/mazedar_hindi_jokes_icon.png';

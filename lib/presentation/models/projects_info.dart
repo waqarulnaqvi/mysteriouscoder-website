@@ -42,8 +42,7 @@ List<ProjectInfo> projectInfoList = [
         image: StaticAssets.brainBoosterIcon,
       ),
       platformUsed: [
-        PlatformUsed(
-            name: 'Flutter', icon: StaticAssets.flutterIcon),
+        PlatformUsed(name: 'Flutter', icon: StaticAssets.flutterIcon),
         PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
         PlatformUsed(name: 'Dart', icon: StaticAssets.dartIcon),
       ],
@@ -59,6 +58,36 @@ List<ProjectInfo> projectInfoList = [
             icon: FontAwesomeIcons.amazon,
             type: IconType.iconData,
             name: 'Amazon AppStore'),
+        // AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
+      ]),
+  ProjectInfo(
+      routeName: Constants.budgetFlowRoute,
+      name: Constants.budgetFlow,
+      description: Constants.budgetFlowDescription,
+      icon: StaticAssets.budgetFlowIcon,
+      mainImage: StaticAssets.brainBoosterMainImage,
+      privacyPolicyData: PrivacyPolicyData(
+        title: Constants.budgetFlow,
+        color: Color.fromRGBO(37, 146, 166, 1),
+        image: StaticAssets.budgetFlowIcon,
+      ),
+      platformUsed: [
+        PlatformUsed(name: 'Flutter', icon: StaticAssets.flutterIcon),
+        PlatformUsed(name: 'Firebase', icon: StaticAssets.firebaseIcon),
+        PlatformUsed(name: 'Dart', icon: StaticAssets.dartIcon),
+      ],
+      linearGradient: linearGrad(5),
+      availableOn: [
+        AvailableOn(
+            url: Constants.budgetFlowUrl,
+            icon: FontAwesomeIcons.googlePlay,
+            type: IconType.iconData,
+            name: 'Google Play'),
+        // AvailableOn(
+        //     url: Constants.brainBoosterAmazonAppStoreLink,
+        //     icon: FontAwesomeIcons.amazon,
+        //     type: IconType.iconData,
+        //     name: 'Amazon AppStore'),
         // AvailableOn(url: Constants.brainBoosterPlayStoreLink, icon: FontAwesomeIcons.store,type: IconType.iconData,name :'OPPO AppStore'),
       ]),
   ProjectInfo(
@@ -254,5 +283,10 @@ final List<List<Color>> color = [
     Color.fromARGB(255, 197, 130, 60),
     Color.fromARGB(255, 204, 147, 95),
     Color.fromARGB(255, 197, 130, 60),
+  ],
+  const [
+    Color.fromRGBO(37, 146, 166, 1),
+    Color.fromRGBO(92, 182, 197, 1),
+    Color.fromRGBO(37, 146, 166, 1),
   ],
 ];
